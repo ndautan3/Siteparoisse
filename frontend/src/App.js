@@ -9,6 +9,10 @@ import AdminLogin from '@/pages/AdminLogin';
 import AdminDashboard from '@/pages/AdminDashboard';
 import ContentPage from '@/pages/ContentPage';
 import PillarPage from '@/pages/PillarPages';
+import EquipePastoralePage from '@/pages/EquipePastoralePage';
+import NosClochersPage from '@/pages/NosClochersPage';
+import DemanderSacrementPage from '@/pages/DemanderSacrementPage';
+import SacrementDetailPage from '@/pages/SacrementDetailPage';
 
 function App() {
   return (
@@ -39,10 +43,12 @@ function App() {
                       <Route path="/grandir-foi" element={<PillarPage pillarKey="grandir-foi" />} />
                       <Route path="/solidarite" element={<PillarPage pillarKey="solidarite" />} />
                       
-                      {/* Pillar 1: Notre Dame d'Autan */}
-                      <Route path="/equipe-pastorale" element={<ContentPage section="equipe" />} />
+                      {/* Pillar 1: Notre Dame d'Autan - Pages with cards */}
+                      <Route path="/equipe-pastorale" element={<EquipePastoralePage />} />
+                      <Route path="/equipe-pastorale/:memberId" element={<ContentPage section="equipe-detail" />} />
                       <Route path="/vie-economique" element={<ContentPage section="economique" />} />
-                      <Route path="/nos-clochers" element={<ContentPage section="clochers" />} />
+                      <Route path="/nos-clochers" element={<NosClochersPage />} />
+                      <Route path="/nos-clochers/:clocherId" element={<ContentPage section="clocher-detail" />} />
                       <Route path="/services-transverses" element={<ContentPage section="services" />} />
                       
                       {/* Pillar 2: Familles & Jeunesse */}
@@ -52,8 +58,9 @@ function App() {
                       <Route path="/mouvements" element={<ContentPage section="mouvements" />} />
                       <Route path="/servants-vocations" element={<ContentPage section="servants" />} />
                       
-                      {/* Pillar 3: Vie Spirituelle */}
-                      <Route path="/demander-sacrement" element={<ContentPage section="sacrement" />} />
+                      {/* Pillar 3: Vie Spirituelle - Sacrements */}
+                      <Route path="/demander-sacrement" element={<DemanderSacrementPage />} />
+                      <Route path="/sacrements/:sacrementId" element={<SacrementDetailPage />} />
                       <Route path="/mariage" element={<ContentPage section="mariage" />} />
                       <Route path="/liturgie-musique" element={<ContentPage section="liturgie" />} />
                       <Route path="/funerailles" element={<ContentPage section="funerailles" />} />
