@@ -29,41 +29,13 @@ export const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-        <h1 className="font-serif text-5xl md:text-7xl font-medium tracking-tight leading-tight mb-6" data-testid="hero-title">
-          Bienvenue à<br />
-          Notre Dame d'Autan
-        </h1>
-        <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-8 leading-relaxed" data-testid="hero-subtitle">
-          Une communauté paroissiale vivante et accueillante,
-          <br className="hidden sm:block" />
-          au service de la foi et de la fraternité.
-        </p>
-
-        {/* Primary Actions */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
-          <Link
-            to="/secretariat"
-            className="bg-white border-2 border-white text-slate-700 hover:bg-slate-50 rounded-full px-8 py-3 font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
-            data-testid="contact-button"
-          >
-            Nous contacter
-          </Link>
-          <Link
-            to="/demander-sacrement"
-            className="bg-gold border-2 border-gold hover:bg-gold-dark hover:border-gold-dark text-white rounded-full px-8 py-3 font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
-            data-testid="hero-sacrement-button"
-          >
-            Demander un sacrement
-          </Link>
-        </div>
-
-        {/* Secondary Actions */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 flex-wrap">
+        {/* Quick Actions - En haut */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 flex-wrap mb-10">
           {/* Je veux - Dropdown */}
           <div className="relative">
             <button
               onClick={() => setShowJeVeuxMenu(!showJeVeuxMenu)}
-              className="bg-white/90 backdrop-blur-sm border-2 border-white text-slate-700 hover:bg-white rounded-full px-6 py-2.5 font-medium transition-all duration-300 flex items-center space-x-2 shadow-lg"
+              className="bg-white/95 backdrop-blur-sm border-2 border-white text-slate-700 hover:bg-white rounded-full px-6 py-2.5 font-medium transition-all duration-300 flex items-center space-x-2 shadow-lg"
               data-testid="je-veux-button"
             >
               <span>Je veux...</span>
@@ -90,7 +62,7 @@ export const Hero = () => {
           {/* Je suis nouveau */}
           <Link
             to="/equipe-pastorale"
-            className="bg-white/90 backdrop-blur-sm border-2 border-white text-slate-700 hover:bg-white rounded-full px-6 py-2.5 font-medium transition-all duration-300 shadow-lg"
+            className="bg-white/95 backdrop-blur-sm border-2 border-white text-slate-700 hover:bg-white rounded-full px-6 py-2.5 font-medium transition-all duration-300 shadow-lg"
             data-testid="nouveau-button"
           >
             Je suis nouveau
@@ -99,10 +71,38 @@ export const Hero = () => {
           {/* Don */}
           <Link
             to="/vie-economique"
-            className="bg-gold/90 backdrop-blur-sm border-2 border-gold text-white hover:bg-gold rounded-full px-6 py-2.5 font-medium transition-all duration-300 shadow-lg"
+            className="bg-gold backdrop-blur-sm border-2 border-gold text-white hover:bg-gold-dark hover:border-gold-dark rounded-full px-6 py-2.5 font-medium transition-all duration-300 shadow-lg"
             data-testid="don-button"
           >
             Faire un don
+          </Link>
+        </div>
+
+        <h1 className="font-serif text-5xl md:text-7xl font-medium tracking-tight leading-tight mb-6" data-testid="hero-title">
+          Bienvenue à<br />
+          Notre Dame d'Autan
+        </h1>
+        <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed" data-testid="hero-subtitle">
+          Une communauté paroissiale vivante et accueillante,
+          <br className="hidden sm:block" />
+          au service de la foi et de la fraternité.
+        </p>
+
+        {/* Primary Actions - En bas */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Link
+            to="/secretariat"
+            className="bg-white border-2 border-white text-slate-700 hover:bg-slate-50 rounded-full px-8 py-3 font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
+            data-testid="contact-button"
+          >
+            Nous contacter
+          </Link>
+          <Link
+            to="/demander-sacrement"
+            className="bg-gold border-2 border-gold hover:bg-gold-dark hover:border-gold-dark text-white rounded-full px-8 py-3 font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
+            data-testid="hero-sacrement-button"
+          >
+            Demander un sacrement
           </Link>
         </div>
       </div>
