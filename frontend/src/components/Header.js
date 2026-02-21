@@ -87,9 +87,15 @@ export const Header = () => {
             {menuItems.map((item) => (
               <div
                 key={item.title}
-                className="relative"
-                onMouseEnter={() => setActiveDropdown(item.title)}
-                onMouseLeave={() => setActiveDropdown(null)}
+                className="relative group"
+                onMouseEnter={() => {
+                  if (closeTimeout) clearTimeout(closeTimeout);
+                  setActiveDropdown(item.title);
+                }}
+                onMouseLeave={() => {
+                  const timeout = setTimeout(() => setActiveDropdown(null), 150);
+                  setCloseTimeout(timeout);
+                }}
               >
                 <button
                   className="px-4 py-2 text-slate-700 hover:text-gold font-medium transition-colors flex items-center space-x-2"
@@ -100,13 +106,23 @@ export const Header = () => {
                 </button>
 
                 {activeDropdown === item.title && (
-                  <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-slate-100 py-2 z-50">
+                  <div 
+                    className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-slate-100 py-2 z-50"
+                    onMouseEnter={() => {
+                      if (closeTimeout) clearTimeout(closeTimeout);
+                    }}
+                    onMouseLeave={() => {
+                      const timeout = setTimeout(() => setActiveDropdown(null), 150);
+                      setCloseTimeout(timeout);
+                    }}
+                  >
                     {item.items.map((subItem) => (
                       <Link
                         key={subItem.path}
                         to={subItem.path}
                         className="block px-4 py-2 text-slate-600 hover:bg-slate-50 hover:text-gold transition-colors"
                         data-testid={`submenu-${subItem.path.substring(1)}`}
+                        onClick={() => setActiveDropdown(null)}
                       >
                         {subItem.label}
                       </Link>
