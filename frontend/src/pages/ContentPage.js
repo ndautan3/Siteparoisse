@@ -102,18 +102,21 @@ Pour ceux qui s'interrogent sur un appel à la vie consacrée ou sacerdotale.`,
     description: 'Les sacrements jalonnent les grandes étapes de la vie chrétienne.',
     icon: Heart,
     content: `**Baptême**
-Pour les enfants et les adultes. Préparation assurée.
+Premier sacrement de l'initiation chrétienne, le baptême fait entrer dans la famille des enfants de Dieu. Pour les enfants et les adultes. Préparation assurée par l'équipe de préparation au baptême.
 
 **Première Communion**
-Après 2 ans de catéchisme minimum.
+Recevoir pour la première fois le Corps du Christ lors de l'Eucharistie. Préparation au cours du catéchisme (après 2 ans de catéchisme minimum).
 
 **Confirmation**
-Sacrement de la maturité chrétienne.
+Sacrement de la maturité chrétienne qui achève l'initiation commencée au baptême. Préparation spécifique pour jeunes et adultes. Recevoir les dons de l'Esprit Saint pour être témoin du Christ.
 
 **Réconciliation (Confession)**
-Permanences et sur rendez-vous.
+Sacrement du pardon et de la miséricorde de Dieu. Permanences régulières à l'église et possibilité de rendez-vous individuels. Préparation pour la première confession lors du catéchisme.
 
-**Contactez le secrétariat pour toute demande.**`,
+**Sacrement des Malades**
+Pour les personnes gravement malades, âgées ou en fin de vie. Ce sacrement apporte réconfort, force et paix. Célébration communautaire une fois par an et onction individuelle sur demande.
+
+**Pour toute demande, contactez le secrétariat de la paroisse.**`,
   },
   mariage: {
     title: 'Le Mariage',
