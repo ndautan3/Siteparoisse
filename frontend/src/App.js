@@ -8,6 +8,7 @@ import Secretariat from '@/pages/Secretariat';
 import AdminLogin from '@/pages/AdminLogin';
 import AdminDashboard from '@/pages/AdminDashboard';
 import ContentPage from '@/pages/ContentPage';
+import PillarPage from '@/pages/PillarPages';
 
 function App() {
   return (
