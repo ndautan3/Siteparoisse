@@ -97,13 +97,14 @@ export const Header = () => {
                   setCloseTimeout(timeout);
                 }}
               >
-                <button
+                <Link
+                  to={item.path}
                   className="px-4 py-2 text-slate-700 hover:text-gold font-medium transition-colors flex items-center space-x-2"
                   data-testid={`menu-${item.title.toLowerCase().replace(/\s+/g, '-')}`}
                 >
                   <item.icon className="w-4 h-4" />
                   <span>{item.title}</span>
-                </button>
+                </Link>
 
                 {activeDropdown === item.title && (
                   <div 
