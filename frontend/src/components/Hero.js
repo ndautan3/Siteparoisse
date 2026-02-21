@@ -27,46 +27,8 @@ export const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
       </div>
 
-      {/* Quick Actions - Barre en haut aux bords */}
-      <div className="absolute top-4 sm:top-6 left-0 right-0 z-20 flex items-center justify-between px-3 sm:px-6 lg:px-10 xl:px-16">
-        {/* Je veux - Dropdown - Gauche */}
-        <div className="relative">
-          <button
-            onClick={() => setShowJeVeuxMenu(!showJeVeuxMenu)}
-            className="bg-gold backdrop-blur-sm border-2 border-gold text-white hover:bg-gold-dark hover:border-gold-dark rounded-full px-4 sm:px-6 py-2 sm:py-2.5 font-medium transition-all duration-300 flex items-center space-x-2 shadow-lg text-sm sm:text-base"
-            data-testid="je-veux-button"
-          >
-            <span>Je veux...</span>
-            <ChevronDown className={`w-4 h-4 transition-transform ${showJeVeuxMenu ? 'rotate-180' : ''}`} />
-          </button>
-
-          {showJeVeuxMenu && (
-            <div className="absolute top-full mt-2 left-0 w-64 bg-white rounded-lg shadow-xl border border-slate-100 py-2 z-50">
-              {jeVeuxOptions.map((option) => (
-                <Link
-                  key={option.path + option.label}
-                  to={option.path}
-                  className="block px-4 py-2.5 text-slate-700 hover:bg-slate-50 hover:text-gold transition-colors text-left"
-                  onClick={() => setShowJeVeuxMenu(false)}
-                  data-testid={`je-veux-${option.label.toLowerCase().replace(/\s+/g, '-')}`}
-                >
-                  {option.label}
-                </Link>
-              ))}
-            </div>
-          )}
-        </div>
-
-        {/* Je suis nouveau - Centre */}
-        <Link
-          to="/equipe-pastorale"
-          className="bg-white/95 backdrop-blur-sm border-2 border-white text-slate-700 hover:bg-white rounded-full px-4 sm:px-6 py-2 sm:py-2.5 font-medium transition-all duration-300 shadow-lg text-sm sm:text-base"
-          data-testid="nouveau-button"
-        >
-          Je suis nouveau
-        </Link>
-
-        {/* Don - Droite */}
+      {/* Don Button - Top Right */}
+      <div className="absolute top-4 sm:top-6 right-3 sm:right-6 lg:right-10 xl:right-16 z-20">
         <Link
           to="/vie-economique"
           className="bg-gold backdrop-blur-sm border-2 border-gold text-white hover:bg-gold-dark hover:border-gold-dark rounded-full px-4 sm:px-6 py-2 sm:py-2.5 font-medium transition-all duration-300 shadow-lg text-sm sm:text-base"
