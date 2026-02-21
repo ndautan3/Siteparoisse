@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Church, Phone, Users, Building2, Sparkles } from 'lucide-react';
+import { Church, Phone, Users, Building2, Sparkles, Music, Cross } from 'lucide-react';
 
 const sections = [
   {
@@ -46,6 +46,24 @@ const sections = [
     icon: Sparkles,
     image: 'https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=600',
     path: '/services-transverses'
+  },
+  {
+    id: 'liturgie',
+    title: 'Service Liturgie et Musique',
+    subtitle: 'Chants & célébrations',
+    description: 'Animer et embellir les célébrations liturgiques par la musique et le chant',
+    icon: Music,
+    image: 'https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=600',
+    path: '/liturgie-musique'
+  },
+  {
+    id: 'funerailles',
+    title: 'Service Funérailles',
+    subtitle: 'Accompagnement & recueillement',
+    description: 'Accompagner les familles dans les moments de deuil avec compassion',
+    icon: Cross,
+    image: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=600',
+    path: '/funerailles'
   }
 ];
 
