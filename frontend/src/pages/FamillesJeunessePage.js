@@ -51,26 +51,40 @@ const sections = [
 
 const FamillesJeunessePage = () => {
   return (
-    <div className="min-h-screen bg-paper py-20" data-testid="familles-jeunesse-page">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
+    <div className="min-h-screen bg-paper" data-testid="familles-jeunesse-page">
+      {/* Hero Section with Image */}
+      <section className="relative h-[50vh] flex items-center justify-center">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://customer-assets.emergentagent.com/job_scroll-donate-pages/artifacts/mjvy6496_Familles-jeunesse.png"
+            alt="Familles & Jeunesse"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/20"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 text-center text-white px-4">
           <div className="flex justify-center mb-6">
-            <div className="w-20 h-20 rounded-full bg-gold flex items-center justify-center shadow-lg">
+            <div className="w-20 h-20 rounded-full bg-gold/90 backdrop-blur-sm flex items-center justify-center shadow-lg">
               <Users className="w-10 h-10 text-white" strokeWidth={1.5} />
             </div>
           </div>
-          <h1 className="font-serif text-4xl md:text-5xl font-medium tracking-tight text-slate-deep mb-4">
+          <h1 className="font-serif text-4xl md:text-6xl font-medium tracking-tight mb-4">
             Familles & Jeunesse
           </h1>
-          <p className="text-gold font-medium mb-4">Pôle éducation et formation</p>
-          <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
+          <p className="text-gold-light font-medium mb-4 text-lg">Pôle éducation et formation</p>
+          <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto">
             Accompagnement des enfants et des jeunes dans leur cheminement de foi, de l'éveil à la foi jusqu'à l'aumônerie
           </p>
         </div>
+      </section>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
         {/* Sections Grid - 5 colonnes */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-16">
           {sections.map((section) => {
             const IconComponent = section.icon;
             return (
