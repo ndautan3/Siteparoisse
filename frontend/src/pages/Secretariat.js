@@ -1,9 +1,16 @@
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Home } from 'lucide-react';
 
 const Secretariat = () => {
   return (
     <div className="min-h-screen bg-paper py-24" data-testid="secretariat-page">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Icon */}
+        <div className="flex justify-center mb-8">
+          <div className="w-24 h-24 rounded-full bg-gold flex items-center justify-center shadow-lg">
+            <Home className="w-12 h-12 text-white" strokeWidth={1.5} />
+          </div>
+        </div>
+
         <div className="text-center mb-16">
           <h1 className="font-serif text-5xl md:text-7xl font-medium tracking-tight leading-tight text-slate-deep mb-6">
             Secrétariat & Contact
