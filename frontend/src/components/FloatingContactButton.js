@@ -10,14 +10,14 @@ export const FloatingContactButton = () => {
   }
 
   return (
-    <div className="fixed bottom-6 right-3 sm:right-6 lg:right-10 z-40">
+    <div className="fixed top-24 right-[140px] sm:right-[180px] lg:right-[200px] z-40">
       <Link
         to="/secretariat"
-        className="flex items-center justify-center bg-gold backdrop-blur-sm border-2 border-gold text-white hover:bg-gold-dark hover:border-gold-dark rounded-full w-12 h-12 sm:w-14 sm:h-14 font-medium transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+        className="flex items-center justify-center bg-gold backdrop-blur-sm border-2 border-gold text-white hover:bg-gold-dark hover:border-gold-dark rounded-full w-10 h-10 sm:w-12 sm:h-12 font-medium transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
         data-testid="floating-contact-button"
         title="Nous contacter"
       >
-        <Phone className="w-5 h-5 sm:w-6 sm:h-6" />
+        <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
       </Link>
     </div>
   );
