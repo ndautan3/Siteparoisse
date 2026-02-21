@@ -282,16 +282,20 @@ const ContentPage = ({ section }) => {
         <div className="bg-white rounded-xl p-8 shadow-sm border border-slate-100">
           <div className="prose prose-slate max-w-none">
             {data.content.split('\n').map((paragraph, index) => {
+              // Remove ** markers
+              const cleanParagraph = paragraph.replace(/\*\*/g, '');
+              
+              // Check if it was a heading (started and ended with **)
               if (paragraph.startsWith('**') && paragraph.endsWith('**')) {
                 return (
                   <h3 key={index} className="font-serif text-2xl text-slate-deep mt-6 mb-3 first:mt-0">
-                    {paragraph.replace(/\*\*/g, '')}
+                    {cleanParagraph}
                   </h3>
                 );
               }
-              return paragraph ? (
+              return cleanParagraph ? (
                 <p key={index} className="text-slate-600 leading-relaxed mb-4">
-                  {paragraph}
+                  {cleanParagraph}
                 </p>
               ) : null;
             })}
