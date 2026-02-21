@@ -39,8 +39,8 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
         gold: {
-          DEFAULT: "#C5A059",
-          dark: "#B08D3D",
+          DEFAULT: "#d0ada6",
+          dark: "#c09990",
         },
         slate: {
           blue: "#475569",
