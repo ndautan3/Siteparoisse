@@ -1,0 +1,127 @@
+import { Link } from 'react-router-dom';
+import { BookOpen, MessagesSquare, Users, Sparkles, Radio } from 'lucide-react';
+
+const sections = [
+  {
+    id: 'alpha',
+    title: 'Parcours Alpha & Catéchuménat',
+    subtitle: 'Découvrir la foi',
+    description: 'Découvrir ou redécouvrir la foi chrétienne dans un esprit de partage et de convivialité',
+    icon: MessagesSquare,
+    image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600',
+    path: '/alpha-catechumenat'
+  },
+  {
+    id: 'groupes',
+    title: 'Groupes de Partage',
+    subtitle: 'Fraternités & groupes',
+    description: 'Échanger, prier et grandir ensemble autour de la Parole de Dieu',
+    icon: Users,
+    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600',
+    path: '/groupes-partage'
+  },
+  {
+    id: 'meditation',
+    title: 'Méditation Chrétienne',
+    subtitle: 'Silence & prière',
+    description: 'Entrer dans le silence et la prière contemplative',
+    icon: Sparkles,
+    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600',
+    path: '/meditation'
+  },
+  {
+    id: 'ressources',
+    title: 'Ressources',
+    subtitle: 'Livres, médias, liens',
+    description: 'Livres, médias et outils pour nourrir votre vie spirituelle',
+    icon: BookOpen,
+    image: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600',
+    path: '/ressources'
+  }
+];
+
+const GrandirFoiPage = () => {
+  return (
+    <div className="min-h-screen bg-paper py-20" data-testid="grandir-foi-page">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="flex justify-center mb-6">
+            <div className="w-20 h-20 rounded-full bg-gold flex items-center justify-center shadow-lg">
+              <BookOpen className="w-10 h-10 text-white" strokeWidth={1.5} />
+            </div>
+          </div>
+          <h1 className="font-serif text-4xl md:text-5xl font-medium tracking-tight text-slate-deep mb-4">
+            Grandir dans la Foi
+          </h1>
+          <p className="text-gold font-medium mb-4">Cheminer ensemble</p>
+          <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
+            Parcours de formation et groupes de partage pour approfondir sa foi à tout âge
+          </p>
+        </div>
+
+        {/* Sections Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {sections.map((section) => {
+            const IconComponent = section.icon;
+            return (
+              <Link
+                key={section.id}
+                to={section.path}
+                className="group"
+                data-testid={`section-card-${section.id}`}
+              >
+                <article className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 h-full border border-slate-100 flex flex-col">
+                  {/* Image */}
+                  <div className="relative aspect-[16/9] overflow-hidden">
+                    <img
+                      src={section.image}
+                      alt={section.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                    <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+                      <div className="w-14 h-14 rounded-full bg-gold flex items-center justify-center shadow-lg">
+                        <IconComponent className="w-7 h-7 text-white" strokeWidth={1.5} />
+                      </div>
+                      <span className="bg-white/90 backdrop-blur-sm text-slate-700 text-xs font-medium px-3 py-1.5 rounded-full">
+                        {section.subtitle}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6 flex flex-col flex-grow">
+                    <h3 className="font-serif text-2xl text-slate-deep mb-3 group-hover:text-gold transition-colors">
+                      {section.title}
+                    </h3>
+                    <p className="text-slate-600 leading-relaxed flex-grow">
+                      {section.description}
+                    </p>
+                    
+                    <div className="mt-4 flex items-center text-gold text-sm font-medium group-hover:text-gold-dark transition-colors">
+                      <span>En savoir plus</span>
+                      <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </article>
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* Citation */}
+        <div className="mt-16 bg-gradient-to-r from-gold/10 to-gold/5 rounded-2xl p-8 border border-gold/20 text-center">
+          <blockquote className="font-serif text-2xl text-slate-deep italic mb-4">
+            "Je suis le chemin, la vérité et la vie"
+          </blockquote>
+          <p className="text-gold font-medium">Jean 14, 6</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default GrandirFoiPage;

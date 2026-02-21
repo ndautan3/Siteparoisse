@@ -1,0 +1,164 @@
+import { Link } from 'react-router-dom';
+import { HandHeart, Heart, Stethoscope, Users, Coffee, Cross } from 'lucide-react';
+
+const sections = [
+  {
+    id: 'ecoute',
+    title: "Service d'Écoute Louis et Zélie",
+    subtitle: 'Présence bienveillante',
+    description: 'Une présence bienveillante pour ceux qui traversent une épreuve',
+    icon: Heart,
+    image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600',
+    path: '/service-ecoute'
+  },
+  {
+    id: 'malades',
+    title: 'Visite des Malades (SEM)',
+    subtitle: 'Service évangélique',
+    description: 'Porter la présence du Christ auprès des personnes malades et âgées',
+    icon: Stethoscope,
+    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600',
+    path: '/visite-malades'
+  },
+  {
+    id: 'entraide',
+    title: 'Entraide et Solidarité',
+    subtitle: 'Secours Catholique & plus',
+    description: 'Vivre la charité du Christ au service des plus fragiles',
+    icon: HandHeart,
+    image: 'https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=600',
+    path: '/entraide'
+  }
+];
+
+const subActions = [
+  {
+    title: 'Secours Catholique',
+    description: 'Aide matérielle et accompagnement',
+    icon: HandHeart
+  },
+  {
+    title: 'Café Amitié',
+    description: 'Lieu de rencontre convivial',
+    icon: Coffee
+  },
+  {
+    title: 'Hospitalité de Lourdes',
+    description: 'Pèlerinages pour personnes malades',
+    icon: Cross
+  },
+  {
+    title: 'Lourdes Cancer Espérance',
+    description: 'Soutien aux malades du cancer',
+    icon: Heart
+  }
+];
+
+const SolidaritePage = () => {
+  return (
+    <div className="min-h-screen bg-paper py-20" data-testid="solidarite-page">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="flex justify-center mb-6">
+            <div className="w-20 h-20 rounded-full bg-gold flex items-center justify-center shadow-lg">
+              <HandHeart className="w-10 h-10 text-white" strokeWidth={1.5} />
+            </div>
+          </div>
+          <h1 className="font-serif text-4xl md:text-5xl font-medium tracking-tight text-slate-deep mb-4">
+            Solidarité & Écoute
+          </h1>
+          <p className="text-gold font-medium mb-4">Vivre la charité</p>
+          <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
+            Services d'accompagnement et actions de solidarité au service des plus fragiles
+          </p>
+        </div>
+
+        {/* Main Sections Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          {sections.map((section) => {
+            const IconComponent = section.icon;
+            return (
+              <Link
+                key={section.id}
+                to={section.path}
+                className="group"
+                data-testid={`section-card-${section.id}`}
+              >
+                <article className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 h-full border border-slate-100 flex flex-col">
+                  {/* Image */}
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <img
+                      src={section.image}
+                      alt={section.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+                    <div className="absolute bottom-4 left-4">
+                      <div className="w-12 h-12 rounded-full bg-gold flex items-center justify-center shadow-lg">
+                        <IconComponent className="w-6 h-6 text-white" strokeWidth={1.5} />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6 flex flex-col flex-grow">
+                    <span className="text-gold text-sm font-medium mb-2">{section.subtitle}</span>
+                    <h3 className="font-serif text-xl text-slate-deep mb-2 group-hover:text-gold transition-colors">
+                      {section.title}
+                    </h3>
+                    <p className="text-slate-600 text-sm leading-relaxed flex-grow">
+                      {section.description}
+                    </p>
+                    
+                    <div className="mt-4 flex items-center text-gold text-sm font-medium group-hover:text-gold-dark transition-colors">
+                      <span>En savoir plus</span>
+                      <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </article>
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* Sub-actions */}
+        <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+          <h2 className="font-serif text-2xl text-slate-deep mb-6 text-center">Nos actions de solidarité</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {subActions.map((action, index) => {
+              const IconComponent = action.icon;
+              return (
+                <div key={index} className="text-center">
+                  <div className="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-3">
+                    <IconComponent className="w-7 h-7 text-gold" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="font-medium text-slate-deep mb-1">{action.title}</h3>
+                  <p className="text-slate-500 text-sm">{action.description}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Call to Action */}
+        <div className="mt-12 bg-gradient-to-r from-gold/10 to-gold/5 rounded-2xl p-8 border border-gold/20 text-center">
+          <h2 className="font-serif text-2xl text-slate-deep mb-4">Rejoindre une équipe</h2>
+          <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
+            Vous souhaitez vous engager au service des autres ? Rejoignez une de nos équipes de bénévoles.
+          </p>
+          <Link
+            to="/secretariat"
+            className="inline-flex items-center bg-gold hover:bg-gold-dark text-white px-6 py-3 rounded-full font-medium transition-colors"
+          >
+            Nous contacter
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default SolidaritePage;
