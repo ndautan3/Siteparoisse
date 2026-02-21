@@ -1,4 +1,4 @@
-import { Users, Heart, BookOpen, Church, GraduationCap, Baby, Cross, MessagesSquare, Flower2, HandHeart, Stethoscope, HelpingHand, Home, Building2, Sparkles } from 'lucide-react';
+import { Users, Heart, BookOpen, Church, GraduationCap, Baby, Cross, MessagesSquare, Flower2, HandHeart, Stethoscope, Building2, Sparkles } from 'lucide-react';
 
 const contentData = {
   equipe: {
@@ -15,6 +15,8 @@ N'hésitez pas à nous contacter pour toute question ou besoin spirituel.`,
   },
   economique: {
     title: 'Vie Économique',
+    description: 'Une gestion transparente et responsable au service de notre mission.',
+    icon: Building2,
     content: `La vie économique de la paroisse est gérée avec transparence et responsabilité.
 
 **Conseil des Finances :** Assure la gestion financière de la paroisse
@@ -24,6 +26,8 @@ N'hésitez pas à nous contacter pour toute question ou besoin spirituel.`,
   },
   clochers: {
     title: 'Nos Clochers',
+    description: 'Un patrimoine architectural témoin de la foi de nos ancêtres.',
+    icon: Church,
     content: `Notre paroisse compte plusieurs églises, chacune avec son histoire unique.
 
 **Église Notre-Dame d'Autan**
@@ -34,6 +38,8 @@ Dispersés sur le territoire paroissial, ils témoignent de la foi de nos aîné
   },
   services: {
     title: 'Services Transverses',
+    description: 'Des équipes au service de la communication et de l\'accueil.',
+    icon: Sparkles,
     content: `**Service Communication**
 Gestion du site web, réseaux sociaux, bulletin paroissial
 
@@ -42,12 +48,16 @@ Gestion du site web, réseaux sociaux, bulletin paroissial
   },
   eveil: {
     title: 'Éveil à la Foi',
+    description: 'Premiers pas dans la foi chrétienne pour les tout-petits et leurs familles.',
+    icon: Baby,
     content: `Pour les enfants de 3 à 7 ans, découverte de la foi chrétienne en famille.
 
 Rencontres mensuelles le dimanche après la messe, avec contes, chants et activités ludiques.`,
   },
   catechisme: {
     title: 'Catéchisme',
+    description: 'Découvrir Jésus et grandir dans la foi en communauté.',
+    icon: BookOpen,
     content: `Pour les enfants du CE2 à la 6ème.
 
 Rencontres hebdomadaires en petits groupes pour découvrir la vie de Jésus, les sacrements et vivre en communauté.
@@ -56,6 +66,8 @@ Rencontres hebdomadaires en petits groupes pour découvrir la vie de Jésus, les
   },
   aumonerie: {
     title: 'Aumônerie',
+    description: 'Un lieu pour les jeunes collégiens et lycéens de grandir ensemble dans la foi.',
+    icon: GraduationCap,
     content: `Pour les collégiens et lycéens.
 
 Rencontres, temps de partage, activités, camps... Un lieu pour grandir dans la foi avec d'autres jeunes.
@@ -64,6 +76,8 @@ Rencontres, temps de partage, activités, camps... Un lieu pour grandir dans la 
   },
   mouvements: {
     title: 'Mouvements de Jeunesse',
+    description: 'Activités, partage et service dans un esprit chrétien.',
+    icon: Users,
     content: `**Scouts et Guides de France**
 Activités de plein air, camps, service
 
@@ -75,6 +89,8 @@ Activités ludiques et sportives dans un esprit chrétien`,
   },
   servants: {
     title: "Servants d'autel et Vocations",
+    description: 'Se mettre au service de la liturgie et répondre à l\'appel du Seigneur.',
+    icon: Cross,
     content: `**Servants d'autel**
 Enfants et jeunes qui servent à l'autel pendant la messe. Formation assurée.
 
@@ -83,6 +99,8 @@ Pour ceux qui s'interrogent sur un appel à la vie consacrée ou sacerdotale.`,
   },
   sacrement: {
     title: 'Demander un Sacrement',
+    description: 'Les sacrements jalonnent les grandes étapes de la vie chrétienne.',
+    icon: Heart,
     content: `**Baptême**
 Pour les enfants et les adultes. Préparation assurée.
 
@@ -99,6 +117,8 @@ Permanences et sur rendez-vous.
   },
   mariage: {
     title: 'Le Mariage',
+    description: 'S\'engager dans l\'amour et la fidélité, soutenu par la grâce de Dieu.',
+    icon: Heart,
     content: `Se marier à l'Église est un engagement profond et joyeux.
 
 **Préparation au mariage**
@@ -114,8 +134,10 @@ Formation à la vie de couple
   },
   liturgie: {
     title: 'Liturgie & Musique',
+    description: 'Embellir les célébrations par le chant, la musique et l\'art floral.',
+    icon: Flower2,
     content: `**Chorale paroissiale**
-Rehétitions hebdomadaires, tous niveaux bienvenus
+Répétitions hebdomadaires, tous niveaux bienvenus
 
 **Art Floral**
 Équipe de bénévoles qui fleurissent l'église
@@ -125,6 +147,8 @@ Service discret et essentiel pour la liturgie`,
   },
   funerailles: {
     title: 'Funérailles',
+    description: 'Accompagner les familles en deuil avec compassion et espérance.',
+    icon: Cross,
     content: `Accompagnement des familles en deuil.
 
 **Équipe funérailles**
@@ -134,6 +158,8 @@ Préparation de la célébration, soutien et écoute.
   },
   alpha: {
     title: 'Parcours Alpha & Catéchuménat',
+    description: 'Découvrir ou redécouvrir la foi chrétienne dans un esprit de partage.',
+    icon: MessagesSquare,
     content: `**Parcours Alpha**
 Découvrir ou redécouvrir la foi chrétienne dans la convivialité. Repas, vidéo, échanges.
 
@@ -142,6 +168,8 @@ Pour les adultes souhaitant recevoir le baptême, la confirmation ou l'eucharist
   },
   groupes: {
     title: 'Groupes de Partage',
+    description: 'Échanger, prier et grandir ensemble autour de la Parole.',
+    icon: Users,
     content: `**Fraternités**
 Petits groupes de partage de la Parole et de la vie
 
@@ -153,6 +181,8 @@ Réflexion sur la foi et le travail
   },
   meditation: {
     title: 'Méditation Chrétienne',
+    description: 'Entrer dans le silence et la prière contemplative.',
+    icon: Sparkles,
     content: `Temps de silence et de prière contemplatif.
 
 Rencontres hebdomadaires ouvertes à tous.
@@ -161,6 +191,8 @@ Rencontres hebdomadaires ouvertes à tous.
   },
   ressources: {
     title: 'Ressources',
+    description: 'Livres, médias et outils pour nourrir votre vie spirituelle.',
+    icon: BookOpen,
     content: `**Librairie religieuse**
 Livres, chapelets, icônes, objets de piété
 
@@ -168,12 +200,14 @@ Livres, chapelets, icônes, objets de piété
 Émissions spirituelles et culturelles
 
 **Liens utiles**
-- Dioèse de Toulouse
+- Diocèse de Toulouse
 - Vatican
 - Aleteia`,
   },
   ecoute: {
     title: "Service d'Écoute Louis et Zélie",
+    description: 'Une présence bienveillante pour ceux qui traversent une épreuve.',
+    icon: Heart,
     content: `Service d'écoute téléphonique et en personne pour ceux qui traversent une épreuve.
 
 **Confidentialité assurée**
@@ -182,6 +216,8 @@ Contact via le secrétariat.`,
   },
   malades: {
     title: 'Visite des Malades (SEM)',
+    description: 'Porter la présence du Christ auprès des personnes malades et âgées.',
+    icon: Stethoscope,
     content: `**Service Évangélique des Malades**
 
 Équipe de bénévoles qui visitent les personnes malades ou âgées à domicile ou en maison de retraite.
@@ -190,6 +226,8 @@ Sacrement des malades sur demande.`,
   },
   entraide: {
     title: 'Entraide et Solidarité',
+    description: 'Vivre la charité du Christ au service des plus fragiles.',
+    icon: HandHeart,
     content: `**Secours Catholique**
 Aide matérielle et accompagnement
 
@@ -208,20 +246,42 @@ Soutien aux malades du cancer`,
 };
 
 const ContentPage = ({ section }) => {
-  const data = contentData[section] || { title: 'Page en construction', content: 'Contenu à venir prochainement.' };
+  const data = contentData[section] || { 
+    title: 'Page en construction', 
+    description: 'Contenu à venir prochainement.',
+    icon: Sparkles,
+    content: 'Cette page sera bientôt disponible.' 
+  };
+  
+  const IconComponent = data.icon;
 
   return (
     <div className="min-h-screen bg-paper py-24" data-testid={`content-page-${section}`}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="font-serif text-5xl md:text-7xl font-medium tracking-tight leading-tight text-slate-deep mb-8">
+        {/* Icon */}
+        <div className="flex justify-center mb-8">
+          <div className="w-24 h-24 rounded-full bg-gold flex items-center justify-center shadow-lg">
+            <IconComponent className="w-12 h-12 text-white" strokeWidth={1.5} />
+          </div>
+        </div>
+
+        {/* Title */}
+        <h1 className="font-serif text-5xl md:text-7xl font-medium tracking-tight leading-tight text-slate-deep mb-6 text-center">
           {data.title}
         </h1>
+
+        {/* Description */}
+        <p className="text-base md:text-lg leading-relaxed text-slate-600 text-center mb-12 max-w-2xl mx-auto">
+          {data.description}
+        </p>
+
+        {/* Content */}
         <div className="bg-white rounded-xl p-8 shadow-sm border border-slate-100">
           <div className="prose prose-slate max-w-none">
             {data.content.split('\n').map((paragraph, index) => {
               if (paragraph.startsWith('**') && paragraph.endsWith('**')) {
                 return (
-                  <h3 key={index} className="font-serif text-2xl text-slate-deep mt-6 mb-3">
+                  <h3 key={index} className="font-serif text-2xl text-slate-deep mt-6 mb-3 first:mt-0">
                     {paragraph.replace(/\*\*/g, '')}
                   </h3>
                 );
