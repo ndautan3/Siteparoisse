@@ -1,0 +1,145 @@
+{
+  "project_name": "Notre Dame d'Autan Redesign",
+  "version": "1.0",
+  "identity": {
+    "role": "E1 - Anti-AI Creative Designer",
+    "mission": "Create a spiritual, luminous, and highly ergonomic parish website that feels human, not digital.",
+    "vibe": "Serene, Welcoming, Luminous, Sacred yet Modern."
+  },
+  "theme": {
+    "mode": "light",
+    "strategy": "Luminous Spirituality",
+    "description": "A light-first design using off-whites and warm greys to create a sense of peace and space. No harsh pure blacks."
+  },
+  "colors": {
+    "palette": {
+      "background": "#FDFCF8",
+      "foreground": "#1E293B",
+      "primary": "#475569",
+      "primary_foreground": "#FFFFFF",
+      "secondary": "#F1F5F9",
+      "secondary_foreground": "#0F172A",
+      "accent": "#C5A059",
+      "accent_foreground": "#FFFFFF",
+      "muted": "#F1F5F9",
+      "muted_foreground": "#64748B",
+      "card": "#FFFFFF",
+      "border": "#E2E8F0"
+    },
+    "custom_colors": {
+      "gold_matte": "#C5A059",
+      "slate_blue": "#475569",
+      "slate_deep": "#1E293B",
+      "off_white": "#FDFCF8",
+      "paper": "#F9F9F7"
+    },
+    "usage": {
+      "background": "Use 'off_white' or 'paper' for main backgrounds to avoid clinical white.",
+      "text_main": "Use 'slate_deep' for maximum readability but softer than black.",
+      "brand": "Use 'slate_blue' for primary buttons and headers.",
+      "highlight": "Use 'gold_matte' sparingly for divine accents (active states, special buttons)."
+    }
+  },
+  "typography": {
+    "font_family_heading": "Playfair Display, serif",
+    "font_family_body": "Inter, sans-serif",
+    "scale": {
+      "h1": "text-5xl md:text-7xl font-medium tracking-tight leading-tight",
+      "h2": "text-4xl md:text-5xl font-normal tracking-tight",
+      "h3": "text-2xl md:text-3xl font-normal",
+      "body": "text-base md:text-lg leading-relaxed text-slate-600",
+      "caption": "text-sm font-medium tracking-wide uppercase text-slate-500"
+    },
+    "rules": "Headings must be elegant and airy. Body text must be high-contrast for elderly readability."
+  },
+  "layout_strategy": {
+    "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "spacing": "Generous. Use py-24 or py-32 for major sections.",
+    "grid_system": "Use 'Bento' grids for News and Services. Avoid uniform rows.",
+    "z_index": {
+      "navigation": 50,
+      "modal": 100,
+      "toast": 110,
+      "hero_content": 10
+    }
+  },
+  "components_customization": {
+    "buttons": {
+      "primary": "bg-slate-700 hover:bg-slate-800 text-white rounded-full px-8 py-3 transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5",
+      "secondary": "bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 rounded-full px-8 py-3",
+      "accent": "bg-[#C5A059] hover:bg-[#B08D3D] text-white font-serif tracking-wide rounded-md px-6 py-2 shadow-md"
+    },
+    "cards": {
+      "style": "bg-white/80 backdrop-blur-sm border border-white/20 shadow-sm hover:shadow-md transition-all duration-300",
+      "news_card": "overflow-hidden rounded-xl bg-white border-0 shadow-sm group hover:shadow-lg transition-all"
+    },
+    "navigation": {
+      "style": "Floating glass header. Sticky on scroll. Background: bg-white/80 backdrop-blur-md border-b border-slate-100/50.",
+      "mega_menu": "Full-width dropdown with 5 distinct columns. Clean typography. No clutter."
+    }
+  },
+  "sections": {
+    "header": {
+      "logo": "Use provided logo. Ensure adequate whitespace.",
+      "cta": "Distinct 'HORAIRES DES MESSES' button. Must be visible at all times."
+    },
+    "hero": {
+      "layout": "Full viewport height (min-h-[80vh]).",
+      "background": "Large church photo (provided). Overlay: Gradient from bottom-black/50 to transparent or soft white vignette depending on image contrast.",
+      "content": "Centered or aligned left. Large welcome message. Quick access buttons."
+    },
+    "mass_times_widget": {
+      "description": "A dedicated, high-visibility block or floating element showing the next mass or a link to the schedule. Accessibility is key.",
+      "location": "Hero overlay or Sticky Sidebar on Desktop."
+    },
+    "news": {
+      "layout": "3-column grid. Dynamic content. Show date and category clearly.",
+      "style": "Clean cards with image on top (if available) or elegant typography date block."
+    },
+    "footer": {
+      "style": "Dark slate background (slate-900) text-slate-300. Elegant, quiet ending.",
+      "content": "Quick links, Socials, Newsletter, Contact."
+    }
+  },
+  "images": {
+    "assets_provided": {
+      "logo": "https://customer-assets.emergentagent.com/job_c3efae68-56d0-4924-8ecf-4f7502ce3630/artifacts/34n0n91l_Notre-Dame-d-Autan.png",
+      "church_hero": "https://customer-assets.emergentagent.com/job_c3efae68-56d0-4924-8ecf-4f7502ce3630/artifacts/54f2vm3r_Eglise-Castanet-Tolosan.jpg"
+    },
+    "stock_selections": {
+      "texture_light": "https://images.unsplash.com/photo-1764060826588-1393b2900b24?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzN8MHwxfHNlYXJjaHw0fHxzdGFpbmVkJTIwZ2xhc3MlMjBhYnN0cmFjdCUyMGxpZ2h0fGVufDB8fHx8MTc3MTY3Mjk1Mnww&ixlib=rb-4.1.0&q=85",
+      "community_joy": "https://images.unsplash.com/photo-1771340589835-62d364c885d7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHw0fHxjb21tdW5pdHklMjBoZWxwaW5nJTIwam95ZnVsfGVufDB8fHx8MTc3MTY3Mjk1M3ww&ixlib=rb-4.1.0&q=85",
+      "priest_chalice": "https://images.unsplash.com/photo-1720729918255-249f42cb9ff7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxNzV8MHwxfHNlYXJjaHwxfHxjYXRob2xpYyUyMG1hc3MlMjBwcmllc3QlMjBhbHRhcnxlbnwwfHx8fDE3NzE2NzI5NTR8MA&ixlib=rb-4.1.0&q=85",
+      "volunteers": "https://images.pexels.com/photos/6646926/pexels-photo-6646926.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "stained_glass": "https://images.unsplash.com/photo-1764591426639-fd1eb6eefe96?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzN8MHwxfHNlYXJjaHwzfHxzdGFpbmVkJTIwZ2xhc3MlMjBhYnN0cmFjdCUyMGxpZ2h0fGVufDB8fHx8MTc3MTY3Mjk1Mnww&ixlib=rb-4.1.0&q=85"
+    }
+  },
+  "iconography": {
+    "library": "lucide-react",
+    "style": "Stroke width 1.5px (light/elegant).",
+    "usage": "Use icons for the 5 pillars in the menu to give visual cues."
+  },
+  "accessibility": {
+    "contrast": "Ensure text is slate-800 on white. Avoid light grey text.",
+    "sizing": "Touch targets must be 44px+. Text scale adjustable if possible (browser default)."
+  },
+  "instructions_to_main_agent": [
+    "Install 'lucide-react' if not present.",
+    "Configure tailwind.config.js to include the custom colors (gold_matte, slate_blue, etc).",
+    "Create a 'MegaMenu' component for the navigation pillars.",
+    "Build the 'MassTimes' component as a high-priority UI element.",
+    "Use 'Playfair Display' via Google Fonts import in index.css.",
+    "Ensure the 'Contact' and 'Mass Times' are reachable within 1 click (Header/Hero).",
+    "Implement the 5-pillar structure exactly as requested in the problem statement.",
+    "Use 'sonner' for any form feedback (newsletter/contact)."
+  ],
+  "UNIVERSAL_GUIDELINES": [
+    "Do not use gradients for backgrounds unless it is a subtle noise texture overlay.",
+    "Avoid standard 'Bootstrap' grid looks. Use asymmetric layouts where appropriate.",
+    "All interactive elements must have 'data-testid' attributes.",
+    "Do not use complete transparent backgrounds for overlays with content.",
+    "Use 'sonner' for toasts.",
+    "Export components as named exports.",
+    "Pages as default exports."
+  ]
+}
