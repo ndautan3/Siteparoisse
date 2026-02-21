@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Clock, MapPin } from 'lucide-react';
+import { Clock, MapPin, Bell } from 'lucide-react';
 import axios from 'axios';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -26,6 +26,13 @@ const HorairesMesses = () => {
   return (
     <div className="min-h-screen bg-paper py-24" data-testid="mass-times-page">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Icon */}
+        <div className="flex justify-center mb-8">
+          <div className="w-24 h-24 rounded-full bg-gold flex items-center justify-center shadow-lg">
+            <Bell className="w-12 h-12 text-white" strokeWidth={1.5} />
+          </div>
+        </div>
+
         <div className="text-center mb-16">
           <h1 className="font-serif text-5xl md:text-7xl font-medium tracking-tight leading-tight text-slate-deep mb-6" data-testid="page-title">
             Horaires des Messes
