@@ -98,11 +98,11 @@ export const Hero = () => {
             Nous contacter
           </Link>
           <Link
-            to="/demander-sacrement"
+            to="/je-suis-nouveau"
             className="bg-gold border-2 border-gold hover:bg-gold-dark hover:border-gold-dark text-white rounded-full px-8 py-3 font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
-            data-testid="hero-sacrement-button"
+            data-testid="hero-nouveau-button"
           >
-            Demander un sacrement
+            Je suis nouveau
           </Link>
         </div>
       </div>
