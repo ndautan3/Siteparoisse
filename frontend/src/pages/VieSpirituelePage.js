@@ -105,7 +105,7 @@ const VieSpirituelePage = () => {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       style={section.imageStyle || {}}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent"></div>
+                    <div className={`absolute inset-0 bg-gradient-to-t ${section.color} opacity-60`}></div>
                     <div className="absolute inset-0 flex items-start justify-end p-4">
                       <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
                         <IconComponent className="w-6 h-6 text-white" strokeWidth={1.5} />
