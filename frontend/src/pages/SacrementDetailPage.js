@@ -62,7 +62,7 @@ const sacrementsData = {
     title: 'La Confirmation',
     subtitle: 'Recevoir l\'Esprit Saint',
     icon: Sparkles,
-    image: 'https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=1200',
+    image: 'https://customer-assets.emergentagent.com/job_957f9676-dd26-4dee-97f5-494fc015f420/artifacts/e13l6wpl_Confirmation.png',
     intro: 'La confirmation est le sacrement qui achève l\'initiation chrétienne. Par ce sacrement, le baptisé reçoit la plénitude des dons de l\'Esprit Saint.',
     sections: [
       {
@@ -90,7 +90,7 @@ const sacrementsData = {
     title: 'La Réconciliation',
     subtitle: 'Le pardon de Dieu',
     icon: HandHeart,
-    image: 'https://images.unsplash.com/photo-1507692049790-de58290a4334?w=1200',
+    image: 'https://customer-assets.emergentagent.com/job_957f9676-dd26-4dee-97f5-494fc015f420/artifacts/qhnerpwc_Reconciliation-confession.png',
     intro: 'Le sacrement de réconciliation (ou confession) nous permet de recevoir le pardon de Dieu et de nous réconcilier avec lui et avec l\'Église.',
     sections: [
       {
