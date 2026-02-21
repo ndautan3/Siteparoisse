@@ -29,14 +29,14 @@ export const Hero = () => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             to="/secretariat"
-            className="bg-white text-slate-700 hover:bg-slate-50 rounded-full px-8 py-3 font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
+            className="bg-white border-2 border-white text-slate-700 hover:bg-slate-50 rounded-full px-8 py-3 font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
             data-testid="contact-button"
           >
             Nous contacter
           </Link>
           <Link
             to="/demander-sacrement"
-            className="bg-gold hover:bg-gold-dark text-white rounded-full px-8 py-3 font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
+            className="bg-gold border-2 border-gold hover:bg-gold-dark hover:border-gold-dark text-white rounded-full px-8 py-3 font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
             data-testid="hero-sacrement-button"
           >
             Demander un sacrement
