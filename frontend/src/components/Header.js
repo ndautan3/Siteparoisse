@@ -7,6 +7,16 @@ export const Header = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [closeTimeout, setCloseTimeout] = useState(null);
   const [showJeVeuxMenu, setShowJeVeuxMenu] = useState(false);
+  const [openMobileSections, setOpenMobileSections] = useState([]);
+
+  // Toggle mobile section
+  const toggleMobileSection = (sectionTitle) => {
+    setOpenMobileSections(prev => 
+      prev.includes(sectionTitle) 
+        ? prev.filter(s => s !== sectionTitle)
+        : [...prev, sectionTitle]
+    );
+  };
 
   // Block body scroll when mobile menu is open
   useEffect(() => {
@@ -248,9 +258,18 @@ export const Header = () => {
         >
           <div className="py-4 px-4">
             {/* Je veux... menu on mobile */}
-            <div className="mb-4">
-              <div className="font-medium text-gold mb-2">Je veux...</div>
-              <div className="pl-4 space-y-1">
+            <div className="mb-4 border-b border-slate-200 pb-4">
+              <button
+                onClick={() => toggleMobileSection('je-veux')}
+                className="w-full flex items-center justify-between font-medium text-gold mb-2"
+              >
+                <span>Je veux...</span>
+                <ChevronDown 
+                  className={`w-4 h-4 transition-transform ${openMobileSections.includes('je-veux') ? 'rotate-180' : ''}`}
+                />
+              </button>
+              {openMobileSections.includes('je-veux') && (
+                <div className="pl-4 space-y-1 mt-2">
                 {jeVeuxOptions.map((option) => (
                   <Link
                     key={option.path + option.label}
@@ -261,20 +280,32 @@ export const Header = () => {
                     {option.label}
                   </Link>
                 ))}
-              </div>
+                </div>
+              )}
             </div>
 
             {menuItems.map((item) => (
-              <div key={item.title} className="mb-4">
-                <Link
-                  to={item.path}
-                  className="font-medium text-slate-700 mb-2 flex items-center space-x-2 hover:text-gold transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <item.icon className="w-4 h-4" />
-                  <span>{item.title}</span>
-                </Link>
-                <div className="pl-6 space-y-1 mt-2">
+              <div key={item.title} className="mb-4 border-b border-slate-200 pb-4">
+                <div className="flex items-center justify-between">
+                  <Link
+                    to={item.path}
+                    className="flex items-center space-x-2 font-medium text-slate-700 hover:text-gold transition-colors flex-1"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <item.icon className="w-4 h-4" />
+                    <span>{item.title}</span>
+                  </Link>
+                  <button
+                    onClick={() => toggleMobileSection(item.title)}
+                    className="p-2 hover:bg-slate-50 rounded transition-colors"
+                  >
+                    <ChevronDown 
+                      className={`w-4 h-4 text-slate-600 transition-transform ${openMobileSections.includes(item.title) ? 'rotate-180' : ''}`}
+                    />
+                  </button>
+                </div>
+                {openMobileSections.includes(item.title) && (
+                  <div className="pl-6 space-y-1 mt-2">
                   {item.items.map((subItem) => (
                     <Link
                       key={subItem.path}
@@ -285,7 +316,8 @@ export const Header = () => {
                       {subItem.label}
                     </Link>
                   ))}
-                </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
