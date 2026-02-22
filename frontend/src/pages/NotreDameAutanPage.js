@@ -141,7 +141,7 @@ const NotreDameAutanPage = () => {
         </div>
         
         {/* Deuxième ligne: 3 colonnes centrées */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 lg:max-w-4xl lg:mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 lg:max-w-4xl lg:mx-auto">
           {sections.slice(4, 7).map((section, idx) => {
             const index = idx + 4;
             const IconComponent = section.icon;
