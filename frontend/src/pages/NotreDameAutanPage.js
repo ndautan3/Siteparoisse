@@ -1,68 +1,61 @@
 import { Link } from 'react-router-dom';
-import { Church, Phone, Users, Building2, Sparkles, Music, Cross } from 'lucide-react';
+import { Building2, Users, Wallet, Church, Sparkles, Music, Cross, Facebook, Instagram } from 'lucide-react';
 
 const sections = [
   {
     id: 'secretariat',
-    title: 'Secrétariat & Coordonnées',
-    subtitle: 'Contact & horaires',
-    description: 'Horaires d\'ouverture, contact et informations pratiques',
-    icon: Phone,
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600',
+    title: 'Secrétariat',
+    subtitle: 'Contact et informations',
+    description: 'Votre premier contact avec la paroisse',
+    icon: Building2,
     path: '/secretariat'
   },
   {
-    id: 'equipe',
+    id: 'equipe-pastorale',
     title: 'Équipe Pastorale',
-    subtitle: 'Curé, prêtres, diacres',
-    description: 'Découvrez les membres de notre équipe pastorale',
+    subtitle: 'Au service de la communauté',
+    description: 'Prêtres, diacres et laïcs engagés',
     icon: Users,
-    image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600',
     path: '/equipe-pastorale'
   },
   {
-    id: 'economique',
+    id: 'vie-economique',
     title: 'Vie Économique',
-    subtitle: 'Gestion & denier',
-    description: 'Gestion financière transparente et responsable',
-    icon: Building2,
-    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600',
+    subtitle: 'Transparence et responsabilité',
+    description: 'Gestion financière de la paroisse',
+    icon: Wallet,
     path: '/vie-economique'
   },
   {
-    id: 'clochers',
+    id: 'nos-clochers',
     title: 'Nos Clochers',
-    subtitle: '16 églises à découvrir',
-    description: 'Un patrimoine architectural témoin de la foi de nos ancêtres',
+    subtitle: '16 églises',
+    description: 'Un patrimoine riche et diversifié',
     icon: Church,
-    image: 'https://images.unsplash.com/photo-1548625149-fc4a29cf7092?w=600',
     path: '/nos-clochers'
   },
   {
-    id: 'services',
+    id: 'services-transverses',
     title: 'Services Transverses',
-    subtitle: 'Communication & accueil',
-    description: 'Équipes au service de la communication et de l\'accueil',
+    subtitle: 'Communication et accueil',
+    description: 'Au service de tous',
     icon: Sparkles,
-    image: 'https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=600',
     path: '/services-transverses'
   },
   {
-    id: 'liturgie',
-    title: 'Service Liturgie et Musique',
-    subtitle: 'Chants & célébrations',
-    description: 'Animer et embellir les célébrations liturgiques par la musique et le chant',
+    id: 'liturgie-musique',
+    title: 'Liturgie et Musique',
+    subtitle: 'Célébrer dans la beauté',
+    description: 'Chants, chorale et orgue',
     icon: Music,
-    image: 'https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=600',
     path: '/liturgie-musique'
   },
   {
     id: 'funerailles',
     title: 'Service Funérailles',
-    subtitle: 'Accompagnement & recueillement',
-    description: 'Accompagner les familles dans les moments de deuil avec compassion',
+    subtitle: 'Accompagnement du deuil',
+    description: 'Soutien et célébration',
     icon: Cross,
-    image: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=600',
     path: '/funerailles'
   }
 ];
@@ -70,37 +63,58 @@ const sections = [
 const NotreDameAutanPage = () => {
   return (
     <div className="min-h-screen bg-paper" data-testid="notre-dame-autan-page">
-      {/* Hero Section with Image */}
+      {/* Hero Section */}
       <section className="relative h-[55vh] flex items-center justify-center">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
             src="https://customer-assets.emergentagent.com/job_c3efae68-56d0-4924-8ecf-4f7502ce3630/artifacts/54f2vm3r_Eglise-Castanet-Tolosan.jpg"
-            alt="Église Notre Dame d'Autan"
+            alt="Notre Dame d'Autan"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/20"></div>
         </div>
 
-        {/* Content - with padding to avoid search button overlap */}
+        {/* Social Media Links - Bottom Right */}
+        <div className="absolute bottom-6 right-6 z-10 flex gap-3">
+          <a
+            href="https://www.facebook.com/notredamedautan"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 flex items-center justify-center transition-all duration-300 hover:scale-110"
+            aria-label="Facebook"
+          >
+            <Facebook className="w-5 h-5 text-white" />
+          </a>
+          <a
+            href="https://www.instagram.com/notredamedautan"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 flex items-center justify-center transition-all duration-300 hover:scale-110"
+            aria-label="Instagram"
+          >
+            <Instagram className="w-5 h-5 text-white" />
+          </a>
+        </div>
+
+        {/* Content */}
         <div className="relative z-10 text-center text-white px-4 pt-8">
           <div className="flex justify-center mb-6">
             <div className="w-20 h-20 rounded-full bg-gold/90 backdrop-blur-sm flex items-center justify-center shadow-lg">
-              <Church className="w-10 h-10 text-white" strokeWidth={1.5} />
+              <Building2 className="w-10 h-10 text-white" strokeWidth={1.5} />
             </div>
           </div>
           <h1 className="font-serif text-4xl md:text-6xl font-medium tracking-tight mb-4">
             Notre Dame d'Autan
           </h1>
-          <p className="text-gold-light font-medium mb-4 text-lg">L'identité de notre paroisse</p>
+          <p className="text-gold-light font-medium mb-4 text-lg">Une paroisse, une communauté</p>
           <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto">
-            Découvrez qui nous sommes, notre équipe, notre organisation et notre patrimoine
+            Découvrez l'organisation et la vie de notre paroisse
           </p>
         </div>
       </section>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-
         {/* Sections Grid - Première ligne: 4 colonnes */}
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
           {sections.slice(0, 4).map((section, index) => {
