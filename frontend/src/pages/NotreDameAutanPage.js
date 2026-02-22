@@ -102,7 +102,7 @@ const NotreDameAutanPage = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
         {/* Sections Grid - Première ligne: 4 colonnes */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
           {sections.slice(0, 4).map((section, index) => {
             const IconComponent = section.icon;
             const isEven = index % 2 === 0;
