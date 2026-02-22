@@ -8,6 +8,24 @@ import {
   CircleDollarSign, Wrench, Megaphone, UserPlus, Lightbulb, MessageCircle
 } from 'lucide-react';
 
+// Citations bibliques pour chaque section
+const biblicalQuotes = {
+  eveil: { quote: "Laissez les enfants venir à moi.", reference: "Marc 10, 14" },
+  catechisme: { quote: "Je t'ai gravé sur les paumes de mes mains.", reference: "Isaïe 49, 16" },
+  aumonerie: { quote: "Que personne ne méprise ta jeunesse, mais sois un modèle pour les fidèles.", reference: "1 Timothée 4, 12" },
+  mouvements: { quote: "Chantez au Seigneur un chant nouveau, car il a fait des merveilles.", reference: "Psaume 97, 1" },
+  servants: { quote: "Moi et ma maison, nous servirons le Seigneur.", reference: "Josué 24, 15" },
+  liturgie: { quote: "Chantez au Seigneur un chant nouveau, car il a fait des merveilles.", reference: "Psaume 97, 1" },
+  funerailles: { quote: "Je suis la résurrection et la vie. Celui qui croit en moi vivra.", reference: "Jean 11, 25" },
+  alpha: { quote: "Venez et voyez.", reference: "Jean 1, 39" },
+  groupes: { quote: "Là où deux ou trois sont rassemblés en mon nom, je suis au milieu d'eux.", reference: "Matthieu 18, 20" },
+  meditation: { quote: "Le Seigneur est proche de tous ceux qui l'invoquent avec vérité.", reference: "Psaume 144, 18" },
+  ressources: { quote: "Ta parole est une lampe à mes pieds, une lumière sur mon sentier.", reference: "Psaume 118, 105" },
+  ecoute: { quote: "Consolez, consolez mon peuple.", reference: "Isaïe 40, 1" },
+  malades: { quote: "J'étais malade, et vous m'avez visité.", reference: "Matthieu 25, 36" },
+  entraide: { quote: "Portez les fardeaux les uns des autres.", reference: "Galates 6, 2" },
+};
+
 // Configuration des sections avec vignettes
 const contentConfig = {
   economique: {
