@@ -78,25 +78,25 @@ const clochers = [
     id: 'pompertuzat',
     name: 'Pompertuzat',
     description: 'Belle église avec son clocher-mur',
-    image: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400'
+    image: 'https://customer-assets.emergentagent.com/job_c3efae68-56d0-4924-8ecf-4f7502ce3630/artifacts/54f2vm3r_Eglise-Castanet-Tolosan.jpg'
   },
   {
     id: 'rebigue',
     name: 'Rebigue',
     description: 'Chapelle intimiste et recueillie',
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400'
+    image: 'https://customer-assets.emergentagent.com/job_c3efae68-56d0-4924-8ecf-4f7502ce3630/artifacts/54f2vm3r_Eglise-Castanet-Tolosan.jpg'
   },
   {
     id: 'saint-orens-gameville',
     name: 'Saint-Orens-de-Gameville',
     description: 'Église paroissiale principale',
-    image: 'https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=400'
+    image: 'https://customer-assets.emergentagent.com/job_c3efae68-56d0-4924-8ecf-4f7502ce3630/artifacts/54f2vm3r_Eglise-Castanet-Tolosan.jpg'
   },
   {
     id: 'saint-orens-catala',
     name: 'Saint-Orens (Catala)',
     description: 'Chapelle Notre-Dame de Catala',
-    image: 'https://images.unsplash.com/photo-1519677100203-a0e668c92439?w=400'
+    image: 'https://customer-assets.emergentagent.com/job_c3efae68-56d0-4924-8ecf-4f7502ce3630/artifacts/54f2vm3r_Eglise-Castanet-Tolosan.jpg'
   }
 ];
 
