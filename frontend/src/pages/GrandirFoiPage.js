@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { BookOpen, MessagesSquare, Users, Sparkles, Radio } from 'lucide-react';
+import { BookOpen, MessagesSquare, Users, Sparkles, Radio, Facebook, Instagram } from 'lucide-react';
 
 const sections = [
   {
