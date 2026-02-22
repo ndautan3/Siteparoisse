@@ -131,7 +131,7 @@ const JeSuisNouveauPage = () => {
         </div>
 
         {/* Cards Grid - 4 colonnes sans photos */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {sections.map((section, index) => {
             const IconComponent = section.icon;
             const isEven = index % 2 === 0;
