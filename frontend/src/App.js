@@ -3,6 +3,7 @@ import { Toaster } from 'sonner';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { FloatingButtons } from '@/components/FloatingButtons';
+import { ScrollToTop } from '@/components/ScrollToTop';
 import HomePage from '@/pages/HomePage';
 import HorairesMesses from '@/pages/HorairesMesses';
 import Secretariat from '@/pages/Secretariat';
