@@ -26,33 +26,33 @@ const HorairesMesses = () => {
   return (
     <div className="min-h-screen bg-paper" data-testid="mass-times-page">
       {/* Hero Section with Image */}
-      <div className="relative h-[55vh] overflow-hidden flex items-center justify-center">
+      <section className="relative h-[55vh] flex items-center justify-center">
         {/* Background Image */}
-        <img
-          src="https://customer-assets.emergentagent.com/job_5166d458-aa97-495f-97c0-2fdcfaf2d885/artifacts/dzqa5mxr_Horaires-messes.png"
-          alt="Horaires des Messes"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60"></div>
-        
-        {/* Content */}
-        <div className="relative h-full flex items-center justify-center">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="flex justify-center mb-6">
-              <div className="w-20 h-20 rounded-full bg-gold/90 flex items-center justify-center shadow-xl backdrop-blur-sm">
-                <Bell className="w-10 h-10 text-white" strokeWidth={1.5} />
-              </div>
-            </div>
-            <h1 className="font-serif text-4xl md:text-6xl font-medium tracking-tight leading-tight text-white mb-4" data-testid="page-title">
-              Horaires des Messes
-            </h1>
-            <p className="text-base md:text-lg leading-relaxed text-white/90 max-w-2xl mx-auto">
-              Venez rejoindre notre communauté pour célébrer l'eucharistie
-            </p>
-          </div>
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://customer-assets.emergentagent.com/job_5166d458-aa97-495f-97c0-2fdcfaf2d885/artifacts/dzqa5mxr_Horaires-messes.png"
+            alt="Horaires des Messes"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/20"></div>
         </div>
-      </div>
+
+        {/* Content - with padding to avoid search button overlap */}
+        <div className="relative z-10 text-center text-white px-4 pt-8">
+          <div className="flex justify-center mb-6">
+            <div className="w-20 h-20 rounded-full bg-gold/90 backdrop-blur-sm flex items-center justify-center shadow-lg">
+              <Bell className="w-10 h-10 text-white" strokeWidth={1.5} />
+            </div>
+          </div>
+          <h1 className="font-serif text-4xl md:text-6xl font-medium tracking-tight mb-4" data-testid="page-title">
+            Horaires des Messes
+          </h1>
+          <p className="text-gold-light font-medium mb-4 text-lg">Venez rejoindre notre communauté</p>
+          <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto">
+            Célébrer l'eucharistie ensemble dans la joie et la fraternité
+          </p>
+        </div>
+      </section>
 
       {/* Content Section */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
