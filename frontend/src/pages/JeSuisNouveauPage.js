@@ -71,7 +71,7 @@ const JeSuisNouveauPage = () => {
           </h1>
           <p className="text-gold-light font-medium mb-4 text-lg">Vous êtes nouveau ? Vous êtes chez vous.</p>
           <div className="text-base md:text-lg text-white/90 max-w-2xl mx-auto space-y-1">
-            <p>Quelle que soit votre histoire, votre parcours ou vos questions, notre communauté vous accueille à bras ouverts.</p>
+            <p>Notre communauté vous accueille à bras ouverts, quelle que soit votre histoire.</p>
             <p>Ici, chacun trouve sa place et peut cheminer à son rythme.</p>
           </div>
         </div>
