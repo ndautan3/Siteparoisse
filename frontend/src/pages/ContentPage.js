@@ -164,6 +164,7 @@ Dans la foi en la résurrection du Christ, nous exprimons notre espérance de pa
     subtitle: 'Découvrir la foi',
     description: 'Découvrir ou redécouvrir la foi chrétienne dans un esprit de partage.',
     icon: MessagesSquare,
+    heroImage: 'https://customer-assets.emergentagent.com/job_5e9a982a-920d-4533-b39d-5b30481bb0da/artifacts/epf9qipp_Alpha-catechumenat.png',
     items: [
       { title: 'Parcours Alpha', description: 'Repas, vidéo, échanges conviviaux', icon: MessageCircle },
       { title: 'Catéchuménat', description: 'Pour adultes souhaitant le baptême', icon: Cross },
@@ -175,6 +176,7 @@ Dans la foi en la résurrection du Christ, nous exprimons notre espérance de pa
     subtitle: 'Fraternités & groupes',
     description: 'Échanger, prier et grandir ensemble autour de la Parole.',
     icon: Users,
+    heroImage: 'https://customer-assets.emergentagent.com/job_5e9a982a-920d-4533-b39d-5b30481bb0da/artifacts/i4j1hof6_Groupes-partage.png',
     items: [
       { title: 'Fraternités', description: 'Partage de la Parole et de la vie', icon: Users },
       { title: 'Groupes Pros', description: 'Foi et monde du travail', icon: Building2 },
@@ -187,6 +189,7 @@ Dans la foi en la résurrection du Christ, nous exprimons notre espérance de pa
     subtitle: 'Silence & prière',
     description: 'Entrer dans le silence et la prière contemplative.',
     icon: Sparkles,
+    heroImage: 'https://customer-assets.emergentagent.com/job_5e9a982a-920d-4533-b39d-5b30481bb0da/artifacts/v8c5x8z1_Meditation.png',
     items: [
       { title: 'Méditation silencieuse', description: 'Temps de silence hebdomadaire', icon: Sparkles },
       { title: 'Lectio Divina', description: 'Méditation de la Parole', icon: BookOpen },
@@ -198,6 +201,7 @@ Dans la foi en la résurrection du Christ, nous exprimons notre espérance de pa
     subtitle: 'Livres, médias, liens',
     description: 'Livres, médias et outils pour nourrir votre vie spirituelle.',
     icon: BookOpen,
+    heroImage: 'https://customer-assets.emergentagent.com/job_5e9a982a-920d-4533-b39d-5b30481bb0da/artifacts/h90bs88d_Ressources.png',
     items: [
       { title: 'Librairie religieuse', description: 'Livres, chapelets, icônes', icon: BookOpen },
       { title: 'Médiathèque', description: 'DVD, CD, revues', icon: Tv },
