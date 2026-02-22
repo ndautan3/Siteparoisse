@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Baby, BookOpen, GraduationCap, Users, Cross, Heart } from 'lucide-react';
+import { Baby, BookOpen, GraduationCap, Users, Cross, Heart, Facebook, Instagram } from 'lucide-react';
 
 const sections = [
   {
