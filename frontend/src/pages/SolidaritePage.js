@@ -88,8 +88,8 @@ const SolidaritePage = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
-        {/* Main Sections Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        {/* Main Sections Grid - 3 colonnes */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           {sections.map((section) => {
             const IconComponent = section.icon;
             return (
@@ -99,38 +99,26 @@ const SolidaritePage = () => {
                 className="group"
                 data-testid={`section-card-${section.id}`}
               >
-                <article className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 h-full border border-slate-100 flex flex-col">
-                  {/* Image */}
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    <img
-                      src={section.image}
-                      alt={section.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4">
-                      <div className="w-12 h-12 rounded-full bg-gold flex items-center justify-center shadow-lg">
-                        <IconComponent className="w-6 h-6 text-white" strokeWidth={1.5} />
-                      </div>
-                    </div>
+                <article className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-500 h-full border border-slate-100 flex flex-col hover:-translate-y-1">
+                  {/* Icon */}
+                  <div className="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center mb-4">
+                    <IconComponent className="w-7 h-7 text-gold" strokeWidth={1.5} />
                   </div>
 
                   {/* Content */}
-                  <div className="p-6 flex flex-col flex-grow">
-                    <span className="text-gold text-sm font-medium mb-2">{section.subtitle}</span>
-                    <h3 className="font-serif text-xl text-slate-deep mb-2 group-hover:text-gold transition-colors">
-                      {section.title}
-                    </h3>
-                    <p className="text-slate-600 text-sm leading-relaxed flex-grow">
-                      {section.description}
-                    </p>
-                    
-                    <div className="mt-4 flex items-center text-gold text-sm font-medium group-hover:text-gold-dark transition-colors">
-                      <span>En savoir plus</span>
-                      <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
+                  <span className="text-gold text-sm font-medium mb-1">{section.subtitle}</span>
+                  <h3 className="font-serif text-xl text-slate-deep mb-3 group-hover:text-gold transition-colors">
+                    {section.title}
+                  </h3>
+                  <p className="text-slate-600 text-sm leading-relaxed flex-grow">
+                    {section.description}
+                  </p>
+                  
+                  <div className="mt-4 flex items-center text-gold text-sm font-medium group-hover:text-gold-dark transition-colors">
+                    <span>Découvrir</span>
+                    <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
                   </div>
                 </article>
               </Link>
