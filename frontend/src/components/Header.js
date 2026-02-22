@@ -404,11 +404,11 @@ export const Header = () => {
       <div className="fixed left-1/2 transform -translate-x-1/2 top-[56px] z-[60]" data-testid="search-button-container">
         <button
           onClick={() => setIsSearchOpen(!isSearchOpen)}
-          className="w-14 h-14 rounded-full bg-gold hover:bg-gold-dark text-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center hover:-translate-y-0.5"
+          className="w-14 h-14 rounded-full bg-white hover:bg-slate-50 text-gold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center hover:-translate-y-0.5 border border-slate-200"
           data-testid="search-button"
           aria-label="Rechercher sur le site"
         >
-          <Search className="w-6 h-6" />
+          <Search className="w-6 h-6 text-gold" />
         </button>
       </div>
 
