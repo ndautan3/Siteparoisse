@@ -47,20 +47,30 @@ const sections = [
 const JeSuisNouveauPage = () => {
   return (
     <div className="min-h-screen bg-paper" data-testid="je-suis-nouveau-page">
-      {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-gold/20 via-gold/10 to-paper py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
+      {/* Hero Section with Image */}
+      <div className="relative h-[400px] md:h-[500px] overflow-hidden">
+        {/* Background Image */}
+        <img
+          src="https://customer-assets.emergentagent.com/job_5166d458-aa97-495f-97c0-2fdcfaf2d885/artifacts/4pgv62xu_Nouveau.png"
+          alt="Je suis nouveau"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60"></div>
+        
+        {/* Content */}
+        <div className="relative h-full flex items-center justify-center">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="flex justify-center mb-6">
-              <div className="w-20 h-20 rounded-full bg-gold flex items-center justify-center shadow-lg">
+              <div className="w-20 h-20 rounded-full bg-gold/90 flex items-center justify-center shadow-xl backdrop-blur-sm">
                 <Church className="w-10 h-10 text-white" strokeWidth={1.5} />
               </div>
             </div>
-            <h1 className="font-serif text-4xl md:text-5xl font-medium tracking-tight text-slate-deep mb-4">
+            <h1 className="font-serif text-4xl md:text-5xl font-medium tracking-tight text-white mb-4">
               Bienvenue parmi nous !
             </h1>
-            <p className="text-gold font-medium mb-6 text-lg">Vous êtes nouveau ? Vous êtes chez vous.</p>
-            <p className="text-base md:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-white font-medium mb-4 text-lg">Vous êtes nouveau ? Vous êtes chez vous.</p>
+            <p className="text-base md:text-lg text-white/90 max-w-3xl mx-auto leading-relaxed">
               Quelle que soit votre histoire, votre parcours ou vos questions, notre communauté vous accueille 
               à bras ouverts. Ici, chacun trouve sa place et peut cheminer à son rythme.
             </p>
