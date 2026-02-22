@@ -131,6 +131,16 @@ const Secretariat = () => {
           </form>
         </div>
       </div>
+
+      {/* Citation biblique */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <div className="bg-gradient-to-r from-gold/10 to-gold/5 rounded-2xl p-8 border border-gold/20 text-center">
+          <blockquote className="font-serif text-2xl text-slate-deep italic mb-4">
+            "Quoi que vous fassiez, faites-le de tout votre cœur, comme pour le Seigneur."
+          </blockquote>
+          <p className="text-gold font-medium">Colossiens 3, 23</p>
+        </div>
+      </div>
     </div>
   );
 };
