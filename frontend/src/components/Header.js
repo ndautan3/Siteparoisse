@@ -400,8 +400,8 @@ export const Header = () => {
       )}
       </header>
 
-      {/* Search Button - Overlapping the header */}
-      <div className="fixed left-1/2 transform -translate-x-1/2 top-[52px] z-[60]" data-testid="search-button-container">
+      {/* Search Button - Overlapping the header (hidden on mobile) */}
+      <div className="hidden md:block fixed left-1/2 transform -translate-x-1/2 top-[52px] z-[60]" data-testid="search-button-container">
         <button
           onClick={() => setIsSearchOpen(!isSearchOpen)}
           className="w-11 h-11 rounded-full bg-white hover:bg-slate-50 text-gold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center hover:-translate-y-0.5 border border-slate-200"
