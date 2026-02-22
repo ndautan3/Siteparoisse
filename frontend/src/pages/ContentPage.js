@@ -381,11 +381,74 @@ const ContentPage = ({ section }) => {
 
         {/* Items Grid - Vignettes avec icônes */}
         {config.items && config.items.length > 0 && (
-          <div className={`grid grid-cols-2 ${
-            ['liturgie', 'eveil', 'catechisme', 'aumonerie', 'groupes', 'ressources', 'malades'].includes(section) 
-              ? 'sm:grid-cols-2 lg:grid-cols-4' 
-              : 'sm:grid-cols-2 lg:grid-cols-3'
-          } gap-6 mb-12`}>
+          <>
+            {/* Special layout for entraide section (5 items: 3 + 2 centered) */}
+            {section === 'entraide' ? (
+              <>
+                {/* First row: 3 items */}
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                  {config.items.slice(0, 3).map((item, index) => {
+                    const ItemIcon = item.icon;
+                    return (
+                      <div
+                        key={index}
+                        className="group bg-white rounded-xl p-6 shadow-sm hover:shadow-md border border-slate-100 hover:border-gold/30 transition-all duration-300"
+                        data-testid={`item-card-${index}`}
+                      >
+                        <div className="flex items-start space-x-4">
+                          <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
+                            <ItemIcon className="w-6 h-6 text-gold" strokeWidth={1.5} />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h3 className="font-serif text-lg text-slate-deep mb-1 group-hover:text-gold transition-colors">
+                              {item.title}
+                            </h3>
+                            <p className="text-slate-500 text-sm leading-relaxed">
+                              {item.description}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+                
+                {/* Second row: 2 items centered */}
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 gap-6 mb-12 lg:max-w-3xl lg:mx-auto">
+                  {config.items.slice(3, 5).map((item, idx) => {
+                    const index = idx + 3;
+                    const ItemIcon = item.icon;
+                    return (
+                      <div
+                        key={index}
+                        className="group bg-white rounded-xl p-6 shadow-sm hover:shadow-md border border-slate-100 hover:border-gold/30 transition-all duration-300"
+                        data-testid={`item-card-${index}`}
+                      >
+                        <div className="flex items-start space-x-4">
+                          <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
+                            <ItemIcon className="w-6 h-6 text-gold" strokeWidth={1.5} />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h3 className="font-serif text-lg text-slate-deep mb-1 group-hover:text-gold transition-colors">
+                              {item.title}
+                            </h3>
+                            <p className="text-slate-500 text-sm leading-relaxed">
+                              {item.description}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </>
+            ) : (
+              /* Standard layout for other sections */
+              <div className={`grid grid-cols-2 ${
+                ['liturgie', 'eveil', 'catechisme', 'aumonerie', 'groupes', 'ressources', 'malades'].includes(section) 
+                  ? 'sm:grid-cols-2 lg:grid-cols-4' 
+                  : 'sm:grid-cols-2 lg:grid-cols-3'
+              } gap-6 mb-12`}>
             {config.items.map((item, index) => {
               const ItemIcon = item.icon;
               return (
