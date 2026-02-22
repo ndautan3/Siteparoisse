@@ -16,6 +16,7 @@ import FamillesJeunessePage from '@/pages/FamillesJeunessePage';
 import VieSpirituelePage from '@/pages/VieSpirituelePage';
 import GrandirFoiPage from '@/pages/GrandirFoiPage';
 import SolidaritePage from '@/pages/SolidaritePage';
+import VieEconomiquePage from '@/pages/VieEconomiquePage';
 
 // Sub-pages with cards
 import EquipePastoralePage from '@/pages/EquipePastoralePage';
