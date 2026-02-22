@@ -40,6 +40,7 @@ const contentConfig = {
     subtitle: '3-7 ans',
     description: 'Premiers pas dans la foi chrétienne pour les tout-petits et leurs familles.',
     icon: Baby,
+    heroImage: 'https://customer-assets.emergentagent.com/job_5e9a982a-920d-4533-b39d-5b30481bb0da/artifacts/6dnxwubq_Eveil-foi.png',
     items: [
       { title: 'Rencontres mensuelles', description: 'Le dimanche après la messe', icon: CalendarHeart },
       { title: 'Contes et histoires', description: 'Découvrir la Bible en s\'amusant', icon: BookOpen },
@@ -52,6 +53,7 @@ const contentConfig = {
     subtitle: 'CE2 à 6ème',
     description: 'Découvrir Jésus et grandir dans la foi en communauté.',
     icon: BookOpen,
+    heroImage: 'https://customer-assets.emergentagent.com/job_5e9a982a-920d-4533-b39d-5b30481bb0da/artifacts/fd1bsyn9_Catechisme.png',
     items: [
       { title: 'CE2', description: 'Découverte de Jésus', icon: Star },
       { title: 'CM1', description: 'Préparation à la communion', icon: Heart },
@@ -64,6 +66,7 @@ const contentConfig = {
     subtitle: 'Collégiens & lycéens',
     description: 'Un lieu pour les jeunes de grandir ensemble dans la foi.',
     icon: GraduationCap,
+    heroImage: 'https://customer-assets.emergentagent.com/job_5e9a982a-920d-4533-b39d-5b30481bb0da/artifacts/z84pw136_Aumonerie.png',
     items: [
       { title: 'Aumônerie Collège', description: '5ème - 3ème', icon: Users },
       { title: 'Aumônerie Lycée', description: 'Seconde - Terminale', icon: GraduationCap },
@@ -76,6 +79,7 @@ const contentConfig = {
     subtitle: 'Scouts, MEJ, Patronage',
     description: 'Activités, partage et service dans un esprit chrétien.',
     icon: Compass,
+    heroImage: 'https://customer-assets.emergentagent.com/job_5e9a982a-920d-4533-b39d-5b30481bb0da/artifacts/4ufmdwhr_Mouvements.png',
     items: [
       { title: 'Scouts et Guides de France', description: 'Activités de plein air, camps, service', icon: Tent },
       { title: 'MEJ', description: 'Mouvement Eucharistique des Jeunes', icon: Heart },
@@ -87,6 +91,7 @@ const contentConfig = {
     subtitle: 'Service liturgique',
     description: 'Se mettre au service de la liturgie et répondre à l\'appel.',
     icon: Cross,
+    heroImage: 'https://customer-assets.emergentagent.com/job_5e9a982a-920d-4533-b39d-5b30481bb0da/artifacts/vz77gtcm_Servants-vocations.png',
     items: [
       { title: 'Servants d\'autel', description: 'Service à l\'autel pendant la messe', icon: Star },
       { title: 'Formation', description: 'Apprentissage du service liturgique', icon: BookOpen },
