@@ -101,9 +101,9 @@ const NotreDameAutanPage = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
-        {/* Sections Grid - 4 colonnes */}
+        {/* Sections Grid - 4 colonnes pour ligne 1, 3 colonnes centrées pour ligne 2 */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {sections.map((section, index) => {
+          {sections.slice(0, 4).map((section, index) => {
             const IconComponent = section.icon;
             const isEven = index % 2 === 0;
             return (
@@ -113,7 +113,45 @@ const NotreDameAutanPage = () => {
                 className="group"
                 data-testid={`section-card-${section.id}`}
               >
-                <article className={`${isEven ? 'bg-white' : 'bg-gold/5'} rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-500 h-full border ${isEven ? 'border-slate-100' : 'border-gold/20'} flex flex-col hover:-translate-y-1 ${index === 4 ? 'lg:col-start-2' : ''}`}>
+                <article className={`${isEven ? 'bg-white' : 'bg-gold/5'} rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-500 h-full border ${isEven ? 'border-slate-100' : 'border-gold/20'} flex flex-col hover:-translate-y-1`}>
+                  {/* Icon */}
+                  <div className="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center mb-4">
+                    <IconComponent className="w-7 h-7 text-gold" strokeWidth={1.5} />
+                  </div>
+
+                  {/* Content */}
+                  <span className="text-gold text-sm font-medium mb-1">{section.subtitle}</span>
+                  <h3 className="font-serif text-lg text-slate-deep mb-2 group-hover:text-gold transition-colors">
+                    {section.title}
+                  </h3>
+                  <p className="text-slate-600 text-sm leading-relaxed flex-grow">
+                    {section.description}
+                  </p>
+                  
+                  <div className="mt-4 flex items-center text-gold text-sm font-medium group-hover:text-gold-dark transition-colors">
+                    <span>Découvrir</span>
+                    <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </article>
+              </Link>
+            );
+          })}
+          
+          {/* Ligne 2: 3 dernières vignettes centrées */}
+          {sections.slice(4, 7).map((section, idx) => {
+            const index = idx + 4;
+            const IconComponent = section.icon;
+            const isEven = index % 2 === 0;
+            return (
+              <Link
+                key={section.id}
+                to={section.path}
+                className={`group ${idx === 0 ? 'lg:col-start-2' : ''}`}
+                data-testid={`section-card-${section.id}`}
+              >
+                <article className={`${isEven ? 'bg-white' : 'bg-gold/5'} rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-500 h-full border ${isEven ? 'border-slate-100' : 'border-gold/20'} flex flex-col hover:-translate-y-1`}>
                   {/* Icon */}
                   <div className="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center mb-4">
                     <IconComponent className="w-7 h-7 text-gold" strokeWidth={1.5} />
