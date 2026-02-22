@@ -221,13 +221,13 @@ export const Header = () => {
 
           {/* CTA Button Desktop + Mobile action buttons */}
           <div className="flex items-center space-x-2 sm:space-x-4">
-            {/* Desktop: HORAIRES DES MESSES button */}
+            {/* Desktop: Horaires des messes button */}
             <Link
               to="/horaires-messes"
-              className="hidden lg:block bg-gold hover:bg-gold-dark text-white font-serif tracking-wide px-6 py-2 rounded-md shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
+              className="hidden lg:block bg-gold hover:bg-gold-dark text-white font-medium px-6 py-2.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
               data-testid="mass-times-button"
             >
-              HORAIRES DES MESSES
+              Horaires des messes
             </Link>
 
             {/* Mobile: Phone + Donate + Horaires buttons */}
