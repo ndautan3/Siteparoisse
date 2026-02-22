@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Menu, X, Church, Heart, Users, BookOpen, HandHeart, ChevronDown, Phone } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Menu, X, Church, Heart, Users, BookOpen, HandHeart, ChevronDown, Phone, Search } from 'lucide-react';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -8,6 +8,58 @@ export const Header = () => {
   const [closeTimeout, setCloseTimeout] = useState(null);
   const [showJeVeuxMenu, setShowJeVeuxMenu] = useState(false);
   const [openMobileSections, setOpenMobileSections] = useState([]);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate();
+
+  // Search data - all searchable pages
+  const searchablePages = [
+    { title: 'Accueil', path: '/', keywords: 'accueil bienvenue paroisse' },
+    { title: 'Horaires des messes', path: '/horaires-messes', keywords: 'messe horaires dimanche semaine' },
+    { title: 'Secrétariat & Coordonnées', path: '/secretariat', keywords: 'contact téléphone adresse secrétariat' },
+    { title: "Notre Dame d'Autan", path: '/notre-dame-autan', keywords: 'paroisse identité' },
+    { title: 'Équipe Pastorale', path: '/equipe-pastorale', keywords: 'prêtre curé diacre équipe' },
+    { title: 'Vie Économique', path: '/vie-economique', keywords: 'denier don finances' },
+    { title: 'Nos Clochers', path: '/nos-clochers', keywords: 'églises clochers patrimoine' },
+    { title: 'Services Transverses', path: '/services-transverses', keywords: 'communication accueil' },
+    { title: 'Familles & Jeunesse', path: '/familles-jeunesse', keywords: 'famille jeunes enfants' },
+    { title: 'Éveil à la Foi', path: '/eveil-foi', keywords: 'éveil foi petits enfants' },
+    { title: 'Catéchisme', path: '/catechisme', keywords: 'catéchisme enfants communion' },
+    { title: 'Aumônerie', path: '/aumonerie', keywords: 'aumônerie collège lycée jeunes' },
+    { title: 'Mouvements de Jeunesse', path: '/mouvements', keywords: 'scouts MEJ patronage' },
+    { title: "Servants d'autel & Vocations", path: '/servants-vocations', keywords: 'servants autel vocations' },
+    { title: 'Demander un Sacrement', path: '/demander-sacrement', keywords: 'sacrement baptême mariage' },
+    { title: 'Baptême', path: '/sacrements/bapteme', keywords: 'baptême sacrement' },
+    { title: 'Première Communion', path: '/sacrements/premiere-communion', keywords: 'communion eucharistie' },
+    { title: 'Confirmation', path: '/sacrements/confirmation', keywords: 'confirmation sacrement' },
+    { title: 'Réconciliation', path: '/sacrements/reconciliation', keywords: 'confession réconciliation pardon' },
+    { title: 'Mariage', path: '/sacrements/mariage', keywords: 'mariage sacrement' },
+    { title: 'Sacrement des Malades', path: '/sacrements/malades', keywords: 'malades onction sacrement' },
+    { title: 'Liturgie & Musique', path: '/liturgie-musique', keywords: 'liturgie musique chorale' },
+    { title: 'Funérailles', path: '/funerailles', keywords: 'funérailles obsèques décès' },
+    { title: 'Grandir dans la Foi', path: '/grandir-foi', keywords: 'foi formation spiritualité' },
+    { title: 'Parcours Alpha', path: '/alpha-catechumenat', keywords: 'alpha catéchuménat découvrir foi' },
+    { title: 'Groupes de partage', path: '/groupes-partage', keywords: 'groupes partage fraternité' },
+    { title: 'Méditation chrétienne', path: '/meditation', keywords: 'méditation prière silence' },
+    { title: 'Ressources', path: '/ressources', keywords: 'ressources livres médias' },
+    { title: 'Solidarité & Écoute', path: '/solidarite', keywords: 'solidarité écoute entraide' },
+    { title: "Service d'écoute", path: '/service-ecoute', keywords: 'écoute accompagnement' },
+    { title: 'Visite des malades', path: '/visite-malades', keywords: 'malades visite SEM' },
+    { title: 'Entraide', path: '/entraide', keywords: 'entraide secours catholique' },
+  ];
+
+  const filteredResults = searchQuery.length > 1 
+    ? searchablePages.filter(page => 
+        page.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        page.keywords.toLowerCase().includes(searchQuery.toLowerCase())
+      ).slice(0, 6)
+    : [];
+
+  const handleSearchSelect = (path) => {
+    setIsSearchOpen(false);
+    setSearchQuery('');
+    navigate(path);
+  };
 
   // Toggle mobile section
   const toggleMobileSection = (sectionTitle) => {
