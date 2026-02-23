@@ -1,5 +1,6 @@
-import { X, ExternalLink, Clock, Tv, Film, Award, Headphones, Phone, MapPin, Users, Calendar, Heart } from 'lucide-react';
+import { X, ExternalLink, Clock, Tv, Film, Award, Headphones, Phone, MapPin, Users, Calendar, Heart, Church, Lightbulb } from 'lucide-react';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const ResourceModal = ({ isOpen, onClose, resource }) => {
   useEffect(() => {
