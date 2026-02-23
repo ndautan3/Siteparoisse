@@ -275,6 +275,110 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
             </div>
           )}
 
+          {/* Meditation Content */}
+          {meditationContent && (
+            <div className="space-y-5">
+              {/* Paragraphes */}
+              {meditationContent.paragraphes && meditationContent.paragraphes.map((para, idx) => (
+                <p key={idx} className="text-slate-600 leading-relaxed">{para}</p>
+              ))}
+
+              {/* Intro (Lectio Divina) */}
+              {meditationContent.intro && (
+                <p className="text-slate-600 leading-relaxed">{meditationContent.intro}</p>
+              )}
+
+              {/* Piliers de la Lectio Divina */}
+              {meditationContent.piliers && (
+                <div className="space-y-4">
+                  <h3 className="font-serif text-xl text-slate-deep">{meditationContent.piliers.titre}</h3>
+                  <p className="text-slate-600 italic">{meditationContent.piliers.sousTitre}</p>
+                  <div className="space-y-3">
+                    {meditationContent.piliers.etapes.map((etape, idx) => (
+                      <div key={idx} className="bg-slate-50 rounded-xl p-4">
+                        <h4 className="font-semibold text-gold mb-1">{etape.nom}</h4>
+                        <p className="text-sm text-slate-600">{etape.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Pourquoi pratiquer */}
+              {meditationContent.pourquoi && (
+                <div className="bg-gold/5 rounded-xl p-5 border border-gold/20">
+                  <h4 className="font-serif text-lg text-slate-deep mb-2">{meditationContent.pourquoi.titre}</h4>
+                  <p className="text-slate-600 mb-3">{meditationContent.pourquoi.description}</p>
+                  <ul className="space-y-1">
+                    {meditationContent.pourquoi.points.map((point, idx) => (
+                      <li key={idx} className="text-slate-600 flex items-start text-sm">
+                        <span className="text-gold mr-2">•</span>
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Anecdote */}
+              {meditationContent.anecdote && (
+                <div className="bg-slate-50 rounded-xl p-4 flex items-start space-x-3">
+                  <Lightbulb className="w-5 h-5 text-gold mt-0.5 flex-shrink-0" />
+                  <p className="text-sm text-slate-600 italic">Le saviez-vous ? {meditationContent.anecdote}</p>
+                </div>
+              )}
+
+              {/* Comment commencer */}
+              {meditationContent.commencer && (
+                <div className="space-y-3">
+                  <h4 className="font-serif text-lg text-slate-deep">{meditationContent.commencer.titre}</h4>
+                  <p className="text-slate-600">{meditationContent.commencer.description}</p>
+                  <ol className="space-y-2">
+                    {meditationContent.commencer.conseils.map((conseil, idx) => (
+                      <li key={idx} className="text-slate-600 flex items-start text-sm">
+                        <span className="text-gold font-bold mr-2">{idx + 1}.</span>
+                        {conseil}
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              )}
+
+              {/* Horaires d'adoration */}
+              {meditationContent.horaires && meditationContent.horaires.length > 0 && (
+                <div className="space-y-3">
+                  <h4 className="font-serif text-lg text-slate-deep flex items-center">
+                    <Clock className="w-5 h-5 mr-2 text-gold" />
+                    Horaires d'adoration
+                  </h4>
+                  {meditationContent.horaires.map((item, idx) => (
+                    <div key={idx} className="bg-slate-50 rounded-xl p-4">
+                      <h5 className="font-semibold text-slate-deep mb-1">{item.lieu}</h5>
+                      <p className="text-sm text-slate-600">{item.horaire}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Conclusion */}
+              {meditationContent.conclusion && (
+                <p className="text-slate-600 leading-relaxed font-medium">{meditationContent.conclusion}</p>
+              )}
+
+              {/* Bouton vers les clochers */}
+              {meditationContent.boutonClochers && (
+                <Link
+                  to="/nos-clochers"
+                  onClick={onClose}
+                  className="inline-flex items-center bg-gold hover:bg-gold-dark text-white px-6 py-3 rounded-full font-medium transition-colors shadow-lg hover:shadow-xl"
+                >
+                  <Church className="w-5 h-5 mr-2" />
+                  Horaires de nos églises
+                </Link>
+              )}
+            </div>
+          )}
+
           {/* Podcasts list */}
           {resource.podcasts && resource.podcasts.length > 0 && (
             <div className="space-y-4">
