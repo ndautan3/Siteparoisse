@@ -229,7 +229,7 @@ Dans la foi en la résurrection du Christ, nous exprimons notre espérance de pa
     ]
   },
   groupes: {
-    title: 'Groupes de Partage',
+    title: 'Groupes de Partage et de Prière',
     subtitle: 'Fraternités & groupes de prière',
     description: 'Échanger, prier et grandir ensemble autour de la Parole.',
     icon: Users,
