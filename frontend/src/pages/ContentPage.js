@@ -360,6 +360,28 @@ Dans la foi en la résurrection du Christ, nous exprimons notre espérance de pa
     description: 'Porter la présence du Christ auprès des personnes malades et âgées.',
     icon: Stethoscope,
     heroImage: 'https://customer-assets.emergentagent.com/job_5e9a982a-920d-4533-b39d-5b30481bb0da/artifacts/b1uzu3oc_Visite-malades.png',
+    semContent: {
+      intro: 'Le Service Évangélique des Malades (SEM) a pour vocation de visiter et accompagner les personnes malades ou âgées qui sont à leur domicile ou en maison de retraite. Il est au service de toutes les personnes malades qui le désirent, quels que soient leur âge, leur maladie ou leur handicap, leur foi.',
+      engagements: {
+        title: 'Les membres des équipes du SEM s\'engagent à :',
+        items: [
+          'Visiter et accompagner les personnes malades régulièrement pour leur apporter le réconfort d\'une présence amicale, d\'une écoute bienveillante.',
+          'Un soutien pour vivre les difficultés de la maladie, de la souffrance, de la solitude...',
+          'Les maintenir en lien avec ce qui se passe dans le monde, la cité, la paroisse...',
+          'Les amener, avec tact et respect de leur liberté, à s\'ouvrir au Seigneur, à cheminer avec Lui dans la prière et, s\'ils le demandent, à Le recevoir dans les sacrements.',
+          'Rendre attentive la communauté chrétienne à la présence des personnes malades, être « éveilleurs » pour rendre d\'autres membres attentifs aux malades.'
+        ]
+      },
+      contacts: [
+        { lieu: 'Castanet', phone: '07 68 88 92 11' },
+        { lieu: 'Saint-Orens', phone: '06 87 43 72 30' }
+      ],
+      aumoneries: {
+        title: 'Aumôneries des cliniques et des hôpitaux',
+        description: 'Voir toutes les coordonnées sur le site du diocèse de Toulouse',
+        url: 'https://toulouse.catholique.fr/diocese/services/diaconie/aumoneries-hopitaux/'
+      }
+    },
     items: [
       { title: 'Visites à domicile', description: 'Auprès des personnes isolées', icon: Home },
       { title: 'Visites en EHPAD', description: 'Présence en maison de retraite', icon: Building2 },
