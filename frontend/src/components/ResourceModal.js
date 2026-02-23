@@ -1,4 +1,4 @@
-import { X, ExternalLink } from 'lucide-react';
+import { X, ExternalLink, Clock } from 'lucide-react';
 import { useEffect } from 'react';
 
 const ResourceModal = ({ isOpen, onClose, resource }) => {
@@ -27,7 +27,7 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
             <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center">
               {resource.icon && <resource.icon className="w-6 h-6 text-gold" />}
             </div>
-            <h2 className="font-serif text-2xl text-slate-deep">{resource.title}</h2>
+            <h2 className="font-serif text-2xl text-slate-deep">{resource.modalTitle || resource.title}</h2>
           </div>
           <button
             onClick={onClose}
@@ -44,6 +44,37 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
           {resource.modalDescription && (
             <div className="text-slate-600 leading-relaxed">
               {resource.modalDescription}
+            </div>
+          )}
+
+          {/* Features list (for librairie, etc.) */}
+          {resource.features && resource.features.length > 0 && (
+            <div className="space-y-4">
+              <h3 className="font-serif text-lg text-slate-deep">Ce que vous y trouverez :</h3>
+              {resource.features.map((feature, index) => (
+                <div key={index} className="bg-slate-50 rounded-xl p-4">
+                  <h4 className="font-semibold text-slate-deep mb-1">{feature.title}</h4>
+                  <p className="text-sm text-slate-600">{feature.description}</p>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Quote */}
+          {resource.quote && (
+            <blockquote className="border-l-4 border-gold pl-4 py-2 italic text-slate-600 bg-gold/5 rounded-r-lg">
+              "{resource.quote}"
+            </blockquote>
+          )}
+
+          {/* Horaires */}
+          {resource.horaires && (
+            <div className="flex items-start space-x-3 bg-slate-50 rounded-xl p-4">
+              <Clock className="w-5 h-5 text-gold mt-0.5 flex-shrink-0" />
+              <div>
+                <h4 className="font-semibold text-slate-deep mb-1">Horaires d'ouverture</h4>
+                <p className="text-sm text-slate-600">{resource.horaires}</p>
+              </div>
             </div>
           )}
 
