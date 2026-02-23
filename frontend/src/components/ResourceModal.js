@@ -41,11 +41,11 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
   return (
     <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm" onClick={onClose}>
       <div 
-        className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+        className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header */}
-        <div className="sticky top-0 z-10 rounded-t-2xl overflow-hidden">
+        {/* Header — fixe, hors scroll */}
+        <div className="flex-shrink-0 rounded-t-2xl overflow-hidden">
           <div className={`p-6 flex items-center justify-between ${entraideContent ? 'bg-gradient-to-r from-[#93B5B7] to-[#7da4a6]' : 'bg-white border-b border-gold/20 shadow-sm'}`}>
             <div className="flex items-center space-x-3">
               <div className={`w-12 h-12 rounded-full flex items-center justify-center ${entraideContent ? 'bg-white/15' : 'bg-gold/10'}`}>
@@ -63,8 +63,8 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
           </div>
         </div>
 
-        {/* Content */}
-        <div className="p-6 space-y-6">
+        {/* Content — zone scrollable intérieure */}
+        <div className="flex-1 overflow-y-auto p-6 space-y-6">
           {/* Description */}
           {resource.modalDescription && (
             <div className={`leading-relaxed rounded-xl p-4 ${entraideContent ? 'bg-gradient-to-br from-[#fdf6f5] to-[#f9f1ef] text-slate-700 border border-gold/20 text-[15px]' : 'text-slate-600'}`}>
