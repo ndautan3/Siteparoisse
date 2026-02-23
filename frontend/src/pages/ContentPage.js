@@ -527,25 +527,47 @@ const ContentPage = ({ section }) => {
               } gap-6 mb-12`}>
             {config.items.map((item, index) => {
               const ItemIcon = item.icon;
+              const isClickable = section === 'ressources';
+              
+              const cardContent = (
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
+                    <ItemIcon className="w-6 h-6 text-gold" strokeWidth={1.5} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-serif text-lg text-slate-deep mb-1 group-hover:text-gold transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              );
+
+              if (isClickable) {
+                return (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      setSelectedResource(item);
+                      setIsModalOpen(true);
+                    }}
+                    className="group bg-white rounded-xl p-6 shadow-sm hover:shadow-md border border-slate-100 hover:border-gold/30 transition-all duration-300 text-left w-full cursor-pointer"
+                    data-testid={`item-card-${index}`}
+                  >
+                    {cardContent}
+                  </button>
+                );
+              }
+
               return (
                 <div
                   key={index}
                   className="group bg-white rounded-xl p-6 shadow-sm hover:shadow-md border border-slate-100 hover:border-gold/30 transition-all duration-300"
                   data-testid={`item-card-${index}`}
                 >
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
-                      <ItemIcon className="w-6 h-6 text-gold" strokeWidth={1.5} />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-serif text-lg text-slate-deep mb-1 group-hover:text-gold transition-colors">
-                        {item.title}
-                      </h3>
-                      <p className="text-slate-500 text-sm leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
+                  {cardContent}
                 </div>
               );
             })}
