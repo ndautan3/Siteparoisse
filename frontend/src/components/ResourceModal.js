@@ -559,7 +559,7 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
                   {entraideContent.teams.map((team, index) => (
                     <div key={index} className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
                       {/* En-tête de l'équipe */}
-                      <div className="bg-gradient-to-r from-slate-700 to-slate-600 px-5 py-3 flex items-center space-x-3">
+                      <div className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] px-5 py-3 flex items-center space-x-3">
                         <div className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center">
                           <Users className="w-4 h-4 text-white" />
                         </div>
