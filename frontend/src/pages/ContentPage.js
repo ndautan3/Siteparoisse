@@ -245,7 +245,38 @@ Dans la foi en la résurrection du Christ, nous exprimons notre espérance de pa
         title: 'Médiathèque', 
         description: 'Films, séries, revues', 
         icon: Tv,
-        modalDescription: 'Notre médiathèque propose une sélection de films, séries et revues spirituelles disponibles pour enrichir votre foi et votre réflexion.',
+        modalTitle: 'Médiathèque - Films, Séries & Documentaires',
+        modalDescription: 'Découvrez notre sélection de films, séries et documentaires pour nourrir votre foi et votre réflexion spirituelle.',
+        sections: [
+          {
+            title: 'Séries incontournables',
+            icon: 'tv',
+            items: [
+              { name: 'The Chosen (Saison 5)', description: 'La série phénomène sur la vie de Jésus continue. La saison 5, centrée sur la Semaine Sainte à Jérusalem, est sortie fin 2025 et arrive sur les écrans français (CSTAR, DVD). C\'est l\'outil d\'évangélisation n°1 actuel.' },
+              { name: 'Testament : L\'histoire de Moïse', description: 'Netflix, 2024 - Une mini-série documentaire et dramatique qui retrace la vie du prophète avec un regard historique et spirituel.' },
+              { name: 'House of David', description: '2025 - Une nouvelle série épique retraçant l\'ascension du roi David, produite par Jon Erwin.' }
+            ]
+          },
+          {
+            title: 'Films récents & à venir (2025-2026)',
+            icon: 'film',
+            items: [
+              { name: 'David', description: 'Sortie France : 18 mars 2026 - Un film d\'animation épique d\'Angel Studios (ceux qui ont fait The Chosen). Un projet magnifique sur la vie du jeune berger devenu roi.' },
+              { name: 'Je suis l\'Immaculée Conception', description: 'Sortie : 8 décembre 2025 - Un film de Saje Distribution parfait pour les fêtes de fin d\'année, revenant sur le message de Lourdes.' },
+              { name: 'Nefarious', description: 'Sortie France : 28 mars 2025 - Un thriller spirituel percutant sur le combat entre le bien et le mal, sous la forme d\'un face-à-face entre un psychiatre et un condamné à mort possédé.' },
+              { name: 'Sacré Cœur', description: '2025 - Un film dédié à la dévotion au Cœur de Jésus, actuellement mis en avant dans les réseaux de distribution chrétiens.' }
+            ]
+          },
+          {
+            title: 'Documentaires & Cinéma d\'auteur',
+            icon: 'award',
+            items: [
+              { name: 'Les 21 : La puissance de la foi', description: 'Prix Père Jacques Hamel 2025 - Un documentaire bouleversant sur le courage des 21 martyrs coptes en Libye.' },
+              { name: 'Sacerdoce', description: '2023/2024 - Un documentaire magnifique de Damien Boyer qui suit cinq prêtres dans leur quotidien. Idéal pour parler des vocations.' },
+              { name: 'L\'Évangile de la Révolution', description: 'Prix "Croire au cinéma" 2026 - Une œuvre remarquée pour son approche humaniste et spirituelle.' }
+            ]
+          }
+        ]
       },
       { 
         title: 'Sites recommandés', 
