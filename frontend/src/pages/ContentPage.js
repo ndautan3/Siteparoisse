@@ -242,6 +242,21 @@ Dans la foi en la résurrection du Christ, nous exprimons notre espérance de pa
         linkTo: '/entraide#content'
       },
       { 
+        title: 'Croire Aujourd\'hui ?', 
+        description: 'Échanger sur la foi et nos questions', 
+        icon: MessageCircle,
+        modalTitle: 'Croire en Dieu aujourd\'hui ?',
+        modalDescription: 'Notre société vit des temps de questionnements profonds. Est-il réaliste de croire en Dieu aujourd\'hui ? Comment, si Dieu existe, permet-il toutes les horreurs commises en son nom ?',
+        groupeContent: {
+          description: 'Ces questions (et beaucoup d\'autres) sont légitimes et doivent être explorées. C\'est pourquoi un petit groupe de chrétiens locaux invite les personnes que la réalité de Dieu interroge à échanger pour chercher des réponses.',
+          invitation: 'Partageons avec vous nos points de vue, nos expériences, notre espérance. Il n\'y aucun autre prérequis, ni d\'âge ni de baptême, que celui de vouloir s\'interroger sur Dieu.',
+          horaires: [
+            'Nous nous réunissons dans l\'église de Deyme, le premier jeudi du mois (20h-22h)'
+          ],
+          contact: 'croireaujourdhui@gmail.com'
+        }
+      },
+      { 
         title: 'Prière des Mères', 
         description: 'Prier ensemble pour nos enfants', 
         icon: Heart,
