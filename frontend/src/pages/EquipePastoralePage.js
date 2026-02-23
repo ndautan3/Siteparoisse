@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Users, User, BookOpen, Heart } from 'lucide-react';
+import { SocialIcons } from '@/components/SocialIcons';
 
 const teamMembers = [
   {
@@ -63,6 +64,8 @@ const EquipePastoralePage = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/20"></div>
         </div>
+
+        <SocialIcons />
 
         {/* Content - with padding to avoid search button overlap */}
         <div className="relative z-10 text-center text-white px-4 pt-8">
