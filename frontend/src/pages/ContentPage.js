@@ -625,6 +625,76 @@ const ContentPage = ({ section }) => {
         </div>
         )}
 
+        {/* SEM Content - Only for malades page */}
+        {section === 'malades' && config.semContent && (
+          <div className="mb-12 space-y-8">
+            {/* Introduction */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+              <p className="text-slate-600 leading-relaxed text-lg">
+                {config.semContent.intro}
+              </p>
+            </div>
+
+            {/* Engagements */}
+            {config.semContent.engagements && (
+              <div className="bg-gold/5 rounded-2xl p-8 border border-gold/20">
+                <h3 className="font-serif text-xl text-slate-deep mb-4">
+                  {config.semContent.engagements.title}
+                </h3>
+                <ul className="space-y-3">
+                  {config.semContent.engagements.items.map((item, idx) => (
+                    <li key={idx} className="flex items-start text-slate-600">
+                      <span className="text-gold mr-3 mt-1">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Contacts bénévoles */}
+            {config.semContent.contacts && (
+              <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
+                <h3 className="font-serif text-xl text-slate-deep mb-6">
+                  Contacter nos bénévoles
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {config.semContent.contacts.map((contact, idx) => (
+                    <div key={idx} className="flex items-center space-x-3 bg-slate-50 rounded-xl p-4">
+                      <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center">
+                        <Phone className="w-5 h-5 text-gold" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-slate-deep">À {contact.lieu}</p>
+                        <p className="text-gold font-medium">{contact.phone}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Aumôneries */}
+            {config.semContent.aumoneries && (
+              <div className="bg-slate-50 rounded-2xl p-8">
+                <h3 className="font-serif text-xl text-slate-deep mb-3">
+                  {config.semContent.aumoneries.title}
+                </h3>
+                <p className="text-slate-600 mb-4">{config.semContent.aumoneries.description}</p>
+                <a
+                  href={config.semContent.aumoneries.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center bg-gold hover:bg-gold-dark text-white px-6 py-3 rounded-full font-medium transition-colors shadow-lg hover:shadow-xl"
+                >
+                  <ExternalLink className="w-5 h-5 mr-2" />
+                  Voir les coordonnées
+                </a>
+              </div>
+            )}
+          </div>
+        )}
+
         {/* Items Grid - Vignettes avec icônes */}
         {config.items && config.items.length > 0 && (
           <>
