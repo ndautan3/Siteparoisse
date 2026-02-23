@@ -939,7 +939,7 @@ const ContentPage = ({ section }) => {
               } gap-6 mb-12`}>
             {config.items.map((item, index) => {
               const ItemIcon = item.icon;
-              const isClickable = section === 'ressources' || section === 'alpha' || section === 'groupes';
+              const isClickable = section === 'ressources' || section === 'alpha' || section === 'groupes' || section === 'meditation';
               const hasLink = item.linkTo;
               
               const cardContent = (
