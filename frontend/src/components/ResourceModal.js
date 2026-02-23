@@ -615,7 +615,7 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               {(entraideContent.lieu || entraideContent.permanences) && (
                 <div className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
                   {entraideContent.lieu && (
-                    <div className="bg-gradient-to-r from-slate-700 to-slate-600 px-5 py-3">
+                    <div className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] px-5 py-3">
                       <div className="flex items-center space-x-2">
                         <MapPin className="w-4 h-4 text-gold/80" />
                         <span className="text-white font-medium text-sm">{entraideContent.lieu}</span>
