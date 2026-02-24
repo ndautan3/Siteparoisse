@@ -221,49 +221,51 @@ const EquipePastoralePage = () => {
 
       {/* Modal Curé */}
       <Dialog open={modalOpen && modalType === 'cure'} onOpenChange={setModalOpen}>
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
-          <DialogHeader className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] -m-6 mb-0 px-6 py-4">
+        <DialogContent className="max-w-2xl p-0 overflow-hidden">
+          <DialogHeader className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] px-6 py-4">
             <DialogTitle className="font-serif text-xl text-white">Le Curé</DialogTitle>
           </DialogHeader>
           
-          <div className="space-y-6 pt-6">
-            <div className="flex flex-col sm:flex-row gap-6">
-              <div className="sm:w-1/3 flex-shrink-0">
-                <img 
-                  src={cureData.image} 
-                  alt={cureData.name}
-                  className="w-full aspect-square object-cover rounded-xl"
-                />
+          <div className="max-h-[70vh] overflow-y-auto px-6 py-6">
+            <div className="space-y-6">
+              <div className="flex flex-col sm:flex-row gap-6 items-center sm:items-start">
+                <div className="w-32 h-32 flex-shrink-0">
+                  <img 
+                    src={cureData.image} 
+                    alt={cureData.name}
+                    className="w-full h-full object-cover rounded-full border-4 border-[#93B5B7]/20"
+                  />
+                </div>
+                <div className="text-center sm:text-left">
+                  <span className="inline-block bg-gold/10 text-gold px-3 py-1 rounded-full text-sm font-medium mb-3">
+                    Curé de la paroisse
+                  </span>
+                  <h3 className="font-serif text-2xl text-slate-deep mb-2">{cureData.name}</h3>
+                  <p className="text-[#93B5B7] font-medium">{cureData.role}</p>
+                </div>
               </div>
-              <div className="sm:w-2/3">
-                <span className="inline-block bg-gold/10 text-gold px-3 py-1 rounded-full text-sm font-medium mb-3">
-                  Curé de la paroisse
-                </span>
-                <h3 className="font-serif text-2xl text-slate-deep mb-2">{cureData.name}</h3>
-                <p className="text-[#93B5B7] font-medium">{cureData.role}</p>
-              </div>
-            </div>
 
-            <div className="space-y-4">
-              {cureData.description.split('\n\n').map((para, idx) => (
-                <p key={idx} className="text-slate-600 leading-relaxed">
-                  {para}
+              <div className="space-y-4">
+                {cureData.description.split('\n\n').map((para, idx) => (
+                  <p key={idx} className="text-slate-600 leading-relaxed">
+                    {para}
+                  </p>
+                ))}
+              </div>
+
+              <div className="pt-4 border-t border-slate-100">
+                <p className="text-slate-600 mb-4">
+                  Pour contacter le Père Daniel, vous pouvez passer par le secrétariat paroissial.
                 </p>
-              ))}
-            </div>
-
-            <div className="pt-4 border-t border-slate-100">
-              <p className="text-slate-600 mb-4">
-                Pour contacter le Père Daniel, vous pouvez passer par le secrétariat paroissial.
-              </p>
-              <Link
-                to="/secretariat"
-                onClick={() => setModalOpen(false)}
-                className="inline-flex items-center bg-gold hover:bg-gold-dark text-white px-5 py-2.5 rounded-full font-medium transition-colors text-sm"
-              >
-                <Phone className="w-4 h-4 mr-2" />
-                Contacter le secrétariat
-              </Link>
+                <Link
+                  to="/secretariat"
+                  onClick={() => setModalOpen(false)}
+                  className="inline-flex items-center bg-gold hover:bg-gold-dark text-white px-5 py-2.5 rounded-full font-medium transition-colors text-sm"
+                >
+                  <Phone className="w-4 h-4 mr-2" />
+                  Contacter le secrétariat
+                </Link>
+              </div>
             </div>
           </div>
         </DialogContent>
@@ -271,48 +273,50 @@ const EquipePastoralePage = () => {
 
       {/* Modal Prêtres */}
       <Dialog open={modalOpen && modalType === 'pretres'} onOpenChange={setModalOpen}>
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
-          <DialogHeader className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] -m-6 mb-0 px-6 py-4">
+        <DialogContent className="max-w-2xl p-0 overflow-hidden">
+          <DialogHeader className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] px-6 py-4">
             <DialogTitle className="font-serif text-xl text-white">Les Prêtres</DialogTitle>
           </DialogHeader>
           
-          <div className="space-y-6 pt-6">
-            <p className="text-slate-600 leading-relaxed">
-              {pretresData.intro}
-            </p>
-
-            <div className="space-y-5">
-              {pretresData.priests.map((priest, idx) => (
-                <div key={idx} className="flex gap-4 p-4 bg-slate-50 rounded-xl">
-                  <div className="w-20 h-20 flex-shrink-0">
-                    <img 
-                      src={priest.image} 
-                      alt={priest.name}
-                      className="w-full h-full object-cover rounded-lg"
-                    />
-                  </div>
-                  <div className="flex-grow">
-                    <h4 className="font-serif text-lg text-slate-deep mb-2">{priest.name}</h4>
-                    <p className="text-slate-600 text-sm leading-relaxed">
-                      {priest.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="pt-4 border-t border-slate-100">
-              <p className="text-slate-600 mb-4">
-                Pour contacter nos prêtres, vous pouvez passer par le secrétariat paroissial.
+          <div className="max-h-[70vh] overflow-y-auto px-6 py-6">
+            <div className="space-y-6">
+              <p className="text-slate-600 leading-relaxed">
+                {pretresData.intro}
               </p>
-              <Link
-                to="/secretariat"
-                onClick={() => setModalOpen(false)}
-                className="inline-flex items-center bg-gold hover:bg-gold-dark text-white px-5 py-2.5 rounded-full font-medium transition-colors text-sm"
-              >
-                <Phone className="w-4 h-4 mr-2" />
-                Contacter le secrétariat
-              </Link>
+
+              <div className="space-y-5">
+                {pretresData.priests.map((priest, idx) => (
+                  <div key={idx} className="flex gap-4 p-4 bg-slate-50 rounded-xl items-center">
+                    <div className="w-20 h-20 flex-shrink-0">
+                      <img 
+                        src={priest.image} 
+                        alt={priest.name}
+                        className="w-full h-full object-cover rounded-full border-4 border-[#93B5B7]/20"
+                      />
+                    </div>
+                    <div className="flex-grow">
+                      <h4 className="font-serif text-lg text-slate-deep mb-2">{priest.name}</h4>
+                      <p className="text-slate-600 text-sm leading-relaxed">
+                        {priest.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="pt-4 border-t border-slate-100">
+                <p className="text-slate-600 mb-4">
+                  Pour contacter nos prêtres, vous pouvez passer par le secrétariat paroissial.
+                </p>
+                <Link
+                  to="/secretariat"
+                  onClick={() => setModalOpen(false)}
+                  className="inline-flex items-center bg-gold hover:bg-gold-dark text-white px-5 py-2.5 rounded-full font-medium transition-colors text-sm"
+                >
+                  <Phone className="w-4 h-4 mr-2" />
+                  Contacter le secrétariat
+                </Link>
+              </div>
             </div>
           </div>
         </DialogContent>
