@@ -1,40 +1,45 @@
 import { Link } from 'react-router-dom';
-import { Users, User, BookOpen, Heart } from 'lucide-react';
+import { Users } from 'lucide-react';
 import { SocialIcons } from '@/components/SocialIcons';
 
-const teamMembers = [
+// Les prêtres avec leurs photos individuelles
+const priests = [
   {
-    id: 'cure',
-    title: 'Le Curé',
+    id: 'pere-daniel',
     name: 'Père Daniel',
     role: 'Curé de la paroisse',
-    description: 'Responsable de la communauté paroissiale',
+    description: 'Le Père Daniel est le curé de notre paroisse Notre Dame d\'Autan. Ordonné prêtre il y a de nombreuses années, il guide notre communauté avec sagesse et bienveillance. Passionné par l\'accompagnement des familles et la transmission de la foi, il est à l\'écoute de tous les paroissiens.',
     image: 'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/izar22oi_pere-daniel.webp',
-    path: '/equipe-pastorale/cure'
+    isCure: true
   },
   {
-    id: 'pretres',
-    title: 'Les Prêtres',
-    name: 'Père Donald, Père Anthony, Père Arnaud',
-    role: 'Au service de la communauté',
-    description: 'Accompagnement spirituel et sacrements',
-    image: 'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/mrvxn6kf_pere-anthony.webp',
-    path: '/equipe-pastorale/pretres',
-    priests: [
-      {
-        name: 'Père Donald',
-        image: 'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/bwicpjkm_pere-donald.webp'
-      },
-      {
-        name: 'Père Anthony',
-        image: 'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/mrvxn6kf_pere-anthony.webp'
-      },
-      {
-        name: 'Père Arnaud',
-        image: 'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/parx1ojm_pere-arnaud.webp'
-      }
-    ]
+    id: 'pere-donald',
+    name: 'Père Donald',
+    role: 'Prêtre',
+    description: 'Le Père Donald accompagne notre communauté paroissiale avec enthousiasme et dévouement. Il est particulièrement investi dans l\'accompagnement des jeunes et l\'animation des temps de prière. Sa joie communicative et son écoute attentive en font un pasteur apprécié de tous.',
+    image: 'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/bwicpjkm_pere-donald.webp',
+    isCure: false
   },
+  {
+    id: 'pere-anthony',
+    name: 'Père Anthony',
+    role: 'Prêtre',
+    description: 'Le Père Anthony est un jeune prêtre dynamique qui apporte fraîcheur et énergie à notre paroisse. Formé à l\'écoute et à l\'accompagnement spirituel, il est particulièrement engagé auprès des familles et dans la préparation aux sacrements. Son sourire et sa disponibilité sont un témoignage vivant de la joie de l\'Évangile.',
+    image: 'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/mrvxn6kf_pere-anthony.webp',
+    isCure: false
+  },
+  {
+    id: 'pere-arnaud',
+    name: 'Père Arnaud',
+    role: 'Prêtre',
+    description: 'Le Père Arnaud est un prêtre au service de notre communauté, reconnu pour sa profondeur spirituelle et sa pédagogie. Il accompagne avec attention les personnes en recherche de sens et anime des groupes de formation à la foi. Son engagement pastoral se manifeste particulièrement dans l\'accompagnement des catéchumènes et la préparation au mariage.',
+    image: 'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/parx1ojm_pere-arnaud.webp',
+    isCure: false
+  }
+];
+
+// Autres membres de l'équipe pastorale
+const otherMembers = [
   {
     id: 'diacres',
     title: 'Les Diacres',
@@ -100,47 +105,94 @@ const EquipePastoralePage = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
-        {/* Team Grid - 5 colonnes */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-16">
-          {teamMembers.map((member) => (
-            <Link
-              key={member.id}
-              to={member.path}
-              className="group"
-              data-testid={`team-card-${member.id}`}
-            >
-              <article className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 h-full border border-slate-100 flex flex-col hover:-translate-y-1">
-                {/* Photo */}
-                <div className="aspect-square overflow-hidden">
-                  <img 
-                    src={member.image} 
-                    alt={member.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-
-                {/* Content */}
-                <div className="p-5 flex flex-col flex-grow">
-                  <span className="text-gold text-xs font-medium mb-1 uppercase tracking-wide">{member.role}</span>
-                  <h3 className="font-serif text-lg text-slate-deep mb-1 group-hover:text-gold transition-colors">
-                    {member.title}
-                  </h3>
-                  <p className="text-slate-500 text-sm mb-2">{member.name}</p>
-                  
-                  <div className="mt-auto flex items-center text-gold text-sm font-medium group-hover:text-gold-dark transition-colors">
-                    <span>Découvrir</span>
-                    <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
+        {/* Section Prêtres - 4 colonnes */}
+        <div className="mb-16">
+          <h2 className="font-serif text-3xl text-slate-deep mb-8 text-center">Nos Prêtres</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {priests.map((priest) => (
+              <Link
+                key={priest.id}
+                to={`/equipe-pastorale/${priest.id}`}
+                className="group"
+                data-testid={`priest-card-${priest.id}`}
+              >
+                <article className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 h-full border border-slate-100 flex flex-col hover:-translate-y-1">
+                  {/* Photo */}
+                  <div className="aspect-square overflow-hidden">
+                    <img 
+                      src={priest.image} 
+                      alt={priest.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
                   </div>
-                </div>
-              </article>
-            </Link>
-          ))}
+
+                  {/* Content */}
+                  <div className="p-5 flex flex-col flex-grow text-center">
+                    {priest.isCure && (
+                      <span className="text-gold text-xs font-medium mb-1 uppercase tracking-wide">Curé</span>
+                    )}
+                    <h3 className="font-serif text-lg text-slate-deep mb-1 group-hover:text-gold transition-colors">
+                      {priest.name}
+                    </h3>
+                    <p className="text-slate-500 text-sm">{priest.role}</p>
+                    
+                    <div className="mt-3 flex items-center justify-center text-gold text-sm font-medium group-hover:text-gold-dark transition-colors">
+                      <span>En savoir plus</span>
+                      <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </article>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Section Autres membres - 3 colonnes */}
+        <div className="mb-16">
+          <h2 className="font-serif text-3xl text-slate-deep mb-8 text-center">Autres membres</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {otherMembers.map((member) => (
+              <Link
+                key={member.id}
+                to={member.path}
+                className="group"
+                data-testid={`team-card-${member.id}`}
+              >
+                <article className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 h-full border border-slate-100 flex flex-col hover:-translate-y-1">
+                  {/* Photo */}
+                  <div className="aspect-video overflow-hidden">
+                    <img 
+                      src={member.image} 
+                      alt={member.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6 flex flex-col flex-grow">
+                    <span className="text-gold text-xs font-medium mb-1 uppercase tracking-wide">{member.role}</span>
+                    <h3 className="font-serif text-xl text-slate-deep mb-2 group-hover:text-gold transition-colors">
+                      {member.title}
+                    </h3>
+                    <p className="text-slate-600 text-sm flex-grow">{member.description}</p>
+                    
+                    <div className="mt-4 flex items-center text-gold text-sm font-medium group-hover:text-gold-dark transition-colors">
+                      <span>Découvrir</span>
+                      <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </article>
+              </Link>
+            ))}
+          </div>
         </div>
 
         {/* Contact Section */}
-        <div className="mt-16 bg-white rounded-2xl p-8 shadow-sm border border-slate-100 text-center">
+        <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 text-center">
           <h2 className="font-serif text-2xl text-slate-deep mb-4">Contacter l'équipe pastorale</h2>
           <p className="text-slate-600 mb-6">
             Pour toute question ou demande, n'hésitez pas à nous contacter via le secrétariat paroissial.
@@ -167,4 +219,6 @@ const EquipePastoralePage = () => {
   );
 };
 
+// Export priests data for use in detail page
+export { priests };
 export default EquipePastoralePage;
