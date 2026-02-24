@@ -27,6 +27,8 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
   const alphaContent      = resource.alphaContent;
   const groupeContent     = resource.groupeContent;
   const meditationContent = resource.meditationContent;
+  const eveilContent      = resource.eveilContent;
+  const mejContent        = resource.mejContent;
 
   return (
     <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm" onClick={onClose}>
