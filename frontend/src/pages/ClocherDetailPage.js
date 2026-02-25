@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { Church, MapPin, Clock, ArrowLeft, Calendar, ExternalLink } from 'lucide-react';
+import { Church, MapPin, Clock, ArrowLeft, Calendar, Navigation } from 'lucide-react';
 import { SocialIcons } from '@/components/SocialIcons';
 import { clochersData } from '@/data/clochersData';
 
@@ -221,7 +221,7 @@ const ClocherDetailPage = () => {
                   className="inline-flex items-center bg-gold hover:bg-gold-dark text-white px-5 py-2.5 rounded-full text-sm font-medium transition-colors shadow-lg hover:shadow-xl"
                   data-testid="directions-button"
                 >
-                  <ExternalLink className="w-4 h-4 mr-2" />
+                  <Navigation className="w-4 h-4 mr-2" />
                   Itinéraire
                 </a>
               </div>
