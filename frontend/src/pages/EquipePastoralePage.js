@@ -212,7 +212,7 @@ const teamMembers = [
     name: 'En formation',
     role: 'Futurs prêtres',
     description: 'Accompagnés par notre communauté dans leur cheminement',
-    path: '/equipe-pastorale/seminaristes'
+    hasModal: true
   },
   {
     id: 'eap',
