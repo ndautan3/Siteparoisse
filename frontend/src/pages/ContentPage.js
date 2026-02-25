@@ -1156,7 +1156,7 @@ const ContentPage = ({ section }) => {
             {/* Contact Info */}
             {config.detailedContent.contact && (
               <div className="bg-white rounded-2xl shadow-md border border-slate-100 overflow-hidden">
-                <div className="px-6 py-4 bg-[#d0ada6]">
+                <div className="px-6 py-4 bg-gradient-to-r from-[#93B5B7] to-[#7da4a6]">
                   <h2 className="font-serif text-xl text-white">Prendre contact</h2>
                 </div>
                 <div className="p-6">
