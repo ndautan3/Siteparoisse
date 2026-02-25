@@ -370,42 +370,48 @@ const EquipePastoralePage = () => {
                       </div>
                     </div>
                   ) : member.id === 'eap' ? (
-                    // Double carousel for EAP (Castanet + Saint-Orens)
-                    <div className="aspect-square overflow-hidden relative flex flex-col">
-                      {/* Row 1: Castanet */}
-                      <div className="h-1/2 relative overflow-hidden">
-                        {eapCastanetImages.map((img, idx) => (
-                          <img 
+                    // Simple carousel for all EAP members with city badge
+                    <div className="aspect-square overflow-hidden relative">
+                      {eapCarouselMembers.map((m, idx) => (
+                        <img
+                          key={idx}
+                          src={m.image}
+                          alt={m.name}
+                          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 group-hover:scale-105 ${
+                            idx === currentEapIndex ? 'opacity-100' : 'opacity-0'
+                          }`}
+                        />
+                      ))}
+                      {/* City badge */}
+                      <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2">
+                        <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-semibold shadow-md backdrop-blur-sm ${
+                          eapCarouselMembers[currentEapIndex]?.cityColor === 'gold'
+                            ? 'bg-amber-500/80 text-white'
+                            : 'bg-[#93B5B7]/80 text-white'
+                        }`}>
+                          <span className="w-1.5 h-1.5 rounded-full bg-white/80 inline-block"></span>
+                          {eapCarouselMembers[currentEapIndex]?.city}
+                        </span>
+                      </div>
+                      {/* Dots */}
+                      <div className="absolute top-2 left-1/2 -translate-x-1/2 flex gap-1">
+                        {eapCarouselMembers.map((_, idx) => (
+                          <div
                             key={idx}
-                            src={img} 
-                            alt={`EAP Castanet ${idx + 1}`}
-                            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-                              idx === currentEapCastanetIndex ? 'opacity-100' : 'opacity-0'
+                            className={`rounded-full transition-all duration-300 ${
+                              idx === currentEapIndex ? 'bg-white w-3 h-1.5' : 'bg-white/40 w-1.5 h-1.5'
                             }`}
                           />
                         ))}
-                        <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 bg-black/30 px-2 py-0.5 rounded text-[10px] text-white">
-                          Castanet
-                        </div>
                       </div>
-                      {/* Separator line */}
-                      <div className="h-0.5 bg-white/80 relative z-10"></div>
-                      {/* Row 2: Saint-Orens */}
-                      <div className="h-1/2 relative overflow-hidden">
-                        {eapSaintOrensImages.map((img, idx) => (
-                          <img 
-                            key={idx}
-                            src={img} 
-                            alt={`EAP Saint-Orens ${idx + 1}`}
-                            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-                              idx === currentEapSaintOrensIndex ? 'opacity-100' : 'opacity-0'
-                            }`}
-                          />
-                        ))}
-                        <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 bg-black/30 px-2 py-0.5 rounded text-[10px] text-white">
-                          Saint-Orens
-                        </div>
+                    </div>
+                  ) : member.id === 'seminaristes' ? (
+                    // Icon placeholder for seminaristes
+                    <div className="aspect-square overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200 flex flex-col items-center justify-center gap-3">
+                      <div className="w-16 h-16 rounded-full bg-white/70 flex items-center justify-center shadow-inner">
+                        <GraduationCap className="w-8 h-8 text-slate-400" strokeWidth={1.5} />
                       </div>
+                      <span className="text-[11px] text-slate-400 font-medium tracking-wide">Photo à venir</span>
                     </div>
                   ) : member.images ? (
                     // Multiple photos grid (fallback)
