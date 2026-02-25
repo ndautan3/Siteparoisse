@@ -325,7 +325,7 @@ const SacrementDetailPage = () => {
         )}
 
         {/* Sections */}
-        <div className="space-y-8 mb-12">
+        <div className="space-y-10 mb-12">
           {sacrement.sections.map((section, index) => (
             <div 
               key={index} 
