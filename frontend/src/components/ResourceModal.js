@@ -516,133 +516,139 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
           {/* ══════════════════════════════════════
               RESSOURCES — Sections (Médiathèque)
           ══════════════════════════════════════ */}
-          {resource.sections && resource.sections.length > 0 && (
-            <div className="space-y-5">
-              {resource.sections.map((section, sectionIndex) => {
-                const SectionIcon = getSectionIcon(section.icon);
-                return (
-                  <div key={sectionIndex} className="space-y-2">
-                    <div className="flex items-center space-x-2 mb-2">
-                      <div className="w-7 h-7 rounded-full bg-[#93B5B7]/15 flex items-center justify-center">
-                        <SectionIcon className="w-3.5 h-3.5 text-[#7da4a6]" />
+          {(resource.sections || resource.features || resource.quote || resource.horaires || resource.items || resource.podcasts) && (
+            <div className="flex flex-col" style={{ gap: '2.5rem', marginTop: '1rem' }}>
+
+              {resource.sections && resource.sections.length > 0 && (
+                <div className="space-y-5">
+                  {resource.sections.map((section, sectionIndex) => {
+                    const SectionIcon = getSectionIcon(section.icon);
+                    return (
+                      <div key={sectionIndex} className="space-y-2">
+                        <div className="flex items-center space-x-2 mb-2">
+                          <div className="w-7 h-7 rounded-full bg-[#93B5B7]/15 flex items-center justify-center">
+                            <SectionIcon className="w-3.5 h-3.5 text-[#7da4a6]" />
+                          </div>
+                          <h3 className="font-serif text-base text-slate-deep">{section.title}</h3>
+                        </div>
+                        {section.items.map((item, itemIndex) => (
+                          <div key={itemIndex} className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+                            <div className="bg-gradient-to-r from-[#93B5B7]/20 to-[#93B5B7]/10 px-4 py-2.5">
+                              <h4 className="font-semibold text-slate-deep text-sm">{item.name}</h4>
+                            </div>
+                            <div className="bg-white px-4 py-3">
+                              <p className="text-slate-600 text-sm leading-relaxed">{item.description}</p>
+                            </div>
+                          </div>
+                        ))}
                       </div>
-                      <h3 className="font-serif text-base text-slate-deep">{section.title}</h3>
+                    );
+                  })}
+                </div>
+              )}
+
+              {/* ══════════════════════════════════════
+                  RESSOURCES — Features (Librairie)
+              ══════════════════════════════════════ */}
+              {resource.features && resource.features.length > 0 && (
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-2">
+                    <BookOpen className="w-4 h-4 text-[#93B5B7]" />
+                    <h3 className="font-semibold text-slate-deep text-sm uppercase tracking-wide">Ce que vous y trouverez</h3>
+                  </div>
+                  {resource.features.map((feature, index) => (
+                    <div key={index} className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+                      <div className="bg-gradient-to-r from-[#93B5B7]/20 to-[#93B5B7]/10 px-4 py-2.5">
+                        <h4 className="font-semibold text-slate-deep text-sm">{feature.title}</h4>
+                      </div>
+                      <div className="bg-white px-4 py-3">
+                        <p className="text-slate-600 text-sm leading-relaxed">{feature.description}</p>
+                      </div>
                     </div>
-                    {section.items.map((item, itemIndex) => (
-                      <div key={itemIndex} className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
-                        <div className="bg-gradient-to-r from-[#93B5B7]/20 to-[#93B5B7]/10 px-4 py-2.5">
-                          <h4 className="font-semibold text-slate-deep text-sm">{item.name}</h4>
-                        </div>
-                        <div className="bg-white px-4 py-3">
-                          <p className="text-slate-600 text-sm leading-relaxed">{item.description}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                );
-              })}
-            </div>
-          )}
-
-          {/* ══════════════════════════════════════
-              RESSOURCES — Features (Librairie)
-          ══════════════════════════════════════ */}
-          {resource.features && resource.features.length > 0 && (
-            <div className="space-y-3">
-              <div className="flex items-center space-x-2">
-                <BookOpen className="w-4 h-4 text-[#93B5B7]" />
-                <h3 className="font-semibold text-slate-deep text-sm uppercase tracking-wide">Ce que vous y trouverez</h3>
-              </div>
-              {resource.features.map((feature, index) => (
-                <div key={index} className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
-                  <div className="bg-gradient-to-r from-[#93B5B7]/20 to-[#93B5B7]/10 px-4 py-2.5">
-                    <h4 className="font-semibold text-slate-deep text-sm">{feature.title}</h4>
-                  </div>
-                  <div className="bg-white px-4 py-3">
-                    <p className="text-slate-600 text-sm leading-relaxed">{feature.description}</p>
-                  </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          )}
+              )}
 
-          {/* Quote (Librairie) */}
-          {resource.quote && (
-            <div className="relative rounded-2xl bg-gradient-to-br from-[#fdf6f5] to-[#f9f1ef] border border-[#93B5B7]/20 p-5 overflow-hidden">
-              <div className="absolute top-2 left-3 text-[#93B5B7]/20 font-serif text-6xl leading-none select-none">"</div>
-              <p className="relative z-10 text-slate-700 italic leading-relaxed text-[15px] pl-3">{resource.quote}</p>
-            </div>
-          )}
-
-          {/* Horaires (Librairie) */}
-          {resource.horaires && (
-            <div className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
-              <div className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] px-5 py-2.5 flex items-center space-x-2">
-                <Clock className="w-4 h-4 text-white" />
-                <span className="text-white font-semibold text-sm">Horaires d'ouverture</span>
-              </div>
-              <div className="bg-white px-5 py-3">
-                <p className="text-slate-600 text-sm">{resource.horaires}</p>
-              </div>
-            </div>
-          )}
-
-          {/* ══════════════════════════════════════
-              RESSOURCES — Items (Sites web)
-          ══════════════════════════════════════ */}
-          {resource.items && resource.items.length > 0 && (
-            <div className="space-y-3">
-              {resource.items.map((item, index) => (
-                <div key={index} className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
-                  <div className="bg-gradient-to-r from-[#93B5B7]/20 to-[#93B5B7]/10 px-4 py-2.5 flex items-center justify-between">
-                    <h3 className="font-semibold text-slate-deep text-sm">{item.name}</h3>
-                    {item.subtitle && <span className="text-xs text-[#7da4a6] font-medium italic">{item.subtitle}</span>}
-                  </div>
-                  <div className="bg-white px-4 py-3 space-y-2">
-                    {item.concept && (
-                      <p className="text-sm text-slate-600">
-                        <span className="font-semibold text-slate-700">Le concept : </span>{item.concept}
-                      </p>
-                    )}
-                    {item.why && (
-                      <p className="text-sm text-slate-600">
-                        <span className="font-semibold text-slate-700">Pourquoi l'aimer : </span>{item.why}
-                      </p>
-                    )}
-                    {item.url && (
-                      <a href={item.url} target="_blank" rel="noopener noreferrer"
-                        className="inline-flex items-center text-[#7da4a6] hover:text-[#93B5B7] text-sm font-medium transition-colors mt-1">
-                        <ExternalLink className="w-3.5 h-3.5 mr-1" />
-                        {item.url.replace('https://', '').replace('http://', '')}
-                      </a>
-                    )}
-                  </div>
+              {/* Quote (Librairie) */}
+              {resource.quote && (
+                <div className="relative rounded-2xl bg-gradient-to-br from-[#fdf6f5] to-[#f9f1ef] border border-[#93B5B7]/20 p-5 overflow-hidden">
+                  <div className="absolute top-2 left-3 text-[#93B5B7]/20 font-serif text-6xl leading-none select-none">"</div>
+                  <p className="relative z-10 text-slate-700 italic leading-relaxed text-[15px] pl-3">{resource.quote}</p>
                 </div>
-              ))}
-            </div>
-          )}
+              )}
 
-          {/* ══════════════════════════════════════
-              RESSOURCES — Podcasts
-          ══════════════════════════════════════ */}
-          {resource.podcasts && resource.podcasts.length > 0 && (
-            <div className="space-y-3">
-              {resource.podcasts.map((podcast, index) => (
-                <div key={index} className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+              {/* Horaires (Librairie) */}
+              {resource.horaires && (
+                <div className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
                   <div className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] px-5 py-2.5 flex items-center space-x-2">
-                    <Headphones className="w-4 h-4 text-white" />
-                    <h3 className="font-semibold text-white text-sm">{podcast.name}</h3>
+                    <Clock className="w-4 h-4 text-white" />
+                    <span className="text-white font-semibold text-sm">Horaires d'ouverture</span>
                   </div>
-                  <div className="bg-white px-5 py-4 flex items-center justify-between gap-4">
-                    <p className="text-slate-600 text-sm leading-relaxed flex-1">{podcast.description}</p>
-                    <a href={podcast.url} target="_blank" rel="noopener noreferrer"
-                      className="inline-flex items-center bg-[#1DB954] hover:bg-[#17a34a] text-white px-4 py-2 rounded-full font-medium text-sm transition-colors shadow-md hover:shadow-lg flex-shrink-0">
-                      <Headphones className="w-3.5 h-3.5 mr-1.5" />
-                      Écouter
-                    </a>
+                  <div className="bg-white px-5 py-3">
+                    <p className="text-slate-600 text-sm">{resource.horaires}</p>
                   </div>
                 </div>
-              ))}
+              )}
+
+              {/* ══════════════════════════════════════
+                  RESSOURCES — Items (Sites web)
+              ══════════════════════════════════════ */}
+              {resource.items && resource.items.length > 0 && (
+                <div className="space-y-3">
+                  {resource.items.map((item, index) => (
+                    <div key={index} className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+                      <div className="bg-gradient-to-r from-[#93B5B7]/20 to-[#93B5B7]/10 px-4 py-2.5 flex items-center justify-between">
+                        <h3 className="font-semibold text-slate-deep text-sm">{item.name}</h3>
+                        {item.subtitle && <span className="text-xs text-[#7da4a6] font-medium italic">{item.subtitle}</span>}
+                      </div>
+                      <div className="bg-white px-4 py-3 space-y-2">
+                        {item.concept && (
+                          <p className="text-sm text-slate-600">
+                            <span className="font-semibold text-slate-700">Le concept : </span>{item.concept}
+                          </p>
+                        )}
+                        {item.why && (
+                          <p className="text-sm text-slate-600">
+                            <span className="font-semibold text-slate-700">Pourquoi l'aimer : </span>{item.why}
+                          </p>
+                        )}
+                        {item.url && (
+                          <a href={item.url} target="_blank" rel="noopener noreferrer"
+                            className="inline-flex items-center text-[#7da4a6] hover:text-[#93B5B7] text-sm font-medium transition-colors mt-1">
+                            <ExternalLink className="w-3.5 h-3.5 mr-1" />
+                            {item.url.replace('https://', '').replace('http://', '')}
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* ══════════════════════════════════════
+                  RESSOURCES — Podcasts
+              ══════════════════════════════════════ */}
+              {resource.podcasts && resource.podcasts.length > 0 && (
+                <div className="space-y-3">
+                  {resource.podcasts.map((podcast, index) => (
+                    <div key={index} className="rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+                      <div className="bg-gradient-to-r from-[#93B5B7] to-[#7da4a6] px-5 py-2.5 flex items-center space-x-2">
+                        <Headphones className="w-4 h-4 text-white" />
+                        <h3 className="font-semibold text-white text-sm">{podcast.name}</h3>
+                      </div>
+                      <div className="bg-white px-5 py-4 flex items-center justify-between gap-4">
+                        <p className="text-slate-600 text-sm leading-relaxed flex-1">{podcast.description}</p>
+                        <a href={podcast.url} target="_blank" rel="noopener noreferrer"
+                          className="inline-flex items-center bg-[#1DB954] hover:bg-[#17a34a] text-white px-4 py-2 rounded-full font-medium text-sm transition-colors shadow-md hover:shadow-lg flex-shrink-0">
+                          <Headphones className="w-3.5 h-3.5 mr-1.5" />
+                          Écouter
+                        </a>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
             </div>
           )}
 
