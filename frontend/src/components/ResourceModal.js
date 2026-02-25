@@ -114,7 +114,7 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               GROUPE CONTENT
           ══════════════════════════════════════ */}
           {groupeContent && (
-            <div className="space-y-6">
+            <div className="flex flex-col" style={{ gap: '2.5rem', marginTop: '1rem' }}>
               {groupeContent.description && (
                 <div className="relative pl-5 border-l-[3px] border-[#93B5B7]/60">
                   <p className="text-slate-600 leading-[1.85] text-[15px]">{groupeContent.description}</p>
