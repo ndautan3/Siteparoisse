@@ -212,7 +212,6 @@ const teamMembers = [
     name: 'En formation',
     role: 'Futurs prêtres',
     description: 'Accompagnés par notre communauté dans leur cheminement',
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400',
     path: '/equipe-pastorale/seminaristes'
   },
   {
