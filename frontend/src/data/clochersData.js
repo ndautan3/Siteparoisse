@@ -232,14 +232,26 @@ Le clocher-mur date du XIXe siècle. Il a été construit sur un site stratégiq
   'mervilla': {
     id: 'mervilla',
     name: 'Mervilla',
-    churchName: 'Église de Mervilla',
-    image: 'https://customer-assets.emergentagent.com/job_c3efae68-56d0-4924-8ecf-4f7502ce3630/artifacts/54f2vm3r_Eglise-Castanet-Tolosan.jpg',
-    description: `L'église de Mervilla est une petite église de campagne au cœur de ce village paisible.
+    churchName: 'Église Saint-Jean-Baptiste',
+    image: 'https://customer-assets.emergentagent.com/job_50e05542-f2db-4ce4-aafc-6abaa8a7ea3e/artifacts/hiylozrw_Eglise-Mervilla.jpg',
+    description: `**Le clocher-mur**
+Caractéristique du style régional, ce clocher mur s'élève à l'ouest de l'église. Il est percé de trois baies en plein cintre abritant des cloches. La plus petite occupe le pignon encadré de deux massifs terminés en pyramide.
 
-Son architecture simple et authentique reflète la tradition des églises rurales du Lauragais.
+La position du clocher sur la façade laisse supposer qu'il fut ajouré ultérieurement, ou que des modifications sont intervenues sur le plan et l'élévation d'origine de l'église.
 
-*Informations détaillées à venir via le CMS.*`,
-    address: 'Place de l\'Église, 31320 Mervilla',
+Une réfection au moins est effectuée après les destructions perpétrées par les Huguenots en 1570, et d'autres restaurations ont sans doute eu lieu par la suite.
+
+**L'intérieur de l'église**
+La nef composée de six travées voûtées d'ogives ouvre sur un chœur en abside qui, comme elle, est entièrement peint. Les supports verticaux, pilastres corinthiens, sont soulignés de rouge contrastant avec les murs verts ornés de motifs or. La frise utilise des tons ocre, gris et or et la voûte est ornée d'un décor traditionnel bleu et or éclairé par deux fenêtres hautes et complété, sans doute au XIXe siècle, par l'autel de marbre et son tableau illustrant le baptême du Christ, motif central de la vie de saint Jean Baptiste. Depuis le XVe siècle, les familles importantes de Mervilla sont enterrées dans le chœur.
+
+**Les chapelles latérales**
+Les deux chapelles latérales sont à l'origine dédiées à saint Jean Baptiste au nord et à Notre-Dame au sud. Cette dernière est finalement consacrée à sainte Germaine après sa canonisation le 28 juin 1867.
+
+**La famille Fieubet**
+À la fin du XVIe siècle, la famille Fieubet s'installe à Mervilla et, jusqu'au XVIIIe siècle, a sa propre chapelle dans l'église. Arnaud de Fieubet et son épouse, Jacqueline de Madron, décédés respectivement en 1603 et en 1597, sont inhumés dans le chœur de l'église. Leur tombe, ornée de leurs armoiries, porte une inscription gravée en latin mentionnant l'Occitanie, au sens de Languedoc.
+
+L'inscription se termine par ces mots : « Afin que, unis dans la tombe comme dans le lit conjugal, ils reposent éternellement ».`,
+    address: 'Église Saint-Jean-Baptiste, 31320 Mervilla',
     coordinates: { lat: 43.4917, lng: 1.5083 },
     massSchedule: [],
     openingHours: null
