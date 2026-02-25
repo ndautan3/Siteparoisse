@@ -99,12 +99,21 @@ const EquipePastoralePage = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalType, setModalType] = useState(null);
   const [currentPriestIndex, setCurrentPriestIndex] = useState(0);
+  const [currentDeaconIndex, setCurrentDeaconIndex] = useState(0);
 
-  // Carousel for priests photos
+  // Carousel for priests photos - 3 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentPriestIndex((prev) => (prev + 1) % 3);
-    }, 2000);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Carousel for deacons photos - 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentDeaconIndex((prev) => (prev + 1) % 2);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
@@ -112,6 +121,11 @@ const EquipePastoralePage = () => {
     'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/bwicpjkm_pere-donald.webp',
     'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/mrvxn6kf_pere-anthony.webp',
     'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/parx1ojm_pere-arnaud.webp'
+  ];
+
+  const deaconImages = [
+    'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/93eecwnj_Jean-Luc.webp',
+    'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/hcevlmtr_philippe.webp'
   ];
 
   const openModal = (type) => {
