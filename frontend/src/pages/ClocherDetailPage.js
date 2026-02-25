@@ -62,13 +62,9 @@ const ClocherDetailPage = () => {
 
   // Get Google Maps URL for the place (fiche Google)
   const getGoogleMapsPlaceUrl = () => {
-    // Use place_id format which always works
-    if (clocher.placeId) {
-      return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(clocher.churchName + ' ' + clocher.name)}&query_place_id=${clocher.placeId}`;
-    }
-    // Fallback to search URL
-    const query = encodeURIComponent(`${clocher.churchName} ${clocher.name}`);
-    return `https://www.google.com/maps/search/${query}`;
+    // Use direct place search which always opens the Google Place listing
+    const searchQuery = encodeURIComponent(`${clocher.churchName} ${clocher.name} France`);
+    return `https://www.google.com/maps/search/${searchQuery}`;
   };
 
   // Generate Google Maps directions URL using place
