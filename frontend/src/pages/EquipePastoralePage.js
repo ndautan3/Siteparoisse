@@ -115,6 +115,66 @@ const eapData = {
   }
 };
 
+// Liste combinée EAP pour le carrousel simple (Castanet puis Saint-Orens)
+const eapCarouselMembers = [
+  {
+    name: 'P. Daniel BROUARD-DERVAL',
+    role: 'Curé',
+    image: 'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/izar22oi_pere-daniel.webp',
+    city: 'Castanet & St Orens',
+    cityColor: 'teal'
+  },
+  {
+    name: 'Marie-Pierre PAWLAK',
+    role: 'Membre EAP',
+    image: 'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/ov4xlacu_mariepierre.webp',
+    city: 'Castanet',
+    cityColor: 'teal'
+  },
+  {
+    name: 'Julien BOURDIEU',
+    role: 'Membre EAP',
+    image: 'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/izl5m6vm_Julien.webp',
+    city: 'Castanet',
+    cityColor: 'teal'
+  },
+  {
+    name: 'François BERÇOT',
+    role: 'Membre EAP',
+    image: 'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/lmqsw3m9_francois.webp',
+    city: 'Castanet',
+    cityColor: 'teal'
+  },
+  {
+    name: 'Anne POUSSINES',
+    role: 'Membre EAP',
+    image: 'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/dzxc4z93_anne.webp',
+    city: 'Saint-Orens',
+    cityColor: 'gold'
+  },
+  {
+    name: 'Jean-Michel DEROIN',
+    role: 'Membre EAP',
+    image: 'https://customer-assets.emergentagent.com/job_513c9844-285f-4857-a7dc-ddd6dae9e1cf/artifacts/caj7zc9q_jean-michel.webp',
+    city: 'Saint-Orens',
+    cityColor: 'gold'
+  },
+  {
+    name: 'Carole MATTHIA',
+    role: 'Membre EAP',
+    image: 'https://customer-assets.emergentagent.com/job_church-community-16/artifacts/hgj44udx_Carole.webp',
+    city: 'Saint-Orens',
+    cityColor: 'gold'
+  },
+  {
+    name: 'Arnaud CEYTE',
+    role: 'Membre EAP',
+    image: 'https://customer-assets.emergentagent.com/job_church-community-16/artifacts/x1mip634_Arnaud.webp',
+    city: 'Saint-Orens',
+    cityColor: 'gold'
+  }
+];
+
 const teamMembers = [
   {
     id: 'cure',
