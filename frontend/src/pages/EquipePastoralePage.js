@@ -694,7 +694,7 @@ const EquipePastoralePage = () => {
                 </div>
                 {eapData.castanet.members.map((member, idx) => (
                   <div key={idx} className="flex gap-5 p-4 bg-slate-50 rounded-xl items-center">
-                    <div className="w-24 h-24 flex-shrink-0">
+                    <div className="w-32 h-32 flex-shrink-0">
                       <img
                         src={member.image}
                         alt={member.name}
