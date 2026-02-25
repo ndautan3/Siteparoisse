@@ -10,7 +10,7 @@ const VieEconomiquePage = () => {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80"
+            src="https://customer-assets.emergentagent.com/job_parish-site-1/artifacts/wkjxpnzz_Vie-economique.png"
             alt="Vie Économique"
             className="w-full h-full object-cover"
           />
