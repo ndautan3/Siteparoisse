@@ -290,7 +290,7 @@ const SacrementDetailPage = () => {
               </div>
               <div>
                 <h1 className="font-serif text-4xl md:text-5xl text-white mb-1">{sacrement.title}</h1>
-                <p className="text-gold-light text-lg font-light">{sacrement.subtitle}</p>
+                <p className="text-white/90 text-lg font-light">{sacrement.subtitle}</p>
               </div>
             </div>
           </div>
@@ -325,7 +325,7 @@ const SacrementDetailPage = () => {
         )}
 
         {/* Sections */}
-        <div className="space-y-10 mb-12">
+        <div className="flex flex-col gap-10 mb-12">
           {sacrement.sections.map((section, index) => (
             <div 
               key={index} 
