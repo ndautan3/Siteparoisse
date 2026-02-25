@@ -39,7 +39,7 @@ const contentConfig = {
     subtitle: 'Gestion financière et matérielle',
     description: 'Une gestion transparente et responsable au service de notre mission.',
     icon: Building2,
-    heroImage: 'https://customer-assets.emergentagent.com/job_scroll-donate-pages/artifacts/lqmcs9y0_Vie-economique.png',
+    heroImage: 'https://customer-assets.emergentagent.com/job_parish-site-1/artifacts/wkjxpnzz_Vie-economique.png',
     items: [
       { title: 'Conseil des Finances', description: 'Gestion financière de la paroisse', icon: Wallet },
       { title: 'Commission des Travaux', description: 'Entretien de nos églises', icon: Wrench },
