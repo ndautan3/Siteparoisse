@@ -656,7 +656,7 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               ENTRAIDE CONTENT
           ══════════════════════════════════════ */}
           {entraideContent && (
-            <div className="space-y-4">
+            <div className="flex flex-col" style={{ gap: '2.5rem', marginTop: '1rem' }}>
 
               {entraideContent.intro && (
                 <div className="relative pl-5 border-l-[3px] border-[#93B5B7]/60">
