@@ -14,7 +14,7 @@ const VieEconomiquePage = () => {
         <div className="absolute inset-0 z-0">
           <img
             src="https://customer-assets.emergentagent.com/job_parish-site-1/artifacts/wkjxpnzz_Vie-economique.png"
-            alt="Vie Économique"
+            alt="Vie \u00e9conomique de la paroisse Notre Dame d'Autan"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/20"></div>

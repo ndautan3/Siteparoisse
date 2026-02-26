@@ -53,7 +53,7 @@ const GrandirFoiPage = () => {
         <div className="absolute inset-0 z-0">
           <img
             src="https://customer-assets.emergentagent.com/job_scroll-donate-pages/artifacts/b4t8pij3_Grandir-foi.png"
-            alt="Grandir dans la Foi"
+            alt="Section Grandir dans la Foi de la paroisse Notre Dame d'Autan"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/20"></div>

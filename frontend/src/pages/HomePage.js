@@ -24,7 +24,7 @@ const HomePage = () => {
             <div className="md:w-64 lg:w-72 flex-shrink-0 relative">
               <img
                 src={BIENVENUE_IMG}
-                alt="Bienvenue dans notre paroisse"
+                alt="Photo de bienvenue de la paroisse Notre Dame d'Autan"
                 className="w-full h-56 md:h-full object-cover object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-white/10"></div>
@@ -70,7 +70,7 @@ const HomePage = () => {
                 <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-[#d0ada6]/30">
                   <img
                     src={CURE_IMG}
-                    alt="Père Daniel"
+                    alt="P\u00e8re Daniel Brouard-Derval, cur\u00e9 de Notre Dame d'Autan"
                     className="w-full h-full object-cover"
                   />
                 </div>

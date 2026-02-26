@@ -67,7 +67,7 @@ const SolidaritePage = () => {
         <div className="absolute inset-0 z-0">
           <img
             src="https://customer-assets.emergentagent.com/job_scroll-donate-pages/artifacts/rz1a62v8_Solidarite.png"
-            alt="Solidarité & Écoute"
+            alt="Section Solidarit\u00e9 et \u00c9coute de la paroisse Notre Dame d'Autan"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/20"></div>

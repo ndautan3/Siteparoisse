@@ -47,7 +47,7 @@ const Secretariat = () => {
         <div className="absolute inset-0 z-0">
           <img
             src="https://customer-assets.emergentagent.com/job_scroll-donate-pages/artifacts/03c30vdd_Secretariat.png"
-            alt="Secrétariat"
+            alt="Secr\u00e9tariat de la paroisse Notre Dame d'Autan"
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/20"></div>
