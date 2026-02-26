@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://eglise-responsive.preview.emergentagent.com/sitemap.xml
+
+Disallow: /admin/
+Disallow: /admin/login
+Disallow: /admin/dashboard
