@@ -12,19 +12,20 @@ export const Header = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
 
-  // Search data - all searchable pages
+  // Search data - all searchable pages AND vignettes/modals
   const searchablePages = [
+    // Pages principales
     { title: 'Accueil', path: '/', keywords: 'accueil bienvenue paroisse' },
     { title: 'Horaires des messes', path: '/horaires-messes', keywords: 'messe horaires dimanche semaine' },
-    { title: 'Secrétariat & Coordonnées', path: '/secretariat', keywords: 'contact téléphone adresse secrétariat' },
+    { title: 'Secrétariat & Coordonnées', path: '/secretariat', keywords: 'contact téléphone adresse secrétariat corinne formulaire' },
     { title: "Notre Dame d'Autan", path: '/notre-dame-autan', keywords: 'paroisse identité' },
     { title: 'Équipe Pastorale', path: '/equipe-pastorale', keywords: 'prêtre curé diacre équipe' },
-    { title: 'Vie Économique', path: '/vie-economique', keywords: 'denier don finances' },
+    { title: 'Vie Économique', path: '/vie-economique', keywords: 'denier don finances soutenir' },
     { title: 'Nos Clochers', path: '/nos-clochers', keywords: 'églises clochers patrimoine' },
     { title: 'Services Transverses', path: '/services-transverses', keywords: 'communication accueil' },
     { title: 'Familles & Jeunesse', path: '/familles-jeunesse', keywords: 'famille jeunes enfants' },
-    { title: 'Éveil à la Foi', path: '/eveil-foi', keywords: 'éveil foi petits enfants' },
-    { title: 'Catéchisme', path: '/catechisme', keywords: 'catéchisme enfants communion' },
+    { title: 'Éveil à la Foi', path: '/eveil-foi', keywords: 'éveil foi petits enfants 3 7 ans' },
+    { title: 'Catéchisme', path: '/catechisme', keywords: 'catéchisme enfants communion CE2 CM1 CM2 6ème' },
     { title: 'Aumônerie', path: '/aumonerie', keywords: 'aumônerie collège lycée jeunes' },
     { title: 'Mouvements de Jeunesse', path: '/mouvements', keywords: 'scouts MEJ patronage' },
     { title: "Servants d'autel & Vocations", path: '/servants-vocations', keywords: 'servants autel vocations' },
@@ -38,14 +39,109 @@ export const Header = () => {
     { title: 'Liturgie & Musique', path: '/liturgie-musique', keywords: 'liturgie musique chorale' },
     { title: 'Funérailles', path: '/funerailles', keywords: 'funérailles obsèques décès' },
     { title: 'Grandir dans la Foi', path: '/grandir-foi', keywords: 'foi formation spiritualité' },
-    { title: 'Parcours Alpha', path: '/alpha-catechumenat', keywords: 'alpha catéchuménat découvrir foi' },
+    { title: 'Parcours Alpha & Catéchuménat', path: '/alpha-catechumenat', keywords: 'alpha catéchuménat découvrir foi' },
     { title: 'Groupes de partage et de prière', path: '/groupes-partage', keywords: 'groupes partage fraternité prière' },
     { title: 'Méditation chrétienne', path: '/meditation', keywords: 'méditation prière silence' },
     { title: 'Ressources', path: '/ressources', keywords: 'ressources livres médias' },
     { title: 'Solidarité & Écoute', path: '/solidarite', keywords: 'solidarité écoute entraide' },
-    { title: "Service d'écoute", path: '/service-ecoute', keywords: 'écoute accompagnement' },
+    { title: "Service d'écoute", path: '/service-ecoute', keywords: 'écoute accompagnement Louis Zélie' },
     { title: 'Visite des malades', path: '/visite-malades', keywords: 'malades visite SEM' },
     { title: 'Entraide', path: '/entraide', keywords: 'entraide secours catholique' },
+
+    // Vignettes Vie Économique
+    { title: 'Conseil des Finances', path: '/vie-economique', keywords: 'finances gestion budget' },
+    { title: 'Commission des Travaux', path: '/vie-economique', keywords: 'travaux entretien églises' },
+    { title: "Denier de l'Église", path: '/vie-economique', keywords: 'denier don contribution soutenir' },
+    { title: 'Legs et Donations', path: '/vie-economique', keywords: 'legs donations soutenir héritage' },
+
+    // Vignettes Services Transverses
+    { title: 'Service Communication', path: '/services-transverses', keywords: 'communication site web réseaux sociaux bulletin' },
+    { title: 'Service Accueil', path: '/services-transverses', keywords: 'accueil visiteurs' },
+
+    // Vignettes Éveil à la Foi
+    { title: 'Rencontres mensuelles - Éveil à la Foi', path: '/eveil-foi', keywords: 'rencontres dimanche messe enfants' },
+    { title: 'Contes et histoires bibliques', path: '/eveil-foi', keywords: 'contes histoires Bible enfants' },
+    { title: 'Chants et prières - Éveil', path: '/eveil-foi', keywords: 'chants prières enfants' },
+    { title: 'Activités manuelles - Éveil', path: '/eveil-foi', keywords: 'activités manuelles créations bricolages' },
+
+    // Vignettes Catéchisme
+    { title: 'Catéchisme CE2', path: '/catechisme', keywords: 'CE2 découverte Jésus catéchisme' },
+    { title: 'Catéchisme CM1', path: '/catechisme', keywords: 'CM1 préparation communion catéchisme' },
+    { title: 'Catéchisme CM2', path: '/catechisme', keywords: 'CM2 approfondissement catéchisme' },
+    { title: 'Catéchisme 6ème', path: '/catechisme', keywords: '6ème profession foi catéchisme' },
+
+    // Vignettes Aumônerie
+    { title: 'Aumônerie Collège', path: '/aumonerie', keywords: 'aumônerie collège 5ème 3ème' },
+    { title: 'Aumônerie Lycée', path: '/aumonerie', keywords: 'aumônerie lycée seconde terminale' },
+    { title: 'Camps et retraites', path: '/aumonerie', keywords: 'camps retraites activités temps forts' },
+
+    // Vignettes Mouvements
+    { title: 'Scouts et Guides de France', path: '/mouvements', keywords: 'scouts guides plein air camps service' },
+    { title: 'MEJ - Mouvement Eucharistique des Jeunes', path: '/mouvements', keywords: 'MEJ mouvement eucharistique jeunes 10 18 ans' },
+    { title: 'Patronage', path: '/mouvements', keywords: 'patronage activités ludiques sportives' },
+
+    // Vignettes Servants d'autel
+    { title: "Servants d'autel", path: '/servants-vocations', keywords: 'servants autel service messe liturgique' },
+    { title: 'Formation liturgique', path: '/servants-vocations', keywords: 'formation service liturgique apprentissage' },
+    { title: 'Accompagnement vocations', path: '/servants-vocations', keywords: 'vocations discernement accompagnement' },
+
+    // Vignettes Liturgie & Musique
+    { title: 'Chorale paroissiale', path: '/liturgie-musique', keywords: 'chorale chants musique liturgique' },
+    { title: 'Art Floral', path: '/liturgie-musique', keywords: 'art floral fleurir église beauté' },
+    { title: 'Sacristains', path: '/liturgie-musique', keywords: 'sacristains service' },
+    { title: 'Lecteurs', path: '/liturgie-musique', keywords: 'lecteurs proclamer Parole de Dieu' },
+
+    // Vignettes Funérailles
+    { title: 'Équipe funérailles', path: '/funerailles', keywords: 'funérailles préparation célébration obsèques' },
+    { title: 'Accompagnement du deuil', path: '/funerailles', keywords: 'deuil soutien écoute accompagnement' },
+    { title: 'Messes anniversaire', path: '/funerailles', keywords: 'messes anniversaire défunts souvenir' },
+
+    // Vignettes Alpha & Catéchuménat
+    { title: 'Parcours Alpha', path: '/alpha-catechumenat', keywords: 'alpha repas vidéo échanges convivial découvrir foi' },
+    { title: 'Catéchuménat adultes', path: '/alpha-catechumenat', keywords: 'catéchuménat adultes baptême confirmation eucharistie' },
+    { title: 'Recommençants', path: '/alpha-catechumenat', keywords: 'recommençants renouer foi revenir église' },
+
+    // Vignettes Groupes de partage
+    { title: 'Fraternités', path: '/groupes-partage', keywords: 'fraternités partage Parole vie' },
+    { title: 'Croire Aujourd\'hui ?', path: '/groupes-partage', keywords: 'croire Dieu questions échanger réalité' },
+    { title: 'Veillées de Louange', path: '/groupes-partage', keywords: 'louange Miséricorde Divine veillées prière chants Labège' },
+    { title: 'Prière des Mères', path: '/groupes-partage', keywords: 'prière mères enfants Castanet abandon confiance' },
+    { title: 'Prière du Chapelet', path: '/groupes-partage', keywords: 'chapelet rosaire Marie mystères' },
+    { title: 'Équipes du Rosaire', path: '/groupes-partage', keywords: 'rosaire équipes prière missionnaire quartier Dominicains' },
+
+    // Vignettes Méditation
+    { title: 'Méditation silencieuse', path: '/meditation', keywords: 'méditation silence hebdomadaire église paix' },
+    { title: 'Lectio Divina', path: '/meditation', keywords: 'lectio divina méditation Parole Bible lecture' },
+    { title: 'Adoration eucharistique', path: '/meditation', keywords: 'adoration eucharistique Saint-Sacrement Castanet Saint-Orens' },
+
+    // Vignettes Ressources
+    { title: 'Librairie Siloë-Carmel', path: '/ressources', keywords: 'librairie religieuse livres chapelets icônes Siloë Carmel Toulouse' },
+    { title: 'Médiathèque - Films & Séries', path: '/ressources', keywords: 'médiathèque films séries documentaires The Chosen' },
+    { title: 'Sites web recommandés', path: '/ressources', keywords: 'sites web Théobule KT42 ThéoDom SNCC ressources en ligne' },
+    { title: 'Podcasts spirituels', path: '/ressources', keywords: 'podcasts Bible PadreBlog Spotify écouter' },
+
+    // Vignettes Service d'écoute
+    { title: 'Écoute individuelle', path: '/service-ecoute', keywords: 'écoute individuelle rendez-vous confidentiels' },
+    { title: 'Accompagnement épreuves', path: '/service-ecoute', keywords: 'accompagnement soutien épreuves' },
+    { title: 'Orientation professionnelle', path: '/service-ecoute', keywords: 'orientation professionnels aide' },
+
+    // Vignettes Visite des malades
+    { title: 'Visites à domicile (SEM)', path: '/visite-malades', keywords: 'visites domicile personnes isolées SEM bénévoles' },
+    { title: 'Visites en EHPAD', path: '/visite-malades', keywords: 'EHPAD maison retraite visites présence' },
+    { title: 'Communion aux malades', path: '/visite-malades', keywords: 'communion malades eucharistie porter' },
+    { title: 'Sacrement des malades', path: '/visite-malades', keywords: 'sacrement malades onction demande' },
+
+    // Vignettes Entraide
+    { title: 'Secours Catholique', path: '/entraide', keywords: 'secours catholique aide matérielle accompagnement Castanet Saint-Orens' },
+    { title: 'Café Amitié', path: '/entraide', keywords: 'café amitié lieu rencontre convivial accueil écoute Castanet Fraternité' },
+    { title: 'Hospitalité de Lourdes', path: '/entraide', keywords: 'hospitalité Lourdes pèlerinages malades handicap bénévoles' },
+    { title: 'Famille Bartimée', path: '/entraide', keywords: 'Bartimée fraternité précarité exclusion solidarité pauvreté' },
+    { title: 'Lourdes Cancer Espérance', path: '/entraide', keywords: 'cancer espérance Lourdes malades soutien' },
+
+    // Vignettes Mariage
+    { title: 'Préparation au mariage', path: '/mariage', keywords: 'préparation mariage couples accompagnateurs CPM' },
+    { title: 'Équipes Notre-Dame', path: '/mariage', keywords: 'équipes Notre-Dame spiritualité conjugale couples' },
+    { title: 'Cana', path: '/mariage', keywords: 'Cana formation vie couple' },
   ];
 
   const filteredResults = searchQuery.length > 1 
