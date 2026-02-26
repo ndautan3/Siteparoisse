@@ -1,7 +1,41 @@
-import { MapPin, Phone, Mail, Clock, Home, User } from 'lucide-react';
+import { useState } from 'react';
+import { MapPin, Phone, Mail, Clock, Home, User, CheckCircle, Loader2 } from 'lucide-react';
 import { SocialIcons } from '@/components/SocialIcons';
 
+const API_URL = process.env.REACT_APP_BACKEND_URL;
+
 const Secretariat = () => {
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+  const [status, setStatus] = useState('idle'); // idle | sending | success | error
+  const [errorMsg, setErrorMsg] = useState('');
+
+  const handleChange = (e) => {
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+      setStatus('error');
+      setErrorMsg('Veuillez remplir tous les champs.');
+      return;
+    }
+    setStatus('sending');
+    try {
+      const res = await fetch(`${API_URL}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) throw new Error('Erreur serveur');
+      setStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch {
+      setStatus('error');
+      setErrorMsg('Une erreur est survenue. Veuillez réessayer.');
+    }
+  };
+
   return (
     <div className="min-h-screen bg-paper" data-testid="secretariat-page">
       {/* Hero Section with Image */}
