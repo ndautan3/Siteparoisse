@@ -148,7 +148,7 @@ export const Header = () => {
     ? searchablePages.filter(page => 
         page.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         page.keywords.toLowerCase().includes(searchQuery.toLowerCase())
-      ).slice(0, 6)
+      ).slice(0, 8)
     : [];
 
   const handleSearchSelect = (path) => {
