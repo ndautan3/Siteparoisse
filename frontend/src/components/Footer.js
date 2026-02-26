@@ -1,7 +1,18 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Instagram, Mail, Phone, MapPin, Check } from 'lucide-react';
 
 export const Footer = () => {
+  const [email, setEmail] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (!email) return;
+    setSubscribed(true);
+    setEmail('');
+  };
+
   return (
     <footer className="bg-slate-900 text-slate-300" data-testid="main-footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -72,11 +83,14 @@ export const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
-                <span>Paroisse Notre Dame d'Autan<br />Castanet-Tolosan</span>
+                <span>Paroisse Notre Dame d'Autan<br />Castanet-Tolosan & Saint-Orens</span>
               </li>
-              <li className="flex items-center space-x-2">
-                <Phone className="w-4 h-4" />
-                <span>05 XX XX XX XX</span>
+              <li className="flex items-start space-x-2">
+                <Phone className="w-4 h-4 mt-1 flex-shrink-0" />
+                <div>
+                  <a href="tel:0561005169" className="hover:text-gold transition-colors block">Castanet : 05 61 00 51 69</a>
+                  <a href="tel:0561277685" className="hover:text-gold transition-colors block mt-1">Saint-Orens : 05 61 27 76 85</a>
+                </div>
               </li>
               <li className="flex items-center space-x-2">
                 <Mail className="w-4 h-4" />
@@ -93,13 +107,31 @@ export const Footer = () => {
             <p className="text-sm mb-4">
               Restez informé de nos actualités et événements
             </p>
-            <a
-              href="#newsletter"
-              className="inline-block bg-gold hover:bg-gold-dark text-white px-6 py-2 rounded-md transition-colors text-sm font-medium"
-              data-testid="newsletter-subscribe-button"
-            >
-              S'inscrire
-            </a>
+            {subscribed ? (
+              <div className="flex items-center gap-2 text-sm text-emerald-400" data-testid="newsletter-confirmation">
+                <Check className="w-4 h-4" />
+                <span>Merci pour votre inscription !</span>
+              </div>
+            ) : (
+              <form onSubmit={handleSubscribe} className="flex" data-testid="newsletter-form">
+                <input
+                  type="email"
+                  required
+                  placeholder="Votre email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="flex-1 min-w-0 px-3 py-2 bg-slate-800 border border-slate-700 rounded-l-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:border-gold"
+                  data-testid="newsletter-email-input"
+                />
+                <button
+                  type="submit"
+                  className="px-4 py-2 bg-gold hover:bg-gold-dark text-white rounded-r-lg text-sm font-medium transition-colors whitespace-nowrap"
+                  data-testid="newsletter-subscribe-button"
+                >
+                  S'inscrire
+                </button>
+              </form>
+            )}
           </div>
         </div>
 
