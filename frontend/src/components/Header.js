@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Menu, X, Church, Heart, Users, BookOpen, HandHeart, ChevronDown, Phone, Search } from 'lucide-react';
+import { Menu, X, Church, Heart, Users, BookOpen, HandHeart, ChevronDown, Phone, Search, Calendar } from 'lucide-react';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,6 +16,7 @@ export const Header = () => {
   const searchablePages = [
     // Pages principales
     { title: 'Accueil', path: '/', keywords: 'accueil bienvenue paroisse' },
+    { title: 'Agenda', path: '/agenda', keywords: 'agenda événements calendrier activités dates' },
     { title: 'Horaires des messes', path: '/horaires-messes', keywords: 'messe horaires dimanche semaine' },
     { title: 'Secrétariat & Coordonnées', path: '/secretariat', keywords: 'contact téléphone adresse secrétariat corinne formulaire' },
     { title: "Notre Dame d'Autan", path: '/notre-dame-autan', keywords: 'paroisse identité' },
@@ -507,7 +508,16 @@ export const Header = () => {
             ))}
 
             {/* Quick contact link in mobile menu */}
-            <div className="mt-4 pt-4 border-t border-slate-200">
+            <div className="mt-4 pt-4 border-t border-slate-200 space-y-1">
+              <Link
+                to="/agenda"
+                className="flex items-center space-x-2 text-gold hover:text-gold-dark font-medium py-2 transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+                data-testid="mobile-menu-agenda-link"
+              >
+                <Calendar className="w-4 h-4" />
+                <span>Agenda</span>
+              </Link>
               <Link
                 to="/secretariat"
                 className="flex items-center space-x-2 text-gold hover:text-gold-dark font-medium py-2 transition-colors"
