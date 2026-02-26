@@ -50,6 +50,9 @@ Creation et amelioration iterative d'un site web pour la paroisse Notre Dame d'A
 - Tailles de texte adaptees (base/xs mobile, lg/sm desktop)
 - break-words pour eviter debordement texte
 - Applique sur: cartes standard, cartes Entraide 1ere rangee, cartes Entraide 2eme rangee
+- Vie Economique: 1 carte par ligne sur mobile (grid-cols-1 sm:grid-cols-2)
+- Derniere vignette impaire centree: flex-wrap justify-center sur mobile, grid sur desktop
+- Cartes dimensionnees a w-[calc(50%-0.75rem)] sur mobile pour flex layout
 
 ## Fichiers cles
 - `frontend/src/pages/ContentPage.js` - Page de contenu principale (vignettes, modales)
