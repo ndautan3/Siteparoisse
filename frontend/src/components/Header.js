@@ -336,16 +336,17 @@ export const Header = () => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div 
-          className="lg:hidden fixed inset-x-0 top-20 bottom-0 bg-white shadow-2xl overflow-y-auto" 
+          className="lg:hidden fixed inset-x-0 top-20 bottom-0 bg-white shadow-2xl overflow-y-auto overscroll-contain" 
           style={{ zIndex: 10000 }}
           data-testid="mobile-menu"
         >
-          <div className="py-4 px-4">
+          <div className="py-4 px-4 pb-24">
             {/* Je veux... menu on mobile */}
             <div className="mb-4 border-b border-slate-200 pb-4">
               <button
                 onClick={() => toggleMobileSection('je-veux')}
-                className="w-full flex items-center justify-between font-medium text-gold mb-2"
+                className="w-full flex items-center justify-between font-medium text-gold py-2"
+                data-testid="mobile-menu-je-veux"
               >
                 <span>Je veux...</span>
                 <ChevronDown 
@@ -353,13 +354,14 @@ export const Header = () => {
                 />
               </button>
               {openMobileSections.includes('je-veux') && (
-                <div className="pl-4 space-y-1 mt-2">
+                <div className="pl-4 mt-2">
                 {jeVeuxOptions.map((option) => (
                   <Link
                     key={option.path + option.label}
                     to={option.path}
-                    className="block py-1 text-slate-600 hover:text-gold transition-colors text-sm"
+                    className="block py-2.5 text-slate-600 hover:text-gold transition-colors text-sm border-b border-slate-50 last:border-0"
                     onClick={() => setIsMenuOpen(false)}
+                    data-testid={`mobile-je-veux-${option.label.toLowerCase().replace(/\s+/g, '-')}`}
                   >
                     {option.label}
                   </Link>
@@ -373,8 +375,9 @@ export const Header = () => {
                 <div className="flex items-center justify-between">
                   <Link
                     to={item.path}
-                    className="flex items-center space-x-2 font-medium text-slate-700 hover:text-gold transition-colors flex-1"
+                    className="flex items-center space-x-2 font-medium text-slate-700 hover:text-gold transition-colors flex-1 py-2"
                     onClick={() => setIsMenuOpen(false)}
+                    data-testid={`mobile-menu-${item.title.toLowerCase().replace(/\s+/g, '-')}`}
                   >
                     <item.icon className="w-4 h-4" />
                     <span>{item.title}</span>
@@ -382,6 +385,7 @@ export const Header = () => {
                   <button
                     onClick={() => toggleMobileSection(item.title)}
                     className="p-2 hover:bg-slate-50 rounded transition-colors"
+                    data-testid={`mobile-menu-expand-${item.title.toLowerCase().replace(/\s+/g, '-')}`}
                   >
                     <ChevronDown 
                       className={`w-4 h-4 text-slate-600 transition-transform ${openMobileSections.includes(item.title) ? 'rotate-180' : ''}`}
@@ -389,13 +393,14 @@ export const Header = () => {
                   </button>
                 </div>
                 {openMobileSections.includes(item.title) && (
-                  <div className="pl-6 space-y-1 mt-2">
+                  <div className="pl-6 mt-2">
                   {item.items.map((subItem) => (
                     <Link
                       key={subItem.path}
                       to={subItem.path}
-                      className="block py-1 text-slate-600 hover:text-gold transition-colors text-sm"
+                      className="block py-2.5 text-slate-600 hover:text-gold transition-colors text-sm border-b border-slate-50 last:border-0"
                       onClick={() => setIsMenuOpen(false)}
+                      data-testid={`mobile-submenu-${subItem.path.substring(1).replace(/\//g, '-')}`}
                     >
                       {subItem.label}
                     </Link>
@@ -404,6 +409,19 @@ export const Header = () => {
                 )}
               </div>
             ))}
+
+            {/* Quick contact link in mobile menu */}
+            <div className="mt-4 pt-4 border-t border-slate-200">
+              <Link
+                to="/secretariat"
+                className="flex items-center space-x-2 text-gold hover:text-gold-dark font-medium py-2 transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+                data-testid="mobile-menu-contact-link"
+              >
+                <Phone className="w-4 h-4" />
+                <span>Nous contacter</span>
+              </Link>
+            </div>
           </div>
         </div>
       )}
