@@ -219,6 +219,20 @@ export const NewsSection = () => {
             )}
           </div>
         )}
+
+        {/* Archives Link */}
+        {news.length > 0 && (
+          <div className="text-center mt-10">
+            <Link
+              to="/actualites"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-slate-200 text-slate-600 hover:border-gold hover:text-gold transition-all duration-300 text-sm font-medium"
+              data-testid="news-archives-link"
+            >
+              <Archive className="w-4 h-4" />
+              <span>Voir les archives</span>
+            </Link>
+          </div>
+        )}
       </div>
 
       {/* Article Modal */}
