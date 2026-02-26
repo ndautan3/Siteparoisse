@@ -299,6 +299,48 @@ async def delete_funeral(funeral_id: str, username: str = Depends(get_current_us
         raise HTTPException(status_code=404, detail="Funeral not found")
     return {"message": "Funeral deleted"}
 
+# EVENTS
+@api_router.get("/events", response_model=List[Event])
+async def get_events(category: Optional[str] = None, include_past: bool = False):
+    query = {}
+    if category:
+        query["category"] = category
+    if not include_past:
+        today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        query["date"] = {"$gte": today}
+    events = await db.events.find(query, {"_id": 0}).sort("date", 1).to_list(200)
+    return events
+
+@api_router.post("/events", response_model=Event)
+async def create_event(event: EventCreate, username: str = Depends(get_current_user)):
+    event_dict = event.model_dump()
+    event_obj = Event(
+        id=str(uuid.uuid4()),
+        created_at=datetime.now(timezone.utc).isoformat(),
+        **event_dict
+    )
+    doc = event_obj.model_dump()
+    await db.events.insert_one(doc)
+    return event_obj
+
+@api_router.put("/events/{event_id}", response_model=Event)
+async def update_event(event_id: str, event_update: EventUpdate, username: str = Depends(get_current_user)):
+    existing = await db.events.find_one({"id": event_id}, {"_id": 0})
+    if not existing:
+        raise HTTPException(status_code=404, detail="Event not found")
+    update_data = {k: v for k, v in event_update.model_dump().items() if v is not None}
+    if update_data:
+        await db.events.update_one({"id": event_id}, {"$set": update_data})
+    updated = await db.events.find_one({"id": event_id}, {"_id": 0})
+    return Event(**updated)
+
+@api_router.delete("/events/{event_id}")
+async def delete_event(event_id: str, username: str = Depends(get_current_user)):
+    result = await db.events.delete_one({"id": event_id})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Event not found")
+    return {"message": "Event deleted"}
+
 # CONTACT
 @api_router.post("/contact", response_model=ContactResponse)
 async def send_contact_message(msg: ContactMessage):
