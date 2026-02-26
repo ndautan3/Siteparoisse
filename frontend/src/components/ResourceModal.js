@@ -31,19 +31,20 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
   const mejContent        = resource.mejContent;
 
   return (
-    <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm" onClick={onClose}>
+    <div className="fixed inset-0 z-[70] flex items-end sm:items-center justify-center sm:p-4 bg-black/40 backdrop-blur-sm" onClick={onClose}>
       <div
-        className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] flex flex-col"
+        className="bg-white sm:rounded-2xl rounded-t-2xl shadow-2xl max-w-2xl w-full max-h-[85vh] sm:max-h-[90vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
+        data-testid="resource-modal"
       >
         {/* ── Header fixe ── */}
-        <div className="flex-shrink-0 rounded-t-2xl overflow-hidden">
-          <div className="p-6 flex items-center justify-between bg-gradient-to-r from-[#93B5B7] to-[#7da4a6]">
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
-                {resource.icon && <resource.icon className="w-6 h-6 text-white" />}
+        <div className="flex-shrink-0 sm:rounded-t-2xl rounded-t-2xl overflow-hidden">
+          <div className="p-4 sm:p-6 flex items-center justify-between bg-gradient-to-r from-[#93B5B7] to-[#7da4a6]">
+            <div className="flex items-center space-x-3 min-w-0">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                {resource.icon && <resource.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />}
               </div>
-              <h2 className="font-serif text-xl md:text-2xl text-white leading-tight">
+              <h2 className="font-serif text-lg sm:text-xl md:text-2xl text-white leading-tight truncate">
                 {resource.modalTitle || resource.title}
               </h2>
             </div>
@@ -51,6 +52,7 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
               onClick={onClose}
               className="w-10 h-10 rounded-full hover:bg-white/20 flex items-center justify-center transition-colors flex-shrink-0 ml-3"
               aria-label="Fermer"
+              data-testid="modal-close-button"
             >
               <X className="w-5 h-5 text-white" />
             </button>
@@ -58,7 +60,7 @@ const ResourceModal = ({ isOpen, onClose, resource }) => {
         </div>
 
         {/* ── Zone scrollable ── */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-5">
+        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-5">
 
           {/* Description principale — encadré rose poudré */}
           {resource.modalDescription && (
