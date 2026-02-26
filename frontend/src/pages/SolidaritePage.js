@@ -175,6 +175,7 @@ const SolidaritePage = () => {
           <p className="text-gold font-medium">Matthieu 25, 40</p>
         </div>
       </div>
+      </FadeIn>
     </div>
   );
 };

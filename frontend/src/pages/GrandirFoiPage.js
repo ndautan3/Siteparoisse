@@ -128,6 +128,7 @@ const GrandirFoiPage = () => {
           <p className="text-gold font-medium">Jean 14, 6</p>
         </div>
       </div>
+      </FadeIn>
     </div>
   );
 };

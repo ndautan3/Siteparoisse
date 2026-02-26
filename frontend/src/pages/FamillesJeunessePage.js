@@ -152,6 +152,7 @@ const FamillesJeunessePage = () => {
           <p className="text-gold font-medium">Marc 10, 14</p>
         </div>
       </div>
+      </FadeIn>
     </div>
   );
 };
