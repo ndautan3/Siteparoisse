@@ -191,6 +191,51 @@ const AdminDashboard = () => {
     }
   };
 
+  // EVENTS HANDLERS
+  const handleEventSubmit = async (e) => {
+    e.preventDefault();
+    const payload = { ...eventForm };
+    if (!payload.end_time) delete payload.end_time;
+    try {
+      if (editingEvent) {
+        await axios.put(`${BACKEND_URL}/api/events/${editingEvent.id}`, payload, { headers: getAuthHeaders() });
+        toast.success('Événement mis à jour');
+        setEditingEvent(null);
+      } else {
+        await axios.post(`${BACKEND_URL}/api/events`, payload, { headers: getAuthHeaders() });
+        toast.success('Événement créé');
+      }
+      setEventForm({ title: '', description: '', date: '', time: '', end_time: '', location: '', category: 'Communauté' });
+      fetchData();
+    } catch (error) {
+      toast.error("Erreur lors de l'enregistrement");
+    }
+  };
+
+  const handleEditEvent = (item) => {
+    setEditingEvent(item);
+    setEventForm({
+      title: item.title,
+      description: item.description || '',
+      date: item.date,
+      time: item.time,
+      end_time: item.end_time || '',
+      location: item.location,
+      category: item.category,
+    });
+  };
+
+  const handleDeleteEvent = async (id) => {
+    if (!window.confirm('Supprimer cet événement ?')) return;
+    try {
+      await axios.delete(`${BACKEND_URL}/api/events/${id}`, { headers: getAuthHeaders() });
+      toast.success('Événement supprimé');
+      fetchData();
+    } catch (error) {
+      toast.error('Erreur lors de la suppression');
+    }
+  };
+
   const formatDate = (dateString) => {
     try {
       return format(new Date(dateString), 'dd/MM/yyyy à HH:mm', { locale: fr });
