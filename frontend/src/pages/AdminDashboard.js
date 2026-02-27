@@ -218,8 +218,9 @@ const AdminDashboard = () => {
   const handleMassSubmit = async (e) => {
     e.preventDefault();
     try {
+      const resolvedMassType = massForm.mass_type === 'Autre' && customMassType.trim() ? customMassType.trim() : massForm.mass_type;
       const dayName = getDayName(massForm.date) || massForm.day;
-      const basePayload = { ...massForm, day: dayName };
+      const basePayload = { ...massForm, day: dayName, mass_type: resolvedMassType };
 
       if (editingMass) {
         await axios.put(
@@ -241,7 +242,7 @@ const AdminDashboard = () => {
             day: days[currentDate.getDay()],
             time: massForm.time,
             location: massForm.location,
-            mass_type: massForm.mass_type,
+            mass_type: resolvedMassType,
             date: dateStr,
           });
           if (repeatMode === 'week') currentDate = addWeeks(currentDate, 1);
@@ -257,6 +258,7 @@ const AdminDashboard = () => {
         toast.success('Horaire créé');
       }
       setMassForm({ day: '', time: '10:00', location: '', mass_type: 'Messe', date: todayStr });
+      setCustomMassType('');
       setEditingMass(null);
       setRepeatMode('none');
       setRepeatUntil('');
