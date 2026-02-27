@@ -1074,21 +1074,87 @@ const AdminDashboard = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">Contenu *</label>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">Fichier PDF *</label>
+                  {letterForm.file_url ? (
+                    <div className="flex items-center gap-3 p-4 bg-emerald-50 border border-emerald-200 rounded-lg">
+                      <FileText className="w-8 h-8 text-emerald-600 flex-shrink-0" />
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-medium text-emerald-800 truncate">Fichier PDF uploadé</p>
+                        <a
+                          href={letterForm.file_url.startsWith('/api') ? `${BACKEND_URL}${letterForm.file_url}` : letterForm.file_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-xs text-emerald-600 hover:underline"
+                        >
+                          Voir le fichier
+                        </a>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setLetterForm({ ...letterForm, file_url: '' })}
+                        className="text-red-500 hover:text-red-700 flex-shrink-0"
+                      >
+                        <X className="w-5 h-5" />
+                      </button>
+                    </div>
+                  ) : (
+                    <div
+                      className={`border-2 border-dashed rounded-lg p-6 text-center cursor-pointer transition-colors ${
+                        dragOverFile ? 'border-gold bg-gold/5' : 'border-slate-200 hover:border-gold/50'
+                      }`}
+                      onDragOver={(e) => { e.preventDefault(); setDragOverFile(true); }}
+                      onDragLeave={() => setDragOverFile(false)}
+                      onDrop={(e) => {
+                        e.preventDefault();
+                        setDragOverFile(false);
+                        const file = e.dataTransfer.files[0];
+                        if (file) handleLetterFileUpload(file);
+                      }}
+                      onClick={() => document.getElementById('letter-pdf-file').click()}
+                    >
+                      {uploadingFile ? (
+                        <div className="flex items-center justify-center gap-2 text-gold">
+                          <div className="w-5 h-5 border-2 border-gold border-t-transparent rounded-full animate-spin"></div>
+                          <span className="text-sm">Upload en cours...</span>
+                        </div>
+                      ) : (
+                        <>
+                          <Upload className="w-8 h-8 text-slate-400 mx-auto mb-2" />
+                          <p className="text-sm text-slate-500">Glissez un fichier PDF ou <span className="text-gold font-medium">parcourir</span></p>
+                          <p className="text-xs text-slate-400 mt-1">PDF uniquement — max 10 Mo</p>
+                        </>
+                      )}
+                      <input
+                        id="letter-pdf-file"
+                        type="file"
+                        accept="application/pdf"
+                        className="hidden"
+                        onChange={(e) => {
+                          const file = e.target.files[0];
+                          if (file) handleLetterFileUpload(file);
+                          e.target.value = '';
+                        }}
+                        data-testid="letter-file-input"
+                      />
+                    </div>
+                  )}
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">Description (optionnel)</label>
                   <textarea
-                    required
                     value={letterForm.content}
                     onChange={(e) => setLetterForm({ ...letterForm, content: e.target.value })}
-                    rows="10"
+                    rows="3"
                     className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold"
-                    placeholder="Chers paroissiens..."
+                    placeholder="Brève description de la lettre..."
                     data-testid="letter-content-input"
                   ></textarea>
                 </div>
                 <div className="flex space-x-4 pt-2">
                   <button
                     type="submit"
-                    className="bg-gold hover:bg-gold-dark text-white px-6 py-2 rounded-lg font-medium transition-colors flex items-center space-x-2"
+                    disabled={!letterForm.file_url}
+                    className="bg-gold hover:bg-gold-dark text-white px-6 py-2 rounded-lg font-medium transition-colors flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                     data-testid="letter-submit-button"
                   >
                     <Plus className="w-4 h-4" />
@@ -1099,7 +1165,7 @@ const AdminDashboard = () => {
                       type="button"
                       onClick={() => {
                         setEditingLetter(null);
-                        setLetterForm({ title: '', content: '', date: '' });
+                        setLetterForm({ title: '', content: '', date: '', file_url: '' });
                       }}
                       className="bg-slate-200 hover:bg-slate-300 text-slate-700 px-6 py-2 rounded-lg font-medium transition-colors"
                       data-testid="letter-cancel-button"
@@ -1129,7 +1195,18 @@ const AdminDashboard = () => {
                       <p className="text-sm text-slate-500 mt-1">
                         {new Date(item.date + 'T00:00:00').toLocaleDateString('fr-FR')}
                       </p>
-                      <p className="text-sm text-slate-600 mt-1 line-clamp-2">{item.content}</p>
+                      {item.file_url && (
+                        <a
+                          href={item.file_url.startsWith('/api') ? `${BACKEND_URL}${item.file_url}` : item.file_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-sm text-gold hover:text-gold-dark mt-1"
+                        >
+                          <FileText className="w-3 h-3" />
+                          Voir le PDF
+                        </a>
+                      )}
+                      {item.content && <p className="text-sm text-slate-600 mt-1 line-clamp-2">{item.content}</p>}
                     </div>
                     <div className="flex space-x-2 ml-4">
                       <button
