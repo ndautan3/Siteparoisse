@@ -911,18 +911,28 @@ const AdminDashboard = () => {
               ) : massTimes.length === 0 ? (
                 <p className="text-slate-500">Aucun horaire</p>
               ) : (
-                massTimes.map((item) => (
+                <>
+                <BulkBar selected={selectedMass} setSelected={setSelectedMass} items={massTimes} endpoint="mass-times" label="horaires" />
+                {massTimes.map((item) => (
                   <div
                     key={item.id}
-                    className="bg-white rounded-lg p-4 border border-slate-100 flex justify-between items-center"
+                    className={`bg-white rounded-lg p-4 border flex justify-between items-center ${selectedMass.includes(item.id) ? 'border-gold bg-gold/5' : 'border-slate-100'}`}
                     data-testid={`mass-item-${item.id}`}
                   >
-                    <div>
-                      <h4 className="font-medium text-slate-900">
-                        {item.day} - {item.time}
-                        {item.date && <span className="text-slate-400 text-sm ml-2">({new Date(item.date + 'T00:00:00').toLocaleDateString('fr-FR')})</span>}
-                      </h4>
-                      <p className="text-sm text-slate-600">{item.location} • {item.mass_type}</p>
+                    <div className="flex items-center gap-3">
+                      <input
+                        type="checkbox"
+                        checked={selectedMass.includes(item.id)}
+                        onChange={() => toggleSelect(item.id, selectedMass, setSelectedMass)}
+                        className="w-4 h-4 rounded border-slate-300 text-gold focus:ring-gold"
+                      />
+                      <div>
+                        <h4 className="font-medium text-slate-900">
+                          {item.day} - {item.time}
+                          {item.date && <span className="text-slate-400 text-sm ml-2">({new Date(item.date + 'T00:00:00').toLocaleDateString('fr-FR')})</span>}
+                        </h4>
+                        <p className="text-sm text-slate-600">{item.location} • {item.mass_type}</p>
+                      </div>
                     </div>
                     <div className="flex space-x-2">
                       <button
@@ -949,7 +959,8 @@ const AdminDashboard = () => {
                       </button>
                     </div>
                   </div>
-                ))
+                ))}
+                </>
               )}
             </div>
           </div>
