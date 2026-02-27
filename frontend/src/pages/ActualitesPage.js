@@ -92,9 +92,9 @@ const ActualitesPage = () => {
                 >
                   {/* Image */}
                   <div className="sm:w-48 md:w-56 flex-shrink-0">
-                    {item.image_url ? (
+                    {(item.image_url || DEFAULT_CATEGORY_IMAGES[item.category]) ? (
                       <img
-                        src={item.image_url}
+                        src={item.image_url || DEFAULT_CATEGORY_IMAGES[item.category]}
                         alt={item.title}
                         className="w-full h-40 sm:h-full object-cover"
                       />
