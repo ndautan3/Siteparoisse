@@ -29,7 +29,7 @@ const AdminDashboard = () => {
 
   // Mass Times Form State
   const todayStr = new Date().toISOString().split('T')[0];
-  const [massForm, setMassForm] = useState({ day: '', time: '10:00', location: '', mass_type: 'Messe', date: todayStr });
+  const [massForm, setMassForm] = useState({ day: '', time: '10:00', location: '', mass_type: 'Messe dominicale', date: todayStr });
   const [editingMass, setEditingMass] = useState(null);
   const [repeatMode, setRepeatMode] = useState('none'); // none, week, 2weeks, month
   const [repeatUntil, setRepeatUntil] = useState('');
