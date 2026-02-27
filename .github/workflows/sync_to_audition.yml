@@ -1,0 +1,23 @@
+name: Sync to Audition Tolosane
+
+on:
+  push:
+    branches:
+      - main  # Change en 'master' si ta branche principale s'appelle master
+
+jobs:
+  git-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push to destination
+        run: |
+          # On ajoute le dépôt de destination avec le token de sécurité
+          git remote add destination https://x-access-token:${{ secrets.SYNC_TOKEN }}@github.com/Audition-Tolosane/Sitendautan.git
+          
+          # On pousse de force pour s'assurer que les deux dépôts soient identiques
+          git push destination main --force
