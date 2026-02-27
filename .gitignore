@@ -28,9 +28,9 @@ next-env.d.ts
 # Production builds
 /build
 dist/
-dist
+frontend/build/
 
-# Environment files
+# Environment files (IMPORTANT: ne jamais commiter les .env)
 *.env
 *.env.local
 *.env.development
@@ -58,17 +58,16 @@ __pycache__/
 venv/
 .venv/
 
+# Uploads (fichiers uploadés par l'admin - pas dans Git)
+backend/uploads/
+
 # Development tools
 chainlit.md
 .chainlit
 .ipynb_checkpoints/
-.ac
 
 # Deployment
 .vercel
-
-# Data and databases
-agenthub/agents/youtube/db
 
 # Archive files and large assets
 **/*.zip
@@ -82,33 +81,6 @@ agenthub/agents/youtube/db
 # Build caches
 .cache/
 
-# Mobile development
-android-sdk/
--e 
-# Environment files
-*.env
-*.env.*
--e 
-# Environment files
-*.env
-*.env.*
--e 
-# Environment files
-*.env
-*.env.*
--e 
-# Environment files
-*.env
-*.env.*
--e 
-# Environment files
-*.env
-*.env.*
--e 
-# Environment files
-*.env
-*.env.*
--e 
-# Environment files
-*.env
-*.env.*
+# Test results (Emergent-specific)
+test_result.md
+test_reports/
