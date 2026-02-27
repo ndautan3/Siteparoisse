@@ -645,15 +645,54 @@ const AdminDashboard = () => {
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">Image (optionnel)</label>
                     {newsForm.image_url ? (
-                      <div className="relative border border-slate-200 rounded-lg overflow-hidden">
+                      <div className="relative border border-slate-200 rounded-lg overflow-hidden"
+                        onDragOver={(e) => { e.preventDefault(); setDragOverImage(true); }}
+                        onDragLeave={() => setDragOverImage(false)}
+                        onDrop={(e) => {
+                          e.preventDefault();
+                          setDragOverImage(false);
+                          const file = e.dataTransfer.files[0];
+                          if (file) handleImageUpload(file);
+                        }}
+                      >
                         <img src={newsForm.image_url.startsWith('/api') ? `${BACKEND_URL}${newsForm.image_url}` : newsForm.image_url} alt="Preview" className="w-full h-32 object-cover" />
-                        <button
-                          type="button"
-                          onClick={() => setNewsForm({ ...newsForm, image_url: '' })}
-                          className="absolute top-2 right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600"
-                        >
-                          <X className="w-4 h-4" />
-                        </button>
+                        {Object.values(DEFAULT_CATEGORY_IMAGES).includes(newsForm.image_url) && (
+                          <span className="absolute top-2 left-2 bg-gold/90 text-white text-[10px] font-semibold px-2 py-0.5 rounded-full">Image par défaut</span>
+                        )}
+                        <div className="absolute top-2 right-2 flex gap-1">
+                          <button
+                            type="button"
+                            onClick={() => document.getElementById('news-image-file').click()}
+                            className="bg-white/90 text-slate-600 rounded-full w-6 h-6 flex items-center justify-center hover:bg-white text-xs font-bold"
+                            title="Changer l'image"
+                          >
+                            <Edit2 className="w-3 h-3" />
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => setNewsForm({ ...newsForm, image_url: '' })}
+                            className="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600"
+                          >
+                            <X className="w-4 h-4" />
+                          </button>
+                        </div>
+                        {dragOverImage && (
+                          <div className="absolute inset-0 bg-gold/20 flex items-center justify-center">
+                            <p className="text-gold font-medium text-sm bg-white/90 px-3 py-1 rounded-full">Déposer pour remplacer</p>
+                          </div>
+                        )}
+                        <input
+                          id="news-image-file"
+                          type="file"
+                          accept="image/jpeg,image/png,image/gif,image/webp"
+                          className="hidden"
+                          onChange={(e) => {
+                            const file = e.target.files[0];
+                            if (file) handleImageUpload(file);
+                            e.target.value = '';
+                          }}
+                          data-testid="news-image-input"
+                        />
                       </div>
                     ) : (
                       <div
@@ -668,7 +707,7 @@ const AdminDashboard = () => {
                           const file = e.dataTransfer.files[0];
                           if (file) handleImageUpload(file);
                         }}
-                        onClick={() => document.getElementById('news-image-file').click()}
+                        onClick={() => document.getElementById('news-image-file2').click()}
                       >
                         {uploadingImage ? (
                           <div className="flex items-center justify-center gap-2 text-gold">
@@ -683,7 +722,7 @@ const AdminDashboard = () => {
                           </>
                         )}
                         <input
-                          id="news-image-file"
+                          id="news-image-file2"
                           type="file"
                           accept="image/jpeg,image/png,image/gif,image/webp"
                           className="hidden"
@@ -692,7 +731,6 @@ const AdminDashboard = () => {
                             if (file) handleImageUpload(file);
                             e.target.value = '';
                           }}
-                          data-testid="news-image-input"
                         />
                       </div>
                     )}
