@@ -23,6 +23,9 @@ const AdminDashboard = () => {
   const [newsForm, setNewsForm] = useState({ title: '', content: '', category: 'Actualité', image_url: '' });
   const [editingNews, setEditingNews] = useState(null);
   const [customCategory, setCustomCategory] = useState('');
+  const [customMassType, setCustomMassType] = useState('');
+  const [customCeremonyType, setCustomCeremonyType] = useState('');
+  const [customEventCategory, setCustomEventCategory] = useState('');
 
   // Mass Times Form State
   const todayStr = new Date().toISOString().split('T')[0];
