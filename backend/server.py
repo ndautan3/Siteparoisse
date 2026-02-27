@@ -128,13 +128,15 @@ class SubscriberResponse(BaseModel):
 
 class LetterCreate(BaseModel):
     title: str
-    content: str
+    content: Optional[str] = ""
     date: str  # Format: "YYYY-MM-DD"
+    file_url: Optional[str] = None
 
 class LetterUpdate(BaseModel):
     title: Optional[str] = None
     content: Optional[str] = None
     date: Optional[str] = None
+    file_url: Optional[str] = None
 
 class Letter(BaseModel):
     model_config = ConfigDict(extra="ignore")
@@ -142,6 +144,7 @@ class Letter(BaseModel):
     title: str
     content: str
     date: str
+    file_url: Optional[str] = None
     created_at: str
 
 class ContactResponse(BaseModel):
