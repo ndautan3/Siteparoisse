@@ -178,20 +178,6 @@ const HorairesMesses = () => {
                 {filtersOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
               </button>
 
-              {beyondCount > 0 && (
-                <button
-                  onClick={() => setShowBeyond30(!showBeyond30)}
-                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border text-sm font-medium transition-all ${
-                    showBeyond30
-                      ? 'bg-gold text-white border-gold'
-                      : 'bg-white text-slate-600 border-slate-200 hover:border-gold/50'
-                  }`}
-                >
-                  <CalendarDays className="w-4 h-4" />
-                  <span>{showBeyond30 ? 'Masquer au-delà de 30j' : `Voir au-delà de 30 jours (+${beyondCount})`}</span>
-                </button>
-              )}
-
               {activeFilterCount > 0 && (
                 <button
                   onClick={clearFilters}
