@@ -689,24 +689,25 @@ const AdminDashboard = () => {
               <form onSubmit={handleMassSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Jour</label>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">Date</label>
                     <input
-                      type="text"
-                      value={massForm.day}
-                      onChange={(e) => setMassForm({ ...massForm, day: e.target.value })}
-                      placeholder="ex: Dimanche"
+                      type="date"
+                      value={massForm.date || ''}
+                      onChange={(e) => setMassForm({ ...massForm, date: e.target.value, day: getDayName(e.target.value) })}
                       className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold"
                       required
-                      data-testid="mass-day-input"
+                      data-testid="mass-date-input"
                     />
+                    {massForm.date && (
+                      <p className="text-xs text-gold mt-1 font-medium">{getDayName(massForm.date)}</p>
+                    )}
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">Heure</label>
                     <input
-                      type="text"
+                      type="time"
                       value={massForm.time}
                       onChange={(e) => setMassForm({ ...massForm, time: e.target.value })}
-                      placeholder="ex: 10h30"
                       className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold"
                       required
                       data-testid="mass-time-input"
@@ -714,42 +715,87 @@ const AdminDashboard = () => {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">Lieu</label>
-                    <input
-                      type="text"
+                    <LocationAutocomplete
                       value={massForm.location}
-                      onChange={(e) => setMassForm({ ...massForm, location: e.target.value })}
-                      placeholder="ex: Église Notre-Dame"
-                      className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold"
+                      onChange={(val) => setMassForm({ ...massForm, location: val })}
+                      placeholder="Tapez pour rechercher une église..."
                       required
-                      data-testid="mass-location-input"
+                      testId="mass-location-input"
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-2">Type</label>
-                    <input
-                      type="text"
+                    <select
                       value={massForm.mass_type}
                       onChange={(e) => setMassForm({ ...massForm, mass_type: e.target.value })}
-                      placeholder="ex: Messe, Vêpres"
-                      className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold"
+                      className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold bg-white"
                       data-testid="mass-type-input"
-                    />
+                    >
+                      <option value="Messe">Messe</option>
+                      <option value="Messe anticipée">Messe anticipée</option>
+                      <option value="Vêpres">Vêpres</option>
+                      <option value="Adoration">Adoration</option>
+                      <option value="Confession">Confession</option>
+                      <option value="Laudes">Laudes</option>
+                      <option value="Chapelet">Chapelet</option>
+                    </select>
                   </div>
                 </div>
+
+                {/* Repeat section - only when creating */}
+                {!editingMass && (
+                  <div className="bg-slate-50 rounded-lg p-4 border border-slate-200">
+                    <div className="flex items-center gap-2 mb-3">
+                      <Repeat className="w-4 h-4 text-slate-600" />
+                      <label className="text-sm font-medium text-slate-700">Répéter cet horaire</label>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs text-slate-500 mb-1">Fréquence</label>
+                        <select
+                          value={repeatMode}
+                          onChange={(e) => setRepeatMode(e.target.value)}
+                          className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold bg-white text-sm"
+                        >
+                          <option value="none">Pas de répétition</option>
+                          <option value="week">Toutes les semaines</option>
+                          <option value="2weeks">Toutes les 2 semaines</option>
+                          <option value="month">Tous les mois</option>
+                        </select>
+                      </div>
+                      {repeatMode !== 'none' && (
+                        <div>
+                          <label className="block text-xs text-slate-500 mb-1">Jusqu'au</label>
+                          <input
+                            type="date"
+                            value={repeatUntil}
+                            onChange={(e) => setRepeatUntil(e.target.value)}
+                            min={massForm.date}
+                            className="w-full px-3 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-gold text-sm"
+                            required={repeatMode !== 'none'}
+                          />
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+
                 <div className="flex space-x-4">
                   <button
                     type="submit"
                     className="bg-gold hover:bg-gold-dark text-white px-6 py-2 rounded-lg font-medium transition-colors"
                     data-testid="mass-submit-button"
                   >
-                    {editingMass ? 'Mettre à jour' : 'Ajouter'}
+                    {editingMass ? 'Mettre à jour' : (repeatMode !== 'none' ? 'Créer la série' : 'Ajouter')}
                   </button>
                   {editingMass && (
                     <button
                       type="button"
                       onClick={() => {
                         setEditingMass(null);
-                        setMassForm({ day: '', time: '', location: '', mass_type: 'Messe' });
+                        setMassForm({ day: '', time: '10:00', location: '', mass_type: 'Messe', date: todayStr });
+                        setRepeatMode('none');
+                        setRepeatUntil('');
                       }}
                       className="bg-slate-200 hover:bg-slate-300 text-slate-700 px-6 py-2 rounded-lg font-medium transition-colors"
                       data-testid="mass-cancel-button"
@@ -776,7 +822,10 @@ const AdminDashboard = () => {
                     data-testid={`mass-item-${item.id}`}
                   >
                     <div>
-                      <h4 className="font-medium text-slate-900">{item.day} - {item.time}</h4>
+                      <h4 className="font-medium text-slate-900">
+                        {item.day} - {item.time}
+                        {item.date && <span className="text-slate-400 text-sm ml-2">({new Date(item.date + 'T00:00:00').toLocaleDateString('fr-FR')})</span>}
+                      </h4>
                       <p className="text-sm text-slate-600">{item.location} • {item.mass_type}</p>
                     </div>
                     <div className="flex space-x-2">
