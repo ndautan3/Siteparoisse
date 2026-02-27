@@ -326,7 +326,9 @@ const HorairesMesses = () => {
                   </div>
                 </div>
               </div>
-            ))}
+              </div>
+              );
+            })}
 
             {/* Bouton voir au-delà de 30 jours — après la liste */}
             {beyondCount > 0 && !showBeyond30 && (
