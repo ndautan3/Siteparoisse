@@ -217,6 +217,13 @@ const AdminDashboard = () => {
     setMassForm({ day: item.day, time: item.time, location: item.location, mass_type: item.mass_type });
   };
 
+  const handleDuplicateMass = (item) => {
+    setEditingMass(null);
+    setMassForm({ day: item.day, time: item.time, location: item.location, mass_type: item.mass_type });
+    toast.info('Horaire dupliqué — modifiez et cliquez "Ajouter"');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const handleDeleteMass = async (id) => {
     if (!window.confirm('Supprimer cet horaire ?')) return;
     try {
