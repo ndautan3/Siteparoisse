@@ -201,11 +201,11 @@ const AgendaPage = () => {
           onClick={() => setSelectedEvent(null)}
         >
           <div
-            className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[80vh] overflow-hidden"
+            className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[80vh] flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-[#d0ada6] to-[#c49b93] p-6 relative">
+            <div className="flex-shrink-0 bg-gradient-to-r from-[#d0ada6] to-[#c49b93] p-6 rounded-t-2xl relative">
               <button
                 onClick={() => setSelectedEvent(null)}
                 className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
@@ -221,7 +221,7 @@ const AgendaPage = () => {
             </div>
 
             {/* Body */}
-            <div className="p-6 overflow-y-auto max-h-[50vh]">
+            <div className="p-6 overflow-y-auto flex-1">
               {/* Infos */}
               <div className="flex flex-wrap gap-4 mb-5 pb-5 border-b border-slate-100">
                 <div className="flex items-center gap-2 text-sm text-slate-600">
@@ -248,6 +248,16 @@ const AgendaPage = () => {
               ) : (
                 <p className="text-slate-400 italic text-sm">Pas de description disponible.</p>
               )}
+            </div>
+
+            {/* Footer */}
+            <div className="flex-shrink-0 rounded-b-2xl bg-slate-50 border-t border-slate-200 p-3 sm:p-4 flex justify-end">
+              <button
+                onClick={() => setSelectedEvent(null)}
+                className="px-6 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-full font-medium transition-colors"
+              >
+                Fermer
+              </button>
             </div>
           </div>
         </div>
