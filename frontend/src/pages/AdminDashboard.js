@@ -1387,7 +1387,7 @@ const AdminDashboard = () => {
                           <h4 className="font-medium text-slate-900">{item.title}</h4>
                           <span className="text-xs bg-gold/10 text-gold px-2 py-0.5 rounded-full">{item.category}</span>
                         </div>
-                        {item.description && <p className="text-sm text-slate-600 mb-1 line-clamp-2">{item.description}</p>}
+                        {item.description && <p className="text-sm text-slate-600 mb-1 line-clamp-2" dangerouslySetInnerHTML={{ __html: item.description }}></p>}
                         <p className="text-sm text-slate-500">
                           {new Date(item.date + 'T00:00:00').toLocaleDateString('fr-FR')} à {item.time}
                           {item.end_time ? ` - ${item.end_time}` : ''} • {item.location}
