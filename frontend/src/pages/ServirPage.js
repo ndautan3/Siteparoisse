@@ -22,7 +22,7 @@ const regularServices = [
   { title: "Service d'écoute", description: 'Offrez une écoute bienveillante aux personnes traversant des épreuves.', icon: UserCheck, path: '/service-ecoute', color: 'bg-cyan-100 text-cyan-600' },
   { title: 'Visite des malades (SEM)', description: 'Rendez visite aux personnes isolées, malades ou en EHPAD.', icon: HandHeart, path: '/visite-malades', color: 'bg-orange-100 text-orange-600' },
   { title: 'Secours Catholique', description: "Participez aux actions de solidarité et d'entraide.", icon: HandHeart, path: '/entraide', color: 'bg-red-100 text-red-600' },
-  { title: 'Équipe funérailles', description: 'Accompagnez les familles endeuillées dans la préparation des obsèques.', icon: Cross, path: '/funerailles', color: 'bg-slate-100 text-slate-600' },
+  { title: 'Équipe funérailles', description: 'Accompagnez les familles endeuillées dans la préparation des obsèques.', icon: ChristianCross, path: '/funerailles', color: 'bg-slate-100 text-slate-600' },
   { title: 'Service Accueil', description: 'Accueillez les visiteurs et paroissiens lors des messes et événements.', icon: Mic, path: '/services-transverses', color: 'bg-lime-100 text-lime-600' },
 ];
 
