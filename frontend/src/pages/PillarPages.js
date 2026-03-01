@@ -85,7 +85,7 @@ const pillarData = {
       {
         title: "Servants d'autel & Vocations",
         description: "Service liturgique et accompagnement",
-        icon: Cross,
+        icon: ChristianCross,
         path: "/servants-vocations",
         color: "bg-indigo-50",
       },
@@ -122,7 +122,7 @@ const pillarData = {
       {
         title: "Funérailles",
         description: "Accompagnement des familles en deuil",
-        icon: Cross,
+        icon: ChristianCross,
         path: "/funerailles",
         color: "bg-slate-50",
       },
