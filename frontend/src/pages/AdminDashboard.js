@@ -216,9 +216,16 @@ const AdminDashboard = () => {
 
   const handleEditNews = (item) => {
     setEditingNews(item);
-    setNewsForm({ title: item.title, content: item.content, category: item.category, image_url: item.image_url || '' });
+    const cat = item.category || 'Actualité';
+    setNewsForm({ title: item.title || '', content: item.content || '', category: cat, image_url: item.image_url || '' });
+    // Si la catégorie est personnalisée, mettre à jour customCategory
+    if (!NEWS_CATEGORIES.includes(cat)) {
+      setCustomCategory(cat);
+    } else {
+      setCustomCategory('');
+    }
     // Scroll vers le formulaire
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
   };
 
   const handleDeleteNews = async (id) => {
