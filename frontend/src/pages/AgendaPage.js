@@ -161,7 +161,7 @@ const AgendaPage = () => {
                           </span>
                         </div>
                         {event.description && (
-                          <div className="text-slate-600 text-sm leading-relaxed mb-2 prose prose-sm max-w-none"
+                          <div className="text-slate-600 text-sm leading-relaxed mb-2 prose prose-sm max-w-none break-words overflow-hidden"
                             dangerouslySetInnerHTML={{ __html: event.description }}
                           />
                         )}
