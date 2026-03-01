@@ -201,7 +201,7 @@ const AgendaPage = () => {
           onClick={() => setSelectedEvent(null)}
         >
           <div
-            className="bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[80vh] overflow-hidden"
+            className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[80vh] overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
