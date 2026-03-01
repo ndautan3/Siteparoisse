@@ -171,7 +171,7 @@ const AgendaPage = () => {
                             {event.category}
                           </span>
                         </div>
-                        <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500" onClick={(e) => e.stopPropagation()}>
+                        <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500" onClick={(e) => e.stopPropagation()} style={{ overflowWrap: 'anywhere' }}>
                           <span className="flex items-center gap-1.5">
                             <Clock className="w-3.5 h-3.5" />
                             {event.time}{event.end_time ? ` - ${event.end_time}` : ''}
