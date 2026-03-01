@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { 
-  Users, Heart, BookOpen, Church, GraduationCap, Baby, Cross, MessagesSquare, 
+  Users, Heart, BookOpen, Church, GraduationCap, Baby, MessagesSquare, 
   Flower2, HandHeart, Stethoscope, Building2, Sparkles, Music, Coffee, 
   Compass, Tent, Star, BookMarked, Radio, Tv, Globe, Home, Phone,
   HeartHandshake, Glasses, Landmark, CalendarHeart, UserCircle, Shield,
