@@ -161,9 +161,9 @@ const AgendaPage = () => {
                           </span>
                         </div>
                         {event.description && (
-                          <p className="text-slate-600 text-sm leading-relaxed mb-2">
-                            {event.description}
-                          </p>
+                          <div className="text-slate-600 text-sm leading-relaxed mb-2 prose prose-sm max-w-none"
+                            dangerouslySetInnerHTML={{ __html: event.description }}
+                          />
                         )}
                         <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500">
                           <span className="flex items-center gap-1.5">
