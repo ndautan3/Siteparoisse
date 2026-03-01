@@ -21,17 +21,12 @@ export const ALL_LOCATIONS = [...clochersLocations, ...extraLocationNames];
 // Construire le mapping nom → URL Google Maps
 const locationToGoogleMapsUrl = {};
 
-// Ajouter les clochers
+// Ajouter les clochers — même méthode que la page clocher détail
 Object.values(clochersData).forEach(c => {
   const displayName = `${c.churchName} — ${c.name}`;
-  if (c.googleMapsUrl) {
-    locationToGoogleMapsUrl[displayName] = c.googleMapsUrl;
-  } else if (c.coordinates) {
-    // Construire une URL Google Maps à partir des coordonnées
-    locationToGoogleMapsUrl[displayName] = `https://www.google.com/maps/search/?api=1&query=${c.coordinates.lat},${c.coordinates.lng}`;
-  } else if (c.address) {
-    locationToGoogleMapsUrl[displayName] = `https://www.google.com/maps/search/${encodeURIComponent(c.address)}`;
-  }
+  // Utiliser la recherche Google Maps (identique à ClocherDetailPage.getGoogleMapsPlaceUrl)
+  const searchQuery = encodeURIComponent(`${c.churchName} ${c.name} France`);
+  locationToGoogleMapsUrl[displayName] = `https://www.google.com/maps/search/${searchQuery}`;
 });
 
 // Ajouter les lieux supplémentaires
