@@ -90,6 +90,13 @@ export const UpcomingEvents = () => {
                     <LocationLink location={event.location} iconClassName="w-3 h-3" showIcon={true} className="text-xs" />
                   </span>
                 </div>
+                {/* Bouton Détails centré */}
+                <div className="flex justify-center mt-3">
+                  <span className="inline-flex items-center gap-1 text-sm font-medium text-gold group-hover:text-gold/80 transition-colors">
+                    Détails
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </span>
+                </div>
               </div>
             </button>
           ))}
