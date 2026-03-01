@@ -149,8 +149,7 @@ export const UpcomingEvents = () => {
                   <span>{selectedEvent.time}{selectedEvent.end_time ? ` - ${selectedEvent.end_time}` : ''}</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-slate-600">
-                  <MapPin className="w-4 h-4 text-gold" />
-                  <span>{selectedEvent.location}</span>
+                  <LocationLink location={selectedEvent.location} iconClassName="w-4 h-4 text-gold" showIcon={true} />
                 </div>
               </div>
 
