@@ -309,12 +309,7 @@ const HorairesMesses = () => {
                   </div>
                   <div className="flex flex-col items-start md:items-end space-y-1">
                     <div className="flex items-center space-x-2 text-slate-600">
-                      <MapPin className="w-4 h-4" />
-                      <span>
-                        {mass.location.includes('—') ? (
-                          <>{mass.location.split('—')[0].trim()} — <strong>{mass.location.split('—')[1].trim()}</strong></>
-                        ) : mass.location}
-                      </span>
+                      <LocationLink location={mass.location} iconClassName="w-4 h-4" />
                     </div>
                     <span className="text-sm text-gold font-medium">{mass.mass_type}</span>
                   </div>
