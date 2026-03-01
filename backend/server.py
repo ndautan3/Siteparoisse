@@ -569,6 +569,20 @@ async def startup_event():
     try:
         await client.admin.command('ping')
         logger.info("✅ Connexion MongoDB réussie")
+        
+        # Créer le compte admin par défaut s'il n'existe pas
+        existing_admin = await db.admins.find_one({"username": "admin"})
+        if not existing_admin:
+            password_hash = bcrypt.hashpw("admin123".encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
+            await db.admins.insert_one({
+                "id": str(uuid.uuid4()),
+                "username": "admin",
+                "password_hash": password_hash,
+                "created_at": datetime.now(timezone.utc).isoformat()
+            })
+            logger.info("✅ Compte admin créé (admin / admin123)")
+        else:
+            logger.info("✅ Compte admin existant trouvé")
     except Exception as e:
         logger.warning(f"⚠️ MongoDB pas encore disponible: {e}")
 
