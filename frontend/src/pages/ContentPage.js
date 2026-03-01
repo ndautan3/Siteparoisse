@@ -648,7 +648,7 @@ Dans la foi en la résurrection du Christ, nous exprimons notre espérance de pa
       { title: 'Visites à domicile', description: 'Auprès des personnes isolées', icon: Home },
       { title: 'Visites en EHPAD', description: 'Présence en maison de retraite', icon: Building2 },
       { title: 'Communion aux malades', description: 'Porter l\'Eucharistie', icon: Heart },
-      { title: 'Sacrement des malades', description: 'Sur demande', icon: Cross },
+      { title: 'Sacrement des malades', description: 'Sur demande', icon: ChristianCross },
     ]
   },
   entraide: {
