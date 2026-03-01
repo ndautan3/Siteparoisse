@@ -803,7 +803,7 @@ const AdminDashboard = () => {
                       />
                       <div className="flex-1">
                         <h4 className="font-medium text-slate-900 mb-1">{item.title}</h4>
-                        <p className="text-sm text-slate-600 mb-2 line-clamp-2">{item.content}</p>
+                        <p className="text-sm text-slate-600 mb-2 line-clamp-2" dangerouslySetInnerHTML={{ __html: item.content }}></p>
                         <div className="flex items-center space-x-2 text-xs text-slate-500">
                           <span>{formatDate(item.created_at)}</span>
                           <span>•</span>
