@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Baby, BookOpen, GraduationCap, Users, Cross, Heart } from 'lucide-react';
+import { Baby, BookOpen, GraduationCap, Users, Heart } from 'lucide-react';
+import ChristianCross from '../components/ChristianCross';
 import { SocialIcons } from '@/components/SocialIcons';
 import { SEO } from '@/components/SEO';
 import { FadeIn } from '@/components/FadeIn';
