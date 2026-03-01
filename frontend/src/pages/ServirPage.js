@@ -2,10 +2,11 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Heart, Music, BookOpen, Users, HandHeart, Flower2, BookMarked, Church,
-  Baby, Cross, Mic, UserCheck, PartyPopper, UtensilsCrossed, Palette,
+  Baby, Mic, UserCheck, PartyPopper, UtensilsCrossed, Palette,
   Package, Camera, ArrowRight, ArrowLeft, RotateCcw, Sparkles
 } from 'lucide-react';
 import { SocialIcons } from '@/components/SocialIcons';
+import ChristianCross from '../components/ChristianCross';
 import { SEO } from '@/components/SEO';
 import { FadeIn } from '@/components/FadeIn';
 
