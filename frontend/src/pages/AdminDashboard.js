@@ -438,6 +438,7 @@ const AdminDashboard = () => {
   const handleEditLetter = (item) => {
     setEditingLetter(item);
     setLetterForm({ title: item.title, content: item.content || '', date: item.date, file_url: item.file_url || '' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleDeleteLetter = async (id) => {
