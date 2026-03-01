@@ -1034,10 +1034,10 @@ const AdminDashboard = () => {
                           {item.day} - {item.time}
                           {item.date && <span className="text-slate-400 text-sm ml-2">({new Date(item.date + 'T00:00:00').toLocaleDateString('fr-FR')})</span>}
                         </h4>
-                        <p className="text-sm text-slate-600">{item.location} • {item.mass_type}</p>
+                        <p className="text-sm text-slate-600 truncate">{item.location} • {item.mass_type}</p>
                       </div>
                     </div>
-                    <div className="flex space-x-2">
+                    <div className="flex space-x-2 ml-4 flex-shrink-0">
                       <button
                         onClick={() => handleDuplicateMass(item)}
                         className="text-slate-600 hover:text-emerald-600 transition-colors"
