@@ -4,6 +4,7 @@ import { Facebook, Instagram, Mail, Phone, MapPin, Check, Map } from 'lucide-rea
 import axios from 'axios';
 import ClochersMap from '@/components/ClochersMap';
 import { clochersData } from '@/data/clochersData';
+import { APP_VERSION } from '@/version';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
