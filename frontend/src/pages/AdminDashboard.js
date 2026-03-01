@@ -399,6 +399,7 @@ const AdminDashboard = () => {
       location: item.location,
       category: item.category,
     });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleDeleteEvent = async (id) => {
