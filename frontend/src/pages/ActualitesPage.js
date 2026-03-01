@@ -125,9 +125,7 @@ const ActualitesPage = () => {
                     <h3 className="font-serif text-lg text-slate-deep mb-2 hover:text-gold transition-colors">
                       {item.title}
                     </h3>
-                    <p className="text-slate-600 text-sm leading-relaxed line-clamp-2 flex-1">
-                      {item.content}
-                    </p>
+                    <p className="text-slate-600 text-sm leading-relaxed line-clamp-2 flex-1" dangerouslySetInnerHTML={{ __html: item.content }} />
                     <span className="text-gold text-sm font-medium mt-3 inline-block">
                       Lire la suite
                     </span>
