@@ -155,6 +155,17 @@ export const Footer = () => {
           </div>
         </div>
 
+        {/* Carte des 16 clochers */}
+        <div className="mt-12 pt-8 border-t border-slate-800">
+          <div className="flex items-center gap-3 mb-6">
+            <Map className="w-5 h-5 text-gold" />
+            <h4 className="font-serif text-lg text-white">Carte des 16 clochers</h4>
+          </div>
+          <div className="rounded-xl overflow-hidden border border-slate-700">
+            <ClochersMap clochers={clochersData} height="350px" />
+          </div>
+        </div>
+
         <div className="border-t border-slate-800 mt-12 pt-8 text-center text-sm">
           <p>© {new Date().getFullYear()} Paroisse Notre Dame d'Autan. Tous droits réservés.</p>
         </div>
