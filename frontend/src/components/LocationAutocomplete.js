@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 import { MapPin } from 'lucide-react';
-import { clochersData } from '@/data/clochersData';
+import { ALL_LOCATIONS } from '@/data/locationUtils';
 
-const LOCATIONS = Object.values(clochersData).map(c => `${c.churchName} — ${c.name}`);
+const LOCATIONS = ALL_LOCATIONS;
 
 const LocationAutocomplete = ({ value, onChange, placeholder, required, testId }) => {
   const [open, setOpen] = useState(false);
