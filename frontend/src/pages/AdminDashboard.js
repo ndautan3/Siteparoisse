@@ -802,16 +802,16 @@ const AdminDashboard = () => {
                     className={`bg-white rounded-lg p-4 border flex justify-between items-start ${selectedNews.includes(item.id) ? 'border-gold bg-gold/5' : 'border-slate-100'}`}
                     data-testid={`news-item-${item.id}`}
                   >
-                    <div className="flex items-start gap-3 flex-1">
+                    <div className="flex items-start gap-3 flex-1 min-w-0 overflow-hidden">
                       <input
                         type="checkbox"
                         checked={selectedNews.includes(item.id)}
                         onChange={() => toggleSelect(item.id, selectedNews, setSelectedNews)}
-                        className="mt-1 w-4 h-4 rounded border-slate-300 text-gold focus:ring-gold"
+                        className="mt-1 w-4 h-4 rounded border-slate-300 text-gold focus:ring-gold flex-shrink-0"
                       />
-                      <div className="flex-1">
-                        <h4 className="font-medium text-slate-900 mb-1">{item.title}</h4>
-                        <p className="text-sm text-slate-600 mb-2 line-clamp-2" dangerouslySetInnerHTML={{ __html: item.content }}></p>
+                      <div className="flex-1 min-w-0 overflow-hidden">
+                        <h4 className="font-medium text-slate-900 mb-1 truncate">{item.title}</h4>
+                        <p className="text-sm text-slate-600 mb-2 line-clamp-2 overflow-hidden" style={{ wordBreak: 'break-word' }}>{(() => { const tmp = document.createElement('div'); tmp.innerHTML = item.content; return (tmp.textContent || '').replace(/\u00A0/g, ' '); })()}</p>
                         <div className="flex items-center space-x-2 text-xs text-slate-500">
                           <span>{formatDate(item.created_at)}</span>
                           <span>•</span>
@@ -819,7 +819,7 @@ const AdminDashboard = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="flex space-x-2 ml-4">
+                    <div className="flex space-x-2 ml-4 flex-shrink-0">
                       <button
                         onClick={() => handleEditNews(item)}
                         className="text-slate-600 hover:text-gold transition-colors"
