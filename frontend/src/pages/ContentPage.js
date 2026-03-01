@@ -169,7 +169,7 @@ const contentConfig = {
     title: 'Servants d\'autel & Vocations',
     subtitle: 'Service liturgique',
     description: 'Se mettre au service de la liturgie et répondre à l\'appel.',
-    icon: Cross,
+    icon: ChristianCross,
     heroImage: 'https://customer-assets.emergentagent.com/job_5e9a982a-920d-4533-b39d-5b30481bb0da/artifacts/vz77gtcm_Servants-vocations.png',
     items: [
       { title: 'Servants d\'autel', description: 'Service à l\'autel pendant la messe', icon: Star },
@@ -206,7 +206,7 @@ const contentConfig = {
     title: 'Funérailles',
     subtitle: 'Accompagnement des familles',
     description: 'Accompagner les familles en deuil avec compassion et espérance.',
-    icon: Cross,
+    icon: ChristianCross,
     heroImage: 'https://customer-assets.emergentagent.com/job_scroll-donate-pages/artifacts/m6yxyydm_Funerailles.png',
     items: [
       { title: 'Équipe funérailles', description: 'Préparation de la célébration', icon: Users },
@@ -261,7 +261,7 @@ Dans la foi en la résurrection du Christ, nous exprimons notre espérance de pa
       { 
         title: 'Catéchuménat', 
         description: 'Pour adultes souhaitant le baptême', 
-        icon: Cross,
+        icon: ChristianCross,
         modalTitle: 'Le Catéchuménat des Adultes',
         modalDescription: 'Le catéchuménat accompagne les adultes qui désirent recevoir le baptême, la confirmation ou l\'eucharistie. C\'est un cheminement personnel et communautaire qui s\'étend généralement sur deux années, au rythme de chacun.',
         alphaContent: {
