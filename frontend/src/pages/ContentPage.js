@@ -14,6 +14,7 @@ import { SocialIcons } from '@/components/SocialIcons';
 import ResourceModal from '@/components/ResourceModal';
 import { SEO } from '@/components/SEO';
 import { FadeIn } from '@/components/FadeIn';
+import ChristianCross from '@/components/ChristianCross';
 
 // Citations bibliques pour chaque section
 const biblicalQuotes = {
