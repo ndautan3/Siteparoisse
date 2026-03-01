@@ -67,7 +67,7 @@ const sections = [
     title: 'Service Funérailles',
     subtitle: 'Accompagnement du deuil',
     description: 'Soutien et célébration',
-    icon: Cross,
+    icon: ChristianCross,
     path: '/funerailles'
   }
 ];
