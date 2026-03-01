@@ -29,9 +29,10 @@ const LocationLink = ({ location, className = '', showIcon = true, iconClassName
       rel="noopener noreferrer"
       className={`inline-flex items-center space-x-2 group hover:text-gold transition-colors ${className}`}
       title={`Voir ${location} sur Google Maps`}
+      style={{ overflowWrap: 'anywhere', wordBreak: 'normal' }}
     >
       {showIcon && <MapPin className={`${iconClassName} flex-shrink-0`} />}
-      <span className="group-hover:underline underline-offset-2">
+      <span className="group-hover:underline underline-offset-2" style={{ overflowWrap: 'anywhere' }}>
         {renderLocationText()}
       </span>
       <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-60 transition-opacity flex-shrink-0" />
