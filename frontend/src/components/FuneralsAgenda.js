@@ -75,8 +75,7 @@ const FuneralsAgenda = () => {
                 </div>
                 
                 <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-slate-400" />
-                  <span>{funeral.location}</span>
+                  <LocationLink location={funeral.location} iconClassName="w-4 h-4 text-slate-400" showIcon={true} />
                 </div>
               </div>
             </div>
