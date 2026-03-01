@@ -164,7 +164,7 @@ const AgendaPage = () => {
                       {/* Details */}
                       <div className="flex-1 min-w-0">
                         <div className="flex items-start justify-between gap-3 mb-1">
-                          <h3 className="font-medium text-slate-900 text-lg leading-tight">
+                          <h3 className="font-medium text-slate-900 text-lg leading-tight break-words">
                             {event.title}
                           </h3>
                           <span className={`flex-shrink-0 text-xs font-medium px-2.5 py-0.5 rounded-full ${CATEGORY_COLORS[event.category] || 'bg-slate-100 text-slate-600'}`}>
