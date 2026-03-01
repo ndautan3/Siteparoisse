@@ -162,12 +162,7 @@ const AgendaPage = () => {
                             {event.category}
                           </span>
                         </div>
-                        {event.description && (
-                          <div className="text-slate-600 text-sm leading-relaxed mb-2 prose prose-sm max-w-none break-words overflow-hidden"
-                            dangerouslySetInnerHTML={{ __html: event.description }}
-                          />
-                        )}
-                        <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500">
+                        <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500 mb-2">
                           <span className="flex items-center gap-1.5">
                             <Clock className="w-3.5 h-3.5" />
                             {event.time}{event.end_time ? ` - ${event.end_time}` : ''}
@@ -180,6 +175,15 @@ const AgendaPage = () => {
                             {formatEventDate(event.date)}
                           </span>
                         </div>
+                        {/* Bouton Détails */}
+                        <button
+                          onClick={() => setSelectedEvent(event)}
+                          className="inline-flex items-center gap-1 text-sm font-medium text-gold hover:text-gold/80 transition-colors mt-1 group"
+                          data-testid={`event-details-btn-${event.id}`}
+                        >
+                          Détails
+                          <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                        </button>
                       </div>
                     </div>
                   ))}
