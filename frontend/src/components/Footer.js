@@ -88,7 +88,22 @@ export const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
-                <span>Paroisse Notre Dame d'Autan<br />Castanet-Tolosan & Saint-Orens</span>
+                <span>
+                  Paroisse Notre Dame d'Autan<br />
+                  <a
+                    href="https://www.google.com/maps/place/Ensemble+paroissial+catholique+de+Castanet-Tolosan/@43.5157697,1.4983272,20.5z/data=!4m6!3m5!1s0x12aebe4bb7540001:0xc954e76ed59283db!8m2!3d43.515777!4d1.4985022!16s%2Fg%2F11txfbs_9p"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-gold transition-colors underline underline-offset-2"
+                  >Castanet-Tolosan</a>
+                  {' & '}
+                  <a
+                    href="https://www.google.com/maps/search/Église%20Saint-Orens%20Saint-Orens-de-Gameville%20France"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-gold transition-colors underline underline-offset-2"
+                  >Saint-Orens</a>
+                </span>
               </li>
               <li className="flex items-start space-x-2">
                 <Phone className="w-4 h-4 mt-1 flex-shrink-0" />
