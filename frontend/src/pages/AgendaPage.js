@@ -172,8 +172,7 @@ const AgendaPage = () => {
                             {event.time}{event.end_time ? ` - ${event.end_time}` : ''}
                           </span>
                           <span className="flex items-center gap-1.5">
-                            <MapPin className="w-3.5 h-3.5" />
-                            {event.location}
+                            <LocationLink location={event.location} iconClassName="w-3.5 h-3.5" showIcon={true} />
                           </span>
                           <span className="flex items-center gap-1.5 text-slate-400">
                             <Calendar className="w-3.5 h-3.5" />
