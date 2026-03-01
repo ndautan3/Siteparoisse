@@ -351,6 +351,7 @@ const AdminDashboard = () => {
       location: funeral.location,
       ceremony_type: funeral.ceremony_type
     });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleDeleteFuneral = async (id) => {
