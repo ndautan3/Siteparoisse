@@ -137,9 +137,10 @@ const AgendaPage = () => {
                 </h2>
                 <div className="space-y-4">
                   {monthEvents.map((event) => (
-                    <div
+                    <button
                       key={event.id}
-                      className="bg-white rounded-xl border border-slate-100 p-5 hover:shadow-md transition-shadow duration-300 flex gap-5"
+                      onClick={() => setSelectedEvent(event)}
+                      className="w-full bg-white rounded-xl border border-slate-100 p-5 hover:shadow-md hover:border-gold/30 transition-all duration-300 flex gap-5 text-left cursor-pointer"
                       data-testid={`event-card-${event.id}`}
                     >
                       {/* Date badge */}
@@ -162,7 +163,7 @@ const AgendaPage = () => {
                             {event.category}
                           </span>
                         </div>
-                        <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500 mb-2">
+                        <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500" onClick={(e) => e.stopPropagation()}>
                           <span className="flex items-center gap-1.5">
                             <Clock className="w-3.5 h-3.5" />
                             {event.time}{event.end_time ? ` - ${event.end_time}` : ''}
@@ -175,17 +176,8 @@ const AgendaPage = () => {
                             {formatEventDate(event.date)}
                           </span>
                         </div>
-                        {/* Bouton Détails */}
-                        <button
-                          onClick={() => setSelectedEvent(event)}
-                          className="inline-flex items-center gap-1 text-sm font-medium text-gold hover:text-gold/80 transition-colors mt-1 group"
-                          data-testid={`event-details-btn-${event.id}`}
-                        >
-                          Détails
-                          <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                        </button>
                       </div>
-                    </div>
+                    </button>
                   ))}
                 </div>
               </div>
