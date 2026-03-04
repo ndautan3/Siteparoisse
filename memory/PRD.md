@@ -11,19 +11,21 @@ Site web paroissial pour Notre Dame d'Autan (Castanet-Tolosan, Saint-Orens et en
 
 ## Ce qui a été implémenté
 
-### Session précédente
+### Sessions précédentes
 - Fix déploiement Railway (ESLint CI=false)
 - Refonte complète du CMS (AdminDashboard)
 - Mode sombre site-wide (DarkModeContext + Tailwind class strategy)
 - Bouton mode sombre en position flottante
+- Bouton mode sombre en rose poudré
+- Lazy loading images + Code splitting (P3)
+- Fix z-index carte Leaflet
+- Éditeur de liens personnalisé dans le CMS
+- Renommage "Méditation Chrétienne" → "Prière Chrétienne"
 
-### Session actuelle (Fév 2026)
-- **Bouton mode sombre en rose poudré** : FloatingButtons.js et DarkModeToggle.js utilisent maintenant `bg-gold` (#d0ada6) pour correspondre aux autres boutons
-- **Lazy loading images** : `loading="lazy"` ajouté à toutes les images du site (sauf Hero qui utilise `fetchPriority="high"`)
-- **Code splitting** : React.lazy + Suspense pour 22 composants de pages (seul HomePage est chargé eagerly)
-- **Composant LazyImage** : Composant réutilisable avec IntersectionObserver
-- **Fix z-index carte Leaflet** : La carte des clochers (page + footer) ne passe plus au-dessus du header, des dropdowns et des modales (`isolation: isolate` + wrapper z-index)
-- **Liens dans l'éditeur CMS** : Dialogue personnalisé avec champs Texte du bouton + URL. Les liens sont rendus comme des boutons rose poudré (#d0ada6) dans le contenu public, s'ouvrent dans un nouvel onglet
+### Session actuelle (Mars 2026)
+- **Fix aperçu CMS** : Le modal d'aperçu (actualités et événements) utilise maintenant le même conteneur et traitement (`processRichText`) que la page publique (ActualitesPage). Layout identique : image avec gradient, badge catégorie, titre blanc, prose styling, bouton "Fermer"
+- **Repositionnement bouton "Lien"** : Le bouton est maintenant à droite du bouton "Effacer le formatage" (même groupe dans la toolbar Quill)
+- **Infobulles toolbar Quill** : Tous les boutons affichent leur fonction au survol (Gras, Italique, Souligné, Effacer le formatage, Insérer un lien, Liste numérotée, Liste à puces, Style de titre)
 
 ## Backlog priorisé
 
@@ -37,12 +39,16 @@ Remplacer la liste statique d'événements par un calendrier dynamique et filtra
 Intégrer un lecteur vidéo pour les messes/événements en direct
 
 ### P3 - Optimisation performances (FAIT)
-- ✅ Lazy loading images
-- ✅ Code splitting React.lazy
+- Lazy loading images
+- Code splitting React.lazy
 - Reste : optimisation images côté serveur (compression, WebP)
 
 ## Fichiers clés
 - `frontend/src/App.js` - Routing + code splitting
+- `frontend/src/pages/AdminDashboard.js` - CMS avec éditeur Quill, aperçu, tooltips
+- `frontend/src/pages/ActualitesPage.js` - Page publique des actualités (référence pour l'aperçu)
+- `frontend/src/lib/richText.js` - processRichText (sanitisation + target="_blank")
+- `frontend/src/index.css` - Styles globaux, prose, Quill, z-index Leaflet
 - `frontend/src/components/FloatingButtons.js` - Boutons flottants
 - `frontend/src/components/DarkModeToggle.js` - Toggle mode sombre
 - `frontend/src/components/LazyImage.js` - Composant image lazy
